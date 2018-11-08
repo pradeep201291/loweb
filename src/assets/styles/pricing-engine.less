@@ -1,0 +1,229 @@
+.search-box-wrap{
+
+            .multi-select{
+                    .multiselect-button{
+                        .padding(5px,20px,5px,20px);
+                        background: #fcfcfc;
+                        color: #333;
+                        border:1px solid #d9d9d9;
+                        border-radius:2px;
+                        text-align:left;
+                        height: 45px;
+                        font-size:16px;
+                        width:100%;
+                        background:#fcfcfc url("@{base-url}images/down-arrow.png") no-repeat;
+                        background-position:right 10px center;
+                        background-size:10px;
+                    }
+                    .multiselect-menu{
+                        background: #fff;
+                        //width:94.5%;
+                        left:15px;
+                        right:15px;
+                        position: absolute;
+                        z-index: 999;
+                        border:1px solid #ccc;
+                        li{
+                            .padding(5px,20px,5px,20px);
+
+                            input,label{
+                                cursor:pointer;
+                                font-weight:normal;
+                            }
+                            &:hover{
+                                background: #1e90ff;
+                            }
+                        }
+                    }
+                }
+                
+
+            .required-fields,.expand-fields{
+
+                .input-label{
+                     font-size: 14px;
+                     color:@label-text-color;
+                }
+                input,select{
+                        .padding(10px,20px,10px,20px);
+                        background: #fcfcfc;
+                        // color: #ababab;
+                        border:1px solid #d9d9d9;
+                        border-radius:2px;
+                        height: auto;
+                        font-size:16px;
+                        // option{
+                        //     .padding(5px,20px,5px,20px);
+                        //     background: #fcfcfc;
+                        //     color: #ababab;
+                        // }
+                         &.invalid
+                            {
+                            border:1px solid #a93439;
+                            box-shadow:0 0 2px #a93439;
+                            }
+                    }
+                    
+                        .select-floating-label,.floating-label{
+                            top: -20px;
+                            bottom: 10px;
+                            left: 18px;
+                            font-size: 14px;
+                            opacity: 1;
+                            transition: 0.4s ease all;
+                            position: absolute;
+                            pointer-events: none;
+                            font-weight:600;
+                        }
+
+                     select{
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        -o-appearance: none;
+                        background:#fcfcfc url("@{base-url}images/down-arrow.png") no-repeat;
+                        background-position:right 10px center;
+                        background-size:10px;
+                    }
+                    
+
+            }
+
+            .required-fields-wrap{
+                .margin(0,0,15px,0);
+
+                .panel-group{
+                    .panel{
+                        border:0;
+                         border-radius:2px;
+                        .panel-heading{
+                            background: #fff;
+                            overflow: hidden;
+                            .padding(15px,15px,15px,15px);
+                            
+                            .panel-title{
+                                color:#333;
+                                font-size: 18px;
+                                .header{
+                                   display: inline-block;
+                                }
+                                .down-arrow{
+                                    display: inline-block;
+                                    width:14px;
+                                    height:14px;
+                                    margin-top: 4px;
+                                    background: url("@{base-url}images/up_arrow.png") no-repeat;
+                                    background-size:100%;
+                                    cursor:pointer;
+
+                                    &.collapsed{
+                                        background: url("@{base-url}images/down_arrow.png") no-repeat;
+                                        background-size:100%;
+                                    }
+                                }
+                            }
+                        }
+                        .required-fields{
+                            .panel-body{
+                                    border:0;
+                                    padding-top: 0;
+                                    div{
+                                        margin-bottom: 0px;
+                                        @media @mobile{
+                                            width:100%;
+                                        }
+                                }
+
+                                .required-fields-cols{
+                        min-height: 85px;
+
+                        @media @mobile{
+                        width:100%;
+                    }
+                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .expand-fields-wrap{
+                .margin(15px,0,15px,0);
+
+                .panel-group{
+                    .panel{
+                        border:0;
+                         border-radius:2px;
+                        .panel-heading{
+                            background: #fff;
+                            overflow: hidden;
+                            .padding(15px,15px,15px,15px);
+                            
+                            .panel-title{
+                                color:#333;
+                                font-size: 18px;
+                                .header{
+                                   display: inline-block;
+                                }
+                                .down-arrow{
+                                    display: inline-block;
+                                    width:14px;
+                                    height:14px;
+                                    margin-top: 4px;
+                                    background: url("@{base-url}images/up_arrow.png") no-repeat;
+                                    background-size:100%;
+                                    cursor:pointer;
+
+                                    &.collapsed{
+                                        background: url("@{base-url}images/down_arrow.png") no-repeat;
+                                        background-size:100%;
+                                    }
+                                }
+                            }
+                        }
+                        .expand-fields{
+                            .panel-body{
+                                    border:0;
+                                    padding-top: 0;
+                                    div{
+                                        margin-bottom: 0px;
+                                        @media @mobile{
+                                            width:100%;
+                                        }
+                                }
+
+                                .required-fields-cols{
+                        min-height: 85px;
+
+                        @media @mobile{
+                        width:100%;
+                    }
+                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .expand-fields-wrap,.required-fields-wrap{
+                box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.1);
+            }
+
+            .button-wrap{
+                text-align:right;
+                @media @mobile{
+                    text-align:center;
+                }
+                button{
+                    margin-left: 20px;
+                    @media @mobile{
+                        min-width:100px;
+                    }
+                    &:first-child{
+                        @media @mobile{
+                            margin-left: 0px;
+                        }
+                    }
+                }
+            }
+
+        }

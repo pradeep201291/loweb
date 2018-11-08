@@ -1,0 +1,73 @@
+<div class="main-content">
+    <div class="notification-wrap" *ngIf="pagedNotifications">
+        <div class="notification-btn-wrap">
+            <div class="notification-btn btn-group " data-toggle="buttons">
+                <label class="btn btn-primary" [ngClass]="{active: showLoanNotification}">
+                    <input type="radio" name="options" id="option1" autocomplete="off" (click)="showNotification('loan')" checked> 
+                    Loan<span class="noti-hide"> Notifications</span>
+                </label>
+                <label class="btn btn-primary" [ngClass]="{active: !showLoanNotification}">
+                    <input type="radio" name="options" id="option3" autocomplete="off" (click)="showNotification('broadcast')">
+                    Broadcast<span class="noti-hide"> Notifications</span>
+                </label>
+            </div>
+        </div>
+        <div class="notification-list">
+            <div *ngIf="pagedNotifications.length > 0" class="action">
+                <div class="read fR">
+                    <a (click)="deleteSelected()"><label  class="delete mouse-pointer"><span class="delete-icon icon"></span>Delete</label></a>
+                    <a (click)="readSelected()"><label class="mark-read mouse-pointer"><span class="read-icon icon"></span>Mark as Read</label></a>
+                    <a (click)="unreadSelected()"><label  class="mark-unread mouse-pointer"><span class="unread-icon icon"></span>Mark as Unread</label></a>
+                </div>
+                <div class="select-all fL">
+                    <div class="check fL">
+                        <input type="checkbox" (change)="selectAllNotifications()" [(ngModel)]="selectAllNotification" id="chkBoxSelectAll" />
+                        <label class="custom-checkbox regular-checkbox" for="chkBoxSelectAll"></label>
+                    </div>
+                    <label class="select" for="chkBoxSelectAll">Select All</label>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="notification-content" *ngIf="pagedNotifications.length > 0">
+                <div class="msg-row" *ngFor="let notification of pagedNotifications;  let i = index">
+                    <div class=" check fL">
+                        <input type="checkbox" id="{{ i + 1 }}" (change)="selectNotification(notification)" [(ngModel)]="notification.isSelected"
+                        />
+                        <label class="custom-checkbox regular-checkbox" [attr.for]="i + 1"></label>
+                    </div>
+                    <div class="message-text" [ngClass]="{'read-msg': notification.status_type === 2, 'unread-msg': notification.status_type === 1}">
+                        <div class="msg fL">
+                            <label [attr.for]="i + 1">{{notification.message_text}}</label>
+                        </div>
+                        <div class="msg-info fR">
+                            <span>{{ notification?.message_date ? (notification.message_date | dateformat ) : "TBD" }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div *ngIf="pagedNotifications.length === 0" class="no-noti-msg text-center">
+                <div class="msg-row">
+                    <span>You have caught up with everything. No new notifications</span>
+                </div>
+            </div>
+        </div>
+        <div class="notification-pagination text-right" *ngIf="pager.pages && pager.totalPages > 1">
+            <ul class="pagination pagination-sm">
+                <li>
+                    <a style="cursor:pointer" aria-label="Previous" (click)="previous()" *ngIf="pager.totalPages > 5">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li [ngClass]="{active: currentPage === (page)}" *ngFor="let page of pager.pages">
+                    <a style="cursor:pointer" (click)="setCurrentPage(page)">{{page}}</a>
+                </li>
+                <li>
+                    <a style="cursor:pointer" aria-label="Next" (click)="next()" *ngIf="pager.totalPages > 5">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

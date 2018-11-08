@@ -1,0 +1,85 @@
+.dashboard-items{
+            .margin(0,0,15px,0);
+             .items-wrap{
+                 .important-items{
+                    cursor: pointer;
+                     background: @tab-inactive-background;
+                     color: #193a60;
+                    .padding(10px,10px,10px,10px);
+                    overflow: hidden;
+                    min-height: 45px;
+                    border-radius: 2px;
+                    .margin(0,0,8px,0);
+                    @media only screen and (min-width: 1200px){
+                        width: 265px;
+                    }
+
+                    .item-label{
+                            font-size: 14px;
+                            line-height: 1;
+                            width: 70%;
+                            color: @link-color;
+                            display: inline-block;
+                            vertical-align: sub;
+                        @media @mobile{
+                            width: 75%;
+                        }
+                    }
+                    .item-count{
+                            line-height: 1;
+                            font-size: 14px;
+                            float: right;
+                            padding: 5px 8px;
+                            border-radius: 3px;
+                            border: 1px solid @base-info-color;
+                            color: @base-info-color;
+                    }
+                    &.more-filters{
+                        font-size:14px;
+                        .padding(3px,3px,3px,3px);
+                        background:#f9f9f9;
+                        min-height: 0;
+                    }
+
+                    &:hover{
+                        // box-shadow: 0 0 5px 2px #e1e1e1;
+                    }
+
+                    &.active{
+                        background: #1c406a;
+                        color: @tab-active-text;
+                        cursor: default;
+                        .item-label{
+                            color: @secondary-text-color;
+                        }
+                        .item-count{
+                            border: 1px solid @secondary-text-color;
+                            color: @secondary-text-color;
+                        }
+                    }
+
+                    .arrow{
+                        display: inline-block;
+                        width:14px;
+                        height:14px;
+                        background-size:100%;
+                        cursor:pointer;
+                        background-repeat: no-repeat;
+                        vertical-align: middle;
+
+
+                        &.down-arrow{
+                            background-image: url("@{base-url}images/up_arrow.png"); 
+                        }
+                        &.up-arrow{
+                            background-image: url("@{base-url}images/down_arrow.png");
+                        }
+                    }
+                 }
+                 .wrapper-items{
+                     max-height: 370px;
+                     overflow: auto;
+                     position: relative;
+                 }
+             }
+         }

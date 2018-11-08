@@ -1,0 +1,41 @@
+<!--Eligible / Ineligible - start-->
+<div class="eligible-ineligible-product-wrap">
+	<div class="nav-wrap">
+		<ul class="nav nav-tabs">
+			<li [ngClass]="{'active': isEligibleProductSelected === true}" (click)="toggleTabSelection('eligible')">
+				<a data-toggle="tab">{{resource.eligibleProducts}}</a>
+			</li>
+			<li class="ineligible-nav" [ngClass]="{'active': isInEligibleProductSelected === true}" (click)="toggleTabSelection('in-eligible')">
+				<a data-toggle="tab">{{resource.inEligibleProducts}}</a>
+			</li>
+		</ul>
+		<div class="clear"></div>
+	</div>
+	<div class="tab-content">
+		<div id="eligible-products" class="tab-pane fade eligible-products"
+			[ngClass]="{'in active': isEligibleProductSelected === true}">
+			<sl-eligible-product-list [eligibleProducts]="eligibleProductsData" [priceQuoteId]="priceQuoteId" (onProductSelected)="onProductSelected($event)">
+			</sl-eligible-product-list>
+		</div>
+		<div id="ineligible-products" class="tab-pane fade  ineligible-products " [ngClass]="{'in active': isInEligibleProductSelected === true}">
+			<sl-ineligible-product-list [products]="ineligibleProductsData"> </sl-ineligible-product-list>
+		</div>
+	</div>
+</div>
+<!--Eligible / Ineligible - end-->
+<!--rate popup-->
+<div class="rate-info-wrap modal fade" id="rate-modal" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">{{selectedProduct?.program_name}}</h4>
+			</div>
+			<p *ngIf="activeRatesheet === null" class="text-center">Loading...</p>
+			<sl-rate-sheet [rateSheet]="activeRatesheet" [selectedProduct]="selectedProduct"> </sl-rate-sheet>
+			<div class="modal-footer text-right">
+				<button class="btn primary-button" data-dismiss="modal" (click)="getNewPriceIt()">{{resource.doneButtonText}}</button>
+			</div>
+		</div>
+	</div>
+</div>

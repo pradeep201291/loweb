@@ -1,0 +1,46 @@
+.marketing-board-wrap{
+
+            .marketing-board{
+                background:@secondary-background;
+                border-radius: 2px;
+                border:1px solid @border-secondary-color;
+                height:190px;
+                margin-bottom: 10px;
+                overflow: hidden;
+                @media only screen and (min-width: 1200px){
+                    width: 265px;
+                }
+                h3{
+                    text-align: center;
+                    color: @button-border-color;
+                }
+                .carousel{
+                    height:190px;
+                    .carousel-indicators{
+                            bottom: 0px;
+                            margin-bottom: 0px;
+                    }
+                }
+                .carousel-inner{
+                    .item{
+                        // margin-top: -10px;
+                        p{
+                        font-size: 15px;
+                    }
+                    .marketing-bg{
+                        height: 190px;
+                        background-repeat: no-repeat;
+                        background-size: 100% 100%;
+                    }
+                    .marketing-text{
+                        text-align: center;
+                        margin-top: 10px;
+                        background: rgba(255, 255, 255, 0.6);
+                        color: @base-text-color;
+                        font-weight: 700;
+                        font-size: 16px;
+                    }
+                    }
+                }
+            }
+        }

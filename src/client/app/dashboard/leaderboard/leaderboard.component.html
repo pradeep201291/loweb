@@ -1,0 +1,28 @@
+<h4>Leader Board</h4>
+
+<div *ngIf="fundersCollection && fundersCollection.length > 0" class="leaderboard">
+	<div class="leaderboard-sort">
+		<div class="amt" [ngClass]="{'leaderboard-selected': isAmount === true}" (click)="sortClick('amount')"> Funded </div>
+		<div class="unit" [ngClass]="{'leaderboard-selected': isUnit === true}" (click)="sortClick('unit')"> Units </div>
+	</div>
+	<div class="elements-container">
+		<div *ngFor="let val of fundersCollection;" class="leaderboard-elements">
+			<div class="contactCard-pic-wrap">
+				<img src="{{val.pic_url}}" class="contactCard-pic" />
+			</div>
+			<div class="contactCard-text">
+				<p>
+					<span class="name">{{val.name}}</span>
+					<span class="state">{{val.branch}}</span>
+				</p>
+				<p class="amount"><span>{{val.text}} ({{val.rank}})</span></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div *ngIf="fundersCollection && fundersCollection.length == 0" class="leaderboard">
+	<div class="elements-container">
+		NA
+	</div>
+</div>

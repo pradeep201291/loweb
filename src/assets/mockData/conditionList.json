@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1108,
+        "type":"Prior to Closing",
+        "additionText": "",
+        "condition": "Payoff statement/Demand required for",
+        "status": "Satisfied",
+        "date": "08/18/2016",
+        "responsible": "Closer"
+    },
+    {
+        "id": 1109,
+        "type": "Prior to Closing",
+        "additionText": "Nationstar",
+        "condition": "All prior to doc condition's to be submitted at once.",
+        "status": "Satisfied",
+        "date": "08/18/2016",
+        "responsible": "Settlement Agent"
+    },
+    {
+        "id": 1110,
+        "type": "Prior to Closing",
+        "additionText": "Nationstar",
+        "condition": "Evidence the appraisal was successfully uploaded and accepted by the UCDP portal through FNMA and FHLMC(Submission Summary Reports). Copies of both FNMA SSR and FHLMC SSR Reports must be submitted with the appraisal",
+        "status": "Satisfied",
+        "date": "08/18/2016",
+        "responsible": "Processor"
+    },
+    {
+        "id": 1111,
+        "type":"Prior to Closing",
+        "additionText": "",
+        "condition": "Loan Approval is Subject to Debt Monitoring. All new Debt and inquiries obtained prior to funding/disbursement must be addressed.",
+        "status": "Satisfied",
+        "date": "08/18/2016",
+        "responsible": "Processor"
+    },
+    {
+        "id": 1112,
+        "type":"Prior to Closing",
+        "additionText": "Nationstar",
+        "condition": "Original Air Complaint Appraisal",
+        "status": "Satisfied",
+        "date": "08/18/2016",
+        "responsible": "Broker"
+    }
+]

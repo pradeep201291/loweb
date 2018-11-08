@@ -1,0 +1,35 @@
+<header [ngClass]="{'header-border': !canShowRightMenu}">
+	<div class="header-navigation-wrap">
+		<div *ngIf="!isLogin" class="menu">
+			<span *ngIf="!canShowRightMenu && !isProductSearch && !isScenarios" class="menu-icon mouse-pointer" (click)="onHamburgerClick()">&nbsp;</span>
+			<span *ngIf="canShowRightMenu" class="back-icon mouse-pointer" routerLink="/dashboard" (click)="removeOverlay()" routerLinkActive="active">&nbsp;</span>
+			<span *ngIf="isProductSearch" class="back-icon mouse-pointer" routerLink="/pricing" (click)="removeOverlay()" routerLinkActive="active">&nbsp;</span>
+			<span *ngIf="isScenarios" class="back-icon mouse-pointer" routerLink="/dashboard/scenario-pipeline" (click)="removeOverlay()"
+				routerLinkActive="active">&nbsp;</span>
+			<span class="header-text">{{currentPage}}</span>
+		</div>
+		<div *ngIf="isLogin" class="logo text-center">
+			<a *ngIf="logoVisibility" href="javascript:void(0);"> <img [src]="logosrc" alt="logo"></a>
+		</div>
+		<div *ngIf="canShowRightMenu" class="sub-menu fR">
+			<span class="menu-icon mouse-pointer" (click)="onRightMenuClick()">&nbsp;</span>
+		</div>
+	</div>
+</header>
+
+<div class="session-expire modal fade in" id="session-expire" data-backdrop="static" data-keyboard="false"  role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Session Expiring !!!</h4>
+			</div>
+			<div class="modal-body">
+				<p>Your session is about to expire. Are you still there?</p>
+			</div>
+			<div class="modal-footer action-div text-right">
+				<button type="button" class="btn primary-button continue" (click)="continue()" data-dismiss="modal">Continue</button>
+				<button type="button" class="btn primary-button logout" (click)="onLogOut()" data-dismiss="modal">Log Out</button>
+			</div>
+		</div>
+	</div>
+</div>

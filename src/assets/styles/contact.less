@@ -1,0 +1,565 @@
+.contactpage-body{
+              @media @large-mobile,@mobile{
+                  padding-left: 0px;
+                }
+    .main-content{
+        .loan-section-padd15{.padding(15px,15px,15px,15px);}
+        .loan-section-wrap{.margin(0,15px,0,15px);}
+        .loan-section{
+                      font-size:24px;
+                      .padding(0px,0px,0px,0px);
+                      .white-bg;
+                      margin-top: 10px;
+                      @media @x-large-desktop,@large-desktop{
+                        font-size:20px;
+                      }
+                      @media @desktop{
+                        font-size:18px;
+                      }
+                    .loan-content-wrap{
+                      >div{
+                        @media @desktop{
+                        //line-height: 25px;
+                      }
+                          @media @tablet,@small-tablet,@desktop,@large-mobile,@mobile,@large-desktop{
+                        //line-height: 32px;
+                      }
+                      }
+                      
+                      &:first-child{
+                        .padding(20px,20px,20px,20px);
+                        @media @tablet,@small-tablet,@desktop,@large-mobile,@mobile{
+                        border-bottom:1px solid #e5e5e5;
+                        }
+                    //line-height: 52px;
+                    >div{
+                      padding-left:30px;
+                      border-right:1px solid #ccc;
+                        @media @tablet,@small-tablet,@desktop,@large-mobile,@mobile{
+                          border-right:0;
+                          border-bottom:1px solid #ccc;
+                        }
+                      &:first-child{
+                        padding-left: 60px;
+                        background-image: url("@{base-url}images/check-in.png");
+                        background-repeat:no-repeat;
+                        background-position:0px 0px;
+                        @media @tablet,@small-tablet,@desktop,@large-mobile,@mobile{
+                          width:100%;
+                          font-size: 22px;
+                          padding-bottom:10px;
+                        }
+                        @media @x-large-desktop,@large-desktop,@desktop{
+                          //padding-left: 45px;
+                          background-position:0px 0px;
+                        }
+                        
+                        @media @large-mobile,@mobile{
+                          font-size: 18px;
+                          padding-left: 0px;
+                          background-position: 6px 3px;
+                          background-size: 18px;
+                        }
+                        @media @mobile{
+                          font-size: 16px;
+                          padding-left: 0px;
+                          background-position: 6px 3px;
+                          background-size: 18px;
+                        }
+                      }
+                        &:nth-child(2){
+                              border:0;
+                        @media @tablet,@small-tablet,@desktop,@large-mobile,@mobile{
+                          width:100%;
+                          font-size: 22px;
+                          padding: 10px 0 10px 60px;
+                        }
+                        @media @desktop,@tablet,@small-tablet{
+                          padding-left:0;
+                        }
+                        @media @large-mobile,@mobile{
+                          font-size: 18px;
+                          padding-left: 0px;
+                        }
+                        @media @large-mobile,@mobile{
+                          font-size: 16px;
+                          padding-left: 0px;
+                        }
+                      }
+                      &:last-child{
+                          
+                        border:0;
+                          @media @tablet,@small-tablet,@desktop,@large-mobile,@mobile{
+                          padding-left: 60px;
+                          padding-top: 10px;
+                        }
+                        @media @desktop,@tablet,@small-tablet{
+                          padding-left:0;
+                        }
+                            @media @large-mobile,@mobile{
+                          width:100%;
+                        
+                        }
+                        @media @large-mobile,@mobile{
+                          font-size: 16px;
+                          padding-left: 0px;
+                        }
+                        @media @mobile{
+                          font-size: 14px;
+                          padding-left: 0px;
+                        }
+                        }
+                    }
+                  }
+                    select.dropdown{
+                        @media @x-large-desktop{
+                            height: 34px;
+                        }
+                        @media @large-desktop{
+                            height: 34px;
+                        }
+                    }
+                    .map-icon{
+                          @media @large-mobile,@mobile{
+                              padding-right:30px;
+                        }
+                        }
+                }
+    
+    }//end of .loan-section
+
+    .contact-card-wrap{.margin(0,120px,0,120px);
+            @media @xxx-large-desktop{}
+            @media @xx-large-desktop{}
+            @media @smartphones{
+              margin-top: 0;
+              margin-right: 60px;
+              margin-bottom: 0;
+              margin-left: 60px;
+            }
+            @media @x-large-desktop{}
+            @media @large-desktop{}
+            @media @desktop{
+              margin-top: 0;
+              margin-right: 80px;
+              margin-bottom: 0;
+              margin-left: 80px;
+            }
+            @media @tablet {
+              margin-top: 0;
+              margin-right: 75px;
+              margin-bottom: 0;
+              margin-left: 75px;
+            }
+            @media @small-tablet {
+              margin-top: 0;
+              margin-right: 60px;
+              margin-bottom: 0;
+              margin-left: 60px;
+            }
+            @media @large-mobile{
+              margin-top: 0;
+              margin-right: 30px;
+              margin-bottom: 0;
+              margin-left: 30px;
+            }
+            @media @mobile{
+              margin-top: 0;
+              margin-right: 6px;
+              margin-bottom: 0;
+              margin-left: 6px;
+            }
+          }
+    .contact-card-section{    
+
+
+#md-carousel-section{display: none;}  
+#sm-carousel-section{display: none;}  
+#lg-carousel-section{display: block;}     
+  @media @mobile, screen and (min-width:319px) and (max-width:479px){
+      #sm-carousel-section{display: block;}
+      #lg-carousel-section{display: none;} 
+      #md-carousel-section{display: none;} 
+    }
+     @media screen and (min-width:340px) and (max-width:640px){
+            #sm-carousel-section{display: block;}
+            #lg-carousel-section{display: none;}
+            #md-carousel-section{display: none;} 
+          }
+           
+          @media @tablet,@small-tablet,@large-mobile,@desktop{
+            #md-carousel-section{display: block;}
+            #lg-carousel-section{display: none;}
+            #sm-carousel-section{display: none;} 
+            
+          }
+
+
+
+    .card-section{
+      >.wrap{
+        overflow:hidden;
+        >div{
+          padding-right:10px;
+          padding-left: 0;
+          margin-bottom: 10px;
+          @media @mobile,@large-mobile{
+              padding-right:0px;
+          }
+        }
+        
+      }
+      .card-section-wrap{.margin(0,0px,0,0px);
+          @media @desktop{
+            .margin(0,0px,0,0px);
+          }
+          @media @large-mobile{
+               .margin(0,0px,0,0px);
+          }
+          @media @tablet{
+            .margin(0,0px,0,0px);
+          }
+      }
+      .card-content-block{
+          padding-right:0px!important;
+          width:50%;
+          padding-bottom: 30px;
+          @media @xxx-large-desktop{}
+          @media @xx-large-desktop{}
+          @media @smartphones{}
+          @media @x-large-desktop{}
+          @media @large-desktop{}
+          @media @desktop{
+            width:100%;
+          }
+          @media @tablet {
+            width:100%;
+          }
+          @media @small-tablet {
+            width:100%;
+          }
+          @media @large-mobile{
+            width:100%;
+          }
+          @media @mobile{
+            width:100%;
+          }
+
+      }
+        .card-content-wrap{
+            border:1px solid #e5e5e5;
+            h4{color: #969595};
+            height :200px;
+            padding:20px 15px;
+            background: white;
+        }
+        
+
+ }
+
+
+          .card-head-row{
+                        .padding(10px,10px,10px,0px); 
+                        .card-top-label{
+                          @media @mobile,@large-mobile,@small-tablet{
+                              width:100%;
+                          }
+                        }
+                        .card-top-btn{
+                          z-index: 0;
+                          @media @mobile,@large-mobile,@small-tablet{
+                              float:left!important;
+                          }
+                          .btn{
+                            @media @mobile{
+                              min-width: 120px;
+                          }
+                          }
+                          .btn + .btn{
+                            margin-left: -3px;
+                          }
+                        }
+                }//end of .card-head-row
+              .contactCard-wrap{
+                          .padding(15px,15px,15px,15px);
+                          border:1px solid #e5e5e5;
+                          h4{color: #969595};
+                          height :200px;
+                          background: white;
+                          //padding:15px;
+                          .contactCard-pic-wrap{
+                              .padding(0,0,0,0);
+                          }
+                      }
+            .contact-card-firstRow { margin-bottom: 10px;}
+            .contact-card-secRow { margin-top: 10px;}
+            .contactCard-pic{
+                          background-image: url("@{base-url}images/avatar.png"); 
+                          background-size: contain; 
+                          background-repeat:no-repeat;
+                          background-position:center center;
+                          background-size: 110px;
+                          display: inline-block;
+                          width: 100%;
+                          height: 120px;
+                          .margin(15px,0,15px,0);}
+            .card-contact-info{
+              .padding(15px,0,15px,0);
+              font-size:16px;
+                          @media screen and (min-width:1200px) and (max-width:1600px){
+                          padding:0;
+                        }
+                        p{
+                          margin-bottom: 5px;
+                        }
+                        .contact-name{
+                          font-size: 18px;
+                          span{
+                            &:first-child:after{
+                              content: "  |  "
+                            }
+                          }
+                        }
+                        .contact-icon{
+                          .padding(0,0,0,40px);
+                          color:#36aeea;
+                          background-repeat: no-repeat; 
+                          background-size: 20px;
+                        }
+                        .contact-phone{
+                          background-image: url("@{base-url}images/contact-card-icons.png");
+                          background-position: 0 0;
+                        }
+                        .contact-chat{
+                          background-image: url("@{base-url}images/contact-card-icons.png");
+                          background-position: 0 -30px;
+                        }
+                        .contact-email{
+                          background-image: url("@{base-url}images/contact-card-icons.png");
+                          background-position: 2px -60px;
+                          
+                        }
+                      }
+            .card-blue-text{color:#36aeea; }      
+        
+             .padding(0px,10px,40px,0px);
+              .btn-primary{
+                  border-color: #333333;
+                  background-color: #f7f7f5;
+                  color:#000;
+                  width:180px;
+                  border-radius: 5px;
+                  @media @tablet,@small-tablet,@large-mobile,@mobile{
+                      width:100px;
+                  }
+                  }
+              .btn-primary.active{
+                  background-color: #333333;
+                  color:#fff;
+                }
+      
+                  .card-carousel-wrap{  
+                    position:relative;
+                    
+/*caurosal override*/
+.carousel-control.right {
+    width: 10%;
+    background-image: none;
+    top:0;
+     @media screen and (min-width:1920px){
+              //top:145px;
+          }
+    @media @xxx-large-desktop{
+   // top:145px;
+    }
+    @media @xx-large-desktop{
+     // top:446px;
+    }
+    @media @smartphones{}
+    @media @x-large-desktop{
+     //top:560px;
+    }
+    @media @large-desktop{}
+    @media @desktop{
+     // top:109px;
+     // top:114px;
+    }
+    @media @tablet {
+    //  top:368px;
+    }
+    @media @small-tablet {}
+    @media @large-mobile{}
+    @media @mobile, screen and (min-width:319px) and (max-width:479px){
+     // top:524px;
+    }
+     @media screen and (min-width:340px) and (max-width:640px){
+        //     top:374px;
+          }
+    
+    span.glyphicon{
+      padding: 5px;
+      border: 2px solid #ccc;
+      height: 40px;
+      width: 40px; 
+      top:45%;
+       @media @tablet,@small-tablet,@large-mobile{
+          height: 40px;
+          width: 40px;
+       }
+       @media @mobile{
+          height: 24px;
+          width: 24px;
+       }
+       @media @smartphones{
+         margin-right: -92px;
+       }
+       
+        @media @xxx-large-desktop{
+            margin-right: -150px;
+        }
+        @media @xx-large-desktop{
+           margin-right: -136px;
+        }
+        @media @smartphones{}
+        @media @x-large-desktop{
+          margin-right: -124px;
+        }
+        @media @large-desktop{
+          margin-right: -116px;
+        }
+        @media @desktop{
+           margin-right: -87px;
+        }
+        @media @tablet {
+          margin-right: -92px;
+        }
+        @media @small-tablet {
+           margin-right: -69px;
+        }
+        @media @large-mobile{
+          height: 30px;
+          width: 30px;
+          margin-right: -54px;
+        }
+        @media @mobile{
+          margin-right: -12px;
+        }
+        
+    }
+    .glyphicon-chevron-right{
+        background-image: url("@{base-url}images/right.png");
+        background-repeat: no-repeat;
+        background-size: 20px;
+        background-position: center;
+        &::before {
+    content: "";
+    }
+      }
+}
+.carousel-control.left {
+    width: 10%;
+    background-image: none;
+    top:0;
+     @media screen and (min-width:1200px) and (max-width:1600px){
+             // top:560px;
+          }
+     @media screen and (min-width:1920px){
+              //top:145px;
+          }
+    
+    @media @xxx-large-desktop{
+   //   top:145px;
+    }
+    @media @xx-large-desktop{
+     // top:446px;
+    }
+    @media @smartphones{}
+    @media @x-large-desktop{}
+    @media @large-desktop{
+      //top:560px;
+    }
+    @media @desktop{
+     // top:109px;
+    }
+    @media @tablet {
+    //  top:365px;
+    }
+    @media @small-tablet {
+     
+    }
+    @media @large-mobile{}
+    @media @mobile, screen and (min-width:319px) and (max-width:479px){
+      //top:524px;
+    }
+    @media screen and (min-width:340px) and (max-width:640px){
+        //      top:374px;
+          }
+    span.glyphicon{
+      padding: 5px;
+      border: 2px solid #ccc;
+      height: 40px;
+      width: 40px;
+      top:45%;
+      @media @tablet,@small-tablet,@large-mobile{
+          height: 40px;
+          width: 40px;
+       }
+       @media @mobile{
+          height: 24px;
+          width: 24px;
+       }
+   @media @smartphones{
+         margin-left: -72px;
+       }
+    @media @xxx-large-desktop{
+       margin-left:-135px;
+    }
+    @media @xx-large-desktop{
+       margin-left:-118px;
+    }
+    @media @smartphones{}
+    @media @x-large-desktop{
+       margin-left:-104px;
+    }
+    @media @large-desktop{
+       margin-left:-100px;
+    }
+    @media @desktop{
+       margin-left:-70px;
+    }
+    @media @tablet {
+      margin-left: -76px;
+    }
+    @media @small-tablet {
+       margin-left:-55px;
+    }
+    @media @large-mobile{
+      height: 30px;
+      width: 30px;
+      margin-left: -42px;
+    }
+     @media @mobile{
+      margin-left: 3px;
+      }
+    }
+    .glyphicon-chevron-left{
+        background-image: url("@{base-url}images/left.png");
+        background-repeat: no-repeat;
+        background-size: 20px;
+        background-position: center;
+        &::before {
+    content: "";
+    }
+    
+    }
+}
+  
+    } 
+ 
+ 
+    
+    
+    }//end of contact card section
+
+ }//end of .main-content
+ }//end of .contactpage-body

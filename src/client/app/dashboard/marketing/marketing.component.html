@@ -1,0 +1,33 @@
+<div class="marketing-board">
+    <div class="carousel-wrap">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators" *ngIf="MarketingDetails && MarketingDetails.length > 1">
+                <li data-target="#myCarousel"  *ngFor="let task of MarketingDetails; let i = index;" [ngClass]="{active: i==0}"
+                    [attr.data-slide-to]="i"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="item" *ngFor="let task of MarketingDetails; let first = first" [ngClass]="{ active: first}">
+                    <a *ngIf="task.message_link != '' && task.message_link != null" href='{{task?.message_link}}' target="_blank" class="">
+                        <div class="marketing-bg"  [ngStyle]="{'background-image': 'url(' + task?.message_url + ')'}">                          
+                            <p *ngIf="task?.message_text" class="marketing-text" [innerHTML]="task?.message_text">
+                            </p>
+                            <p *ngIf="!task.message_url.includes('http')">
+                                {{task?.message_url}}
+                            </p>
+
+                        </div>
+                    </a>
+                     <div *ngIf="task?.message_link =='' || task?.message_link == null">
+                        <div class="marketing-bg" [ngStyle]="{'background-image': 'url(' + task?.message_url + ')'}">
+                            <p *ngIf="task?.message_text" class="marketing-text" [innerHTML]="task?.message_text"></p>
+                            <p *ngIf="task.message_url && !task.message_url.includes('http')">
+                                {{task?.message_url}}
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

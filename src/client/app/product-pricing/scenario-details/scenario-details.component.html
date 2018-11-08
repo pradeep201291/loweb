@@ -1,0 +1,36 @@
+<div class="scenario-details-wrap">
+	<div class="scenario-header">
+		<h4 *ngIf="scenarioDetailsData" class="name">{{scenarioDetailsData.borrower_name}}</h4>
+		<button class="btn primary-button fR" [disabled]="!scenario" (click)="addAnotherScenario()">{{resource.addScenarioButtonText}}</button>
+	</div>
+	<div class="scenario-details-table table-responsive" id="scenario-accordion">
+		<table class="table">
+			<tbody *ngFor="let scenario of scenario; let i = index;">
+				<tr>
+					<td class="products">
+						<p class="table-sub-header">{{resource.productHeader}}</p>
+						<span class="table-sub-value">{{scenario.header1}}</span>
+					</td>
+					<td class="time">
+						<p class="table-sub-header">{{resource.timeHeader}}</p>
+						<span class="table-sub-value">{{scenario.header2}}</span>
+					</td>
+					<td class="expand-details">
+						<button data-toggle="collapse" class="secondary-button collapsed viewLess" data-parent="#scenario-accordion" (click)="closeAccordian()" [attr.href]="'#' + (i + 1)"
+							data-parent="#accordion"></button>
+					</td>
+				</tr>
+				<tr class="expand-details-row">
+					<td colspan="3">
+						<div id="{{i + 1}}" class="panel-collapse collapse details-panel panel row wrap" >
+							<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 scenario-element" *ngFor="let info of scenario.info">
+								<p class="scenario-label">{{info.label}}</p>
+								<p class="scenario-value">{{info.text}}</p>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

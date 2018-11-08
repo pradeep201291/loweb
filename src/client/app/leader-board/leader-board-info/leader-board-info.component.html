@@ -1,0 +1,124 @@
+<div class="leaderboard-content">
+    <ul class="nav nav-tabs leaderboard-tabs">
+		<li class=""  [ngClass]="{'active': isVolumeEnabled === true}" ><a data-toggle="tab" (click)="sortClick('amount')">By Volume</a></li>
+		<li class="" [ngClass]="{'active': isUnitEnabled === true}"><a data-toggle="tab" (click)="sortClick('unit')">By Units</a></li>
+	</ul>
+    <div class="tab-content">
+        <div [ngClass]="{'active': isVolumeEnabled === true}" id="volume-sort" class="volume-sort tab-pane fade in">
+             <div class="table-div volume-sort table-responsive">
+                <table class="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th class="table-sort name">{{resource.name}}</th>
+                            <th class="table-sort volume">{{resource.volume}}
+                                <span *ngIf="sortBy === 'volume' && sortOrder === 'desc'" (click)='sortLeaderBoard("volume", "asc" )' class="sort-down"></span>
+                                <span *ngIf="sortBy === 'volume' && sortOrder === 'asc'" (click)='sortLeaderBoard("volume", "desc")' class="sort-up"></span>
+                                <span *ngIf="sortBy !== 'volume'" (click)='sortLeaderBoard("volume", "desc")' class="sort"></span>
+                            </th>
+                            <th class="table-sort rank">{{resource.rank}} 
+                                <span *ngIf="sortBy === 'rank' && sortOrder === 'desc'" (click)='sortLeaderBoard("rank", "asc" )' class="sort-down"></span>
+                                <span *ngIf="sortBy === 'rank' && sortOrder === 'asc'" (click)='sortLeaderBoard("rank", "desc")' class="sort-up"></span>
+                                <span *ngIf="sortBy !== 'rank'" (click)='sortLeaderBoard("rank", "desc")' class="sort"></span> 
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="leaderBoardByVolumePagination">
+                        <tr *ngFor="let item of leaderBoardByVolumePagination">
+                            <td>
+                                <span>{{item.name}}</span>
+                            </td>
+                            <td>
+                                <span>{{item.text}}</span>
+                            </td>
+                            <td>
+                                <span>{{item.rank}}</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody *ngIf="leaderBoardByVolume.length === 0 && isVolumeLoaded">
+                        <tr>
+                            <td colspan='3' class="text-center">
+                                <span>There are no rankings</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="volume-pagination leaderboard-pagination text-right" *ngIf="pager.totalItems > 10" >
+                <ul class="pagination">
+                    <li (click)="previous()" *ngIf="pager.totalPages > 5">
+                        <a style="cursor:pointer" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="" [ngClass]="{active: currentPage === (page)}" *ngFor="let page of pager.pages;">
+                        <a style="cursor:pointer" (click)="setCurrentPage(page)">{{page}}</a>
+                    </li>
+                    <li (click)="next()" *ngIf="pager.totalPages > 5">
+                        <a style="cursor:pointer" aria-label="Next" >
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div [ngClass]="{'active': isUnitEnabled === true}" id="unit-sort" class="unit-sort tab-pane fade in" >
+            <div class="table-div unit-sort table-responsive">
+                <table class="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th class="table-sort name">{{resource.name}}</th>
+                            <th class="table-sort unit">{{resource.unit}}
+                                <span *ngIf="sortBy === 'unit' && sortOrder === 'desc'" (click)='sortLeaderBoard("unit", "asc" )' class="sort-down"></span>
+                                <span *ngIf="sortBy === 'unit' && sortOrder === 'asc'" (click)='sortLeaderBoard("unit", "desc")' class="sort-up"></span>
+                                <span *ngIf="sortBy !== 'unit'" (click)='sortLeaderBoard("unit", "desc")' class="sort"></span>
+                            </th>
+                            <th class="table-sort rank">{{resource.rank}}
+                                <span *ngIf="sortBy === 'rank' && sortOrder === 'desc'" (click)='sortLeaderBoard("rank", "asc" )' class="sort-down"></span>
+                                <span *ngIf="sortBy === 'rank' && sortOrder === 'asc'" (click)='sortLeaderBoard("rank", "desc")' class="sort-up"></span>
+                                <span *ngIf="sortBy !== 'rank'" (click)='sortLeaderBoard("rank", "desc")' class="sort"></span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf ="leaderBoardByUnitPagination">
+                        <tr *ngFor="let eachItem of leaderBoardByUnitPagination">
+                            <td>
+                                <span>{{eachItem.name}}</span>
+                            </td>
+                            <td>
+                                <span>{{eachItem.text}}</span>
+                            </td>
+                            <td>
+                                <span>{{eachItem.rank}}</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody *ngIf="leaderBoardByUnit.length === 0 && isUnitLoaded">
+                        <tr>
+                            <td colspan='3' class="text-center">
+                                <span>There are no rankings</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="unit-pagination leaderboard-pagination text-right" *ngIf="pager.totalItems > 10">
+                <ul class="pagination">
+                    <li (click)="previous()" *ngIf="pager.totalPages > 5">
+                        <a style="cursor:pointer" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="" [ngClass]="{active: currentPage === (page)}" *ngFor="let page of pager.pages;">
+                        <a style="cursor:pointer" (click)="setCurrentPage(page)">{{page}}</a>
+                    </li>
+                    <li (click)="next()" *ngIf="pager.totalPages > 5">
+                        <a style="cursor:pointer" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+    "apiInfra": {
+        "gateWay": {
+            "protocol": "https",
+            "host": "apinonprod.stearns.com",
+            "port": "443",
+            "root": "apigateway"
+        },
+        "auth": {
+            "protocol": "https",
+            "host": "apinonprod.stearns.com",
+            "port": "443",
+            "root": "AuthServer"
+        }
+    },
+    "general": {
+        "isRsaEnabled": "true",
+        "userType": "LO",
+        "appId": "lo_web",
+        "deviceType": "WEB",
+        "env":"test"
+    }
+}

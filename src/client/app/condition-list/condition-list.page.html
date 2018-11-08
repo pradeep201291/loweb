@@ -1,0 +1,90 @@
+<div class="main-content marTop52" >
+    <div class="loan-header-wrap">
+        <sl-loan-header></sl-loan-header>
+    </div>
+    <div class="">
+        <div class="condition-table-div " >
+            <div class="list-filter fR">
+                <div class="check">
+                    <input type="checkbox" id="outstandingConditions" [(checked)]="isChecked" (click)="showOutstandingConditions($event.target.checked)"
+                    />
+                    <label class="custom-checkbox" for="outstandingConditions"></label>
+                </div>
+                <label class="select" for="outstandingConditions">Outstanding Conditions Only</label>
+            </div>
+            <div class="clear"></div>
+            <div class="table-responsive">
+            <table class="condition-table">
+                <thead>
+                    <tr>
+                        <th class="table-sort id">ID
+                            <span *ngIf="sortBy === 'cond_id' && sortOrder === 'desc'" (click)='sortResponsible("cond_id", "asc" )' class="sort-down"></span>
+                            <span *ngIf="sortBy === 'cond_id' && sortOrder === 'asc'" (click)='sortResponsible("cond_id", "desc")' class="sort-up"></span>
+                            <span *ngIf="sortBy !== 'cond_id'" (click)='sortResponsible("cond_id", "desc")' class="sort"></span>
+                        </th>
+                        <th class="type table-sort">Type
+                            <span *ngIf="sortBy === 'type_id' && sortOrder === 'desc'" (click)='sortResponsible("type_id", "asc" )' class="sort-down"></span>
+                            <span *ngIf="sortBy === 'type_id' && sortOrder === 'asc'" (click)='sortResponsible("type_id", "desc")' class="sort-up"></span>
+                            <span *ngIf="sortBy !== 'type_id'" (click)='sortResponsible("type_id", "desc")' class="sort"></span>
+                        </th>
+                        <th class="status table-sort">Status
+                            <span *ngIf="sortBy === 'status' && sortOrder === 'desc'" (click)='sortResponsible("status", "asc" )' class="sort-down"></span>
+                            <span *ngIf="sortBy === 'status' && sortOrder === 'asc'" (click)='sortResponsible("status", "desc")' class="sort-up"></span>
+                            <span *ngIf="sortBy !== 'status'" (click)='sortResponsible("status", "desc")' class="sort"></span>
+                        </th>
+                        <th class="table-sort date">Date
+                            <span *ngIf="sortBy === 'date_added' && sortOrder === 'desc'" (click)='sortResponsible("date_added", "asc" )' class="sort-down"></span>
+                            <span *ngIf="sortBy === 'date_added' && sortOrder === 'asc'" (click)='sortResponsible("date_added", "desc")' class="sort-up"></span>
+                            <span *ngIf="sortBy !== 'date_added'" (click)='sortResponsible("date_added", "desc")' class="sort"></span>
+                        </th>
+                        <th class="responsible table-sort">Responsible
+                            <span *ngIf="sortBy === 'responsible_party' && sortOrder === 'desc'" (click)='sortResponsible("responsible_party", "asc" )' class="sort-down"></span>
+                            <span *ngIf="sortBy === 'responsible_party' && sortOrder === 'asc'" (click)='sortResponsible("responsible_party", "desc")' class="sort-up"></span>
+                            <span *ngIf="sortBy !== 'responsible_party'" (click)='sortResponsible("responsible_party", "desc")' class="sort"></span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let conditionList of pagedConditions">
+                    <tr>
+                        <td>{{conditionList.cond_id}}</td>
+                        <td>{{conditionList.type_id}}</td>
+
+                        <td class="satisfied">{{conditionList.status}}</td>
+                        <td>{{conditionList.date_added}}</td>
+                        <td>{{conditionList.responsible_party}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="condition-text">
+                            <span>Condition</span> {{conditionList.cond_desc}}
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody *ngIf="!pagedConditions && isConditionLoaded" class="no-conditions">
+                    <tr>
+                        <td class="text-center" colspan="5">
+                            <span>No Conditions</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+    <div class="document-pagination text-right" *ngIf="pager.pages && pager.pages.length">
+        <ul class="pagination pagination-sm">
+            <li>
+                <a style="cursor:pointer" aria-label="Previous" (click)="previous()" *ngIf="pager.totalPages > 5">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li [ngClass]="{active: currentPage === (page)}" *ngFor="let page of pager.pages;">
+                <a style="cursor:pointer" (click)="setCurrentPage(page)">{{page}}</a>
+            </li>
+            <li>
+                <a style="cursor:pointer" aria-label="Next" (click)="next()" *ngIf="pager.totalPages > 5">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

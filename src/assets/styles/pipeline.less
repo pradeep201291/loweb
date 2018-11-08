@@ -1,0 +1,168 @@
+.main-content{
+		.right-nav{
+    z-index: 999999;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    background: @nav-bg-color;
+    right: 0px;//-300px;
+    .padding(50px,0px,100px,0px);
+
+    @media @small-mob-landscape{
+        .padding(30px,0px,100px,0px);
+    }
+    .close{
+        color: #fff;
+        opacity: 1;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+    }
+
+    .loan-no{
+        display: inline-block;
+        width: 100%;
+        border-bottom: 1px solid @button-border-color;
+        color: @secondary-text-color;
+        .padding(0,30px,20px,50px);
+        .margin(0,0,20px,0);
+        font-size: 18px;
+        @media @small-mob-landscape{
+         .padding(0,20px,10px,40px);
+         .margin(0,0,10px,0);
+         font-size: 16px;
+       }
+    }
+
+    ul{
+       position:relative;
+       width:300px;
+       
+       
+         li{
+           .padding(10px,35px,10px,100px);
+           cursor: pointer;
+           background-repeat: no-repeat;
+           background-position:50px center;
+           background-size: 20px;
+           margin-bottom: 10px;
+           position: relative;
+
+           @media @small-mob-landscape{
+            .padding(5px,35px,5px,100px);
+            margin-bottom: 5px;
+          }
+           
+           span{
+             display: inline-block;
+             a{
+                font-size: 14px;
+              }
+             
+           }
+          //  sup{
+          //       top: 3px;
+          //       left: 65px;
+          //    }
+             .menu-badge{
+                display: inline-block;
+                border: 1px solid @secondary-text-color;
+                color: @secondary-text-color;
+                border-radius: 2px;
+                .padding(1px,5px,1px,5px);
+                font-size: 12px;
+              }
+           
+           &:hover{
+              background-color: @nav-bg-hover-color;
+              a{
+                color:@secondary-text-color;
+                }
+           }
+           &.active{
+              background-color: @nav-bg-hover-color;
+              a{
+                color:@secondary-text-color;
+                }
+           }
+
+           
+           &.status{
+             background-image: url("@{base-url}images/Status.png");
+           }
+           &.loan-Details{
+             background-image: url("@{base-url}images/LOAN-DETAILS.png");
+           }
+           &.conditions{
+             background-image: url("@{base-url}images/CONDITION.png");
+           }
+           &.documents{
+             background-image: url("@{base-url}images/Document.png");
+           }
+           &.notification{
+             background-image: url("@{base-url}images/notification-icon.png");
+           }
+           &.message{
+             background-image: url("@{base-url}images/message-box.png");
+           }
+         }
+    }
+}
+
+
+	.tab-content{
+		.padding(20px,10px,20px,10px);
+		@media @mobile{
+			.padding(30px,10px,30px,10px);
+		}
+		.details-tab{
+			 color:#4f4f4f;
+			 font-size:16px;
+			 /*width:50%;
+			 @media @desktop,@tablet{
+				 width:70%;
+			 }
+			 @media @small-tablet,@large-mobile,@mobile{
+				 width:100%;
+			 }*/
+			 @media @mobile{
+					font-size:14px;
+			 }
+			 .details{
+				.details-tab-label{
+					font-weight:bold;	
+				}
+				.details-tab-info{
+					float:right;
+				}
+				.loan-num{
+					color:#299be4;
+				}
+			 }
+			 .detail-actions{
+				 text-align:right;
+				 border-top:1px solid #efefef;
+				 .padding(15px,0,15px,0);
+				 .lock-icon{
+					 background:url("@{base-url}images/red-lock.png") no-repeat;
+				 }
+				 .upload-icon{
+					background:url("@{base-url}images/red-upload.png") no-repeat;
+				 }
+				 .call-icon{
+					background:url("@{base-url}images/red-call.png") no-repeat;
+				 }
+				 .message-icon{
+					background:url("@{base-url}images/red-msg.png") no-repeat;
+				 }
+				 .action-icons{
+					 display:inline-block;
+					 width:15%;
+					 height:35px;
+					 background-position:center right;
+				 }
+				 
+			 }
+		}
+	}
+}

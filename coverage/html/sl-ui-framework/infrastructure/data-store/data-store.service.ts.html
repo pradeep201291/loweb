@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for sl-ui-framework\infrastructure\data-store\data-store.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">sl-ui-framework/infrastructure/data-store/</a> data-store.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">34.04% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>16/47</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">9.09% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">32.61% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>15/46</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
+import { SharedResource } from './data-store.resource';
+@Injectable()
+export class DataStoreService {
+    /**
+     * @desc det device id for a user
+     * 
+     * @param {string} [userId]
+     * @returns {string}
+     * 
+     * @memberOf DataStoreService
+     */
+<span class="fstat-no" title="function not covered" >    getDeviceId(): string {</span>
+<span class="cstat-no" title="statement not covered" >        let session_device_id: string = (sessionStorage.getItem(SharedResource.device_ID));</span>
+<span class="cstat-no" title="statement not covered" >        if (session_device_id &amp;&amp; session_device_id !== null) {</span>
+<span class="cstat-no" title="statement not covered" >            return session_device_id;</span>
+        } else {
+            /** If not present in session, add it to session and then return */
+<span class="cstat-no" title="statement not covered" >            let uniqueId = this.generateGuid();</span>
+<span class="cstat-no" title="statement not covered" >            sessionStorage.setItem(SharedResource.device_ID, uniqueId);</span>
+<span class="cstat-no" title="statement not covered" >            return uniqueId;</span>
+        }
+    }
+&nbsp;
+&nbsp;
+    /**
+     * 
+     * 
+     * @returns
+     * 
+     * @memberOf DataStoreService
+     */
+<span class="fstat-no" title="function not covered" >    getUserId() {</span>
+<span class="cstat-no" title="statement not covered" >        let userSessionDetails = JSON.parse(sessionStorage.getItem(SharedResource.currentUser));</span>
+<span class="cstat-no" title="statement not covered" >        if (userSessionDetails &amp;&amp; userSessionDetails !== null) {</span>
+<span class="cstat-no" title="statement not covered" >            return userSessionDetails.UserId;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return null;</span>
+    }
+&nbsp;
+    /**
+     * 
+     * 
+     * @returns
+     * 
+     * @memberOf DataStoreService 
+     */
+<span class="fstat-no" title="function not covered" >    getAccessToken() {</span>
+<span class="cstat-no" title="statement not covered" >        let userSessionDetails = JSON.parse(sessionStorage.getItem(SharedResource.currentUser));</span>
+<span class="cstat-no" title="statement not covered" >        if (userSessionDetails &amp;&amp; userSessionDetails !== null) {</span>
+<span class="cstat-no" title="statement not covered" >            return userSessionDetails.access_token;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return null;</span>
+    }
+&nbsp;
+    /**
+     * @desc company code retrieved from private label json
+     * 
+     * @returns
+     * 
+     * @memberOf DataStoreService
+     */
+<span class="fstat-no" title="function not covered" >    getCompanyCode() {</span>
+<span class="cstat-no" title="statement not covered" >        return sessionStorage.getItem(SharedResource.companyCode);</span>
+    }
+&nbsp;
+    /**
+     * 
+     * 
+     * @private
+     * @returns
+     * 
+     * @memberOf DataStoreService
+     */
+<span class="fstat-no" title="function not covered" >    private getRandomChar() {</span>
+<span class="cstat-no" title="statement not covered" >        return Math.floor((1 + Math.random()) * 0x10000)</span>
+            .toString(16)
+            .substring(1);
+    }
+&nbsp;
+    /**
+     * 
+     * 
+     * @private
+     * @returns
+     * 
+     * @memberOf DataStoreService
+     */
+<span class="fstat-no" title="function not covered" >    private generateGuid() {</span>
+<span class="cstat-no" title="statement not covered" >        return this.getRandomChar() + this.getRandomChar() + '-' + this.getRandomChar() + '-' + this.getRandomChar() + '-' +</span>
+            this.getRandomChar() + '-' + this.getRandomChar() + this.getRandomChar() + this.getRandomChar();
+    }
+&nbsp;
+    /**
+     * @desc user information 
+     * 
+     * @returns
+     * 
+     * @memberOf DataStoreService
+     */
+<span class="fstat-no" title="function not covered" >    getUserFromSession() {</span>
+<span class="cstat-no" title="statement not covered" >        let userSessionDetails = JSON.parse(sessionStorage.getItem(SharedResource.currentUser));</span>
+<span class="cstat-no" title="statement not covered" >        if (userSessionDetails &amp;&amp; userSessionDetails !== null) {</span>
+<span class="cstat-no" title="statement not covered" >            return {</span>
+                UserId: userSessionDetails.UserId,
+                role: userSessionDetails.role,
+                access_token: userSessionDetails.access_token,
+                refresh_token: userSessionDetails.refresh_token,
+                expires_in: userSessionDetails.expires_in,
+                issued: userSessionDetails.issued,
+                expires: userSessionDetails.expires,
+                userName: userSessionDetails.userName
+            };
+        }
+<span class="cstat-no" title="statement not covered" >        return null;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    updateUserDetails(authToken: string)</span> {
+<span class="cstat-no" title="statement not covered" >        let userSessionDetails = JSON.parse(sessionStorage.getItem(SharedResource.currentUser));</span>
+<span class="cstat-no" title="statement not covered" >        if (userSessionDetails &amp;&amp; userSessionDetails !== null) {</span>
+<span class="cstat-no" title="statement not covered" >            let temp = Object.assign({}, userSessionDetails);</span>
+<span class="cstat-no" title="statement not covered" >            temp['access_token'] = authToken;</span>
+<span class="cstat-no" title="statement not covered" >            sessionStorage.setItem(SharedResource.currentUser, temp);</span>
+        }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    getRefreshToken() {</span>
+<span class="cstat-no" title="statement not covered" >        let userSessionDetails = JSON.parse(sessionStorage.getItem(SharedResource.currentUser));</span>
+<span class="cstat-no" title="statement not covered" >        if (userSessionDetails &amp;&amp; userSessionDetails !== null) {</span>
+<span class="cstat-no" title="statement not covered" >            return userSessionDetails.refresh_token;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return null;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    clearSessionStore() {</span>
+<span class="cstat-no" title="statement not covered" >        sessionStorage.removeItem(SharedResource.currentUser);</span>
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 02 2017 17:05:41 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

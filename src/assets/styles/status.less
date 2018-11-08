@@ -1,0 +1,373 @@
+
+.main-content{
+		.loanNo-wrap{border-right: 1px solid #ccc!important;}
+		.loanSelect-wrap {padding-left: 30px!important;
+		p{
+			font-size: 18px;
+		}}
+
+		
+
+	.filter-array {
+		display:none;
+		#md-carousel-section{display: none;}  
+#sm-carousel-section{display: none;}  
+#lg-carousel-section{display: block;} 
+			 #lg-carousel-section{
+				 @media @large-desktop,@x-large-desktop{
+      				display: block;
+    			}
+				@media @mobile,@large-mobile,@small-tablet{
+					display: none;
+				}
+				@media @tablet,@desktop{
+					display: none;
+				}
+			 }
+			 #md-carousel-section{
+				 @media @large-desktop,@x-large-desktop{
+      				display: none;
+    			}
+				@media @mobile,@large-mobile,@small-tablet{
+					display: none;
+				}
+				@media @tablet,@desktop{
+					display: block;
+				}
+			 }
+			 #sm-carousel-section{
+				  @media @large-desktop,@x-large-desktop{
+      				display: none;
+    			}
+				@media @mobile,@large-mobile,@small-tablet{
+					display: block;
+				}
+				@media @tablet,@desktop{
+					display: none;
+				}
+			 }
+	}    
+   .loan-info-wrap{
+	   position:relative;
+	   min-width:290px;	  
+	   .padding(10px,50px,10px,50px);
+	   //background:url("@{base-url}images/left-arrow-disabled-white-bg.jpg"),url("@{base-url}images/right-arrow-active-white-bg.jpg");
+	  
+	   .loan-info-button-left{
+		    background:url("@{base-url}images/left-arrow-active.png");
+		    background-repeat:no-repeat;
+			background-size: 40px;
+			position: absolute;
+			left: 0;
+			height: 40px;
+			width: 40px;
+			top: 52px;
+	   }
+	   .loan-info-button-right{
+		    background: url("@{base-url}images/right-arrow-active.png");
+		    background-repeat:no-repeat;
+			background-size: 40px;
+			position: absolute;
+			right: 0;
+			height: 40px;
+			width: 40px;
+			top: 52px;
+	   }
+	   .scroll-wrap{
+	      overflow-x:hidden;
+	      .for-scroll{
+			   width:2000px;
+			  .padding(10px,0px,10px,0px);
+			  .carousel-inner{
+				  @media @mobile,@large-mobile,@small-tablet,@tablet,@desktop,@large-desktop,@x-large-desktop,@xx-large-desktop,@xxx-large-desktop{
+						width: 100vw;
+					  }
+				  
+				  .item{
+					  @media @xxx-large-desktop{
+						  width: 1610px;
+						  margin: 0 auto;
+					  }
+					  @media @xx-large-desktop{
+						  width: 1430px;
+						  margin: 0 auto;
+					  }
+					  @media @x-large-desktop{
+					   width: 1200px;
+						  margin: 0 auto;
+				   }
+					  @media @large-desktop{
+						  width: 1015px;
+						  margin: 0 auto;
+					  }
+					  @media @desktop{
+						  width: 800px;
+						  margin: 0 auto;
+					  }
+					  @media @tablet{
+					   width: 766px;
+					   margin: 0 auto;
+				   }
+					  @media @small-tablet{
+					   width:450px;
+					   margin: 0 auto;
+				   }
+					  @media @large-mobile{
+                         width: 443px;
+						  margin: 0 auto;
+					  }
+					    @media @mobile{
+						  width:320px;
+						  margin: 0 auto;
+					  }
+					  .loan-info{
+				   .padding(10px,15px,10px,15px);
+				   width:260px;
+				   min-height:85px;
+				   margin-right:30px;
+				   margin-bottom:20px;
+				   border:1px solid #ddd;
+				   float:left;
+				   background:@nav-bg-active-color;
+				   font-size:17px;
+				   @media @xx-large-desktop{
+					   width:220px;
+				   }
+				   @media @x-large-desktop{
+					   width:183px;
+					   margin-right: 25px;
+				   }
+				   @media @large-desktop{
+					   width: 157px;
+    				   margin-right: 12px;
+				   }
+				   @media @desktop{
+					   width:194px;
+					   margin-right: 20px;
+				   }
+				   @media @tablet{
+					   width:182px;
+					   margin-right: 20px;
+				   }
+				    @media @small-tablet{
+						// width:175px;
+					   //margin-left: 5%;
+				   }
+				   @media @large-mobile{
+					   //margin-left: 2%;
+					//    .padding(10px,5px,10px,7px);
+					//    width: 140px;
+					// 	margin-right: 20px;
+					// 	margin-bottom: 10px;
+				    }
+				  
+				   @media @mobile{
+					   width:196px;
+				   }
+				   &:last-child{
+					   margin-right:0;
+					    @media @large-mobile{
+						margin-right: 20px;
+				    }
+
+				   }
+				   
+				   .loan-label{
+					   font-weight:500;
+				   }
+				   
+				   .loan-detail{
+					   font-weight:600;
+				   }		 
+			    }
+				  }
+			  }
+			  
+	        }
+	    }
+    }
+    
+   .loan-tasks-wrap{
+       font-size:14px;
+
+		.sub-heading{
+			font-size: 18px;
+			margin: 0 0 10px 0;
+			line-height: 1;
+		}
+
+       .loan-task{
+		   @media @large-desktop,@desktop,@tablet,@small-tablet,@large-mobile,@mobile{
+               margin-bottom: 20px;
+           }
+           @media @tablet,@small-tablet,@large-mobile,@mobile{
+               .padding(0,5px,0,5px);
+           }
+       }
+
+	   .status-box{
+		   border-radius: 2px;
+		    background:#fff;
+			border:1px solid #dedede;
+	   }
+      .progress-div{
+	     .progress-info{
+			  .color-box{
+				  &:nth-of-type(odd){
+                        background: #f0f0f0;
+                    }
+                     &:nth-of-type(even){
+                        background: @secondary-background;
+                    }
+
+				  .msg{
+				  .padding(15px,45px,15px,15px);
+				  background-repeat:no-repeat;
+				  background-position:right 20px center;
+				  position:relative;
+				  h3{
+					  font-weight:600;
+					  display:inline-block;
+					  margin:0;
+					  padding:0 20px 0 0px;
+					  position:absolute;
+					  top:30%;
+					  left:10px;
+				    }
+				  span{
+					  //font-size:16px;
+					  font-weight:500;
+					  display:inline-block;
+					  width:100%;
+				    }
+			    }
+			  }
+			 
+			  .warn{
+				 background-image:url("@{base-url}images/alert.png");
+				 border-left:6px solid #ffae44;
+			    }
+			   .success{
+				 background-image:url("@{base-url}images/tick.png");
+				 border-left:6px solid #2ebd60;
+			    }
+			   .error{
+				 background-image:url("@{base-url}images/cross.png");
+				 border-left:6px solid #fe4949;
+			    }
+			} 
+	    }
+	  
+	  .key-div{
+          @media @desktop,@tablet{
+               padding-right:15px;
+           }
+			.key-info{
+				.padding(25px,15px,25px,15px);
+                //min-height: 465px;
+				z-index:0;
+				position: relative;
+				.grey-line{
+					background:linear-gradient(#fff 2% ,#bbb 8%,#bbb 79%,#fff);
+					width:2px;
+					height:100%;
+					position: absolute;
+					top:0;
+					z-index:-1;
+				}
+				.date-row{
+				   font-size:14px;
+				   margin-bottom:35px;
+				   span{
+					  display:inline-block;
+				    }
+				  .key-date{
+					  width:35%;
+					  vertical-align: middle;
+				    }
+				  
+				  .yellow-ellipse{
+					  width:15%;
+					  height:30px;
+					  background:url("@{base-url}images/yellow-ellipse.png") no-repeat;
+					  background-position:left center;
+					//   background-position:left 1px;
+					  display: inline-block;
+    				  vertical-align: middle;
+				    }
+				  .date-info{
+						width:45%;
+						vertical-align:middle;
+					    background: #f0f0f0;
+						padding: 3px;
+						border-radius: 2px;
+				    }
+				}
+                
+		    } 
+	    }
+	  
+	   .events-div{
+			.events-info{
+			    .padding(25px,15px,25px,15px);
+				z-index:0;
+				position: relative;
+				.grey-line{
+					background:linear-gradient(#fff 2% ,#bbb 8%,#bbb 79%,#fff 98%);
+					width:2px;
+					height:100%;
+					position: absolute;
+					top:0;
+					z-index: -1;
+				}
+				.event-row{
+				   font-size:14px;
+				   margin-bottom:35px;
+				   
+				   span{
+					  display:inline-block;
+				    }
+				  .event-date{
+						width:32%;
+						vertical-align:middle;
+						span{
+							width:100%;
+						}
+						.time{
+							color:#8a8a8a;
+							font-size:13px;
+                            @media @large-desktop,@small-tablet,@large-mobile{
+                                font-size:15px;
+                             } 
+                             @media @desktop,@tablet{
+                                font-size:14px;
+                                } 
+							@media @mobile{
+								font-size: 12px;
+							}
+							
+						}
+				    }
+				  
+				  .red-ellipse{
+						width:15%;
+						height:30px;
+						background:url("@{base-url}images/red-ellipse.png") no-repeat;
+						background-position:left 1px;
+						display: inline-block;
+    					vertical-align: middle;
+				    }
+				  
+				  .event-date-info{
+						width:46%;
+						vertical-align:middle;
+						background: #f0f0f0;
+						padding: 3px;
+						border-radius: 2px;
+				    }
+				}
+			}
+	  }
+    }
+   
+}

@@ -1,0 +1,582 @@
+@pad20: 20px;
+@margin5: 5px;
+@zero: 0px;
+
+.main-content{
+    .text-header h1{
+       font-family: raleway;
+      @media @large-mobile{
+          font-size: 30px;
+        }
+        @media @mobile{
+          font-size: 24px;
+        }
+    }
+    .contact-details{
+      font-size:24px;
+      @media @large-mobile{
+          font-size: 18px;
+        }
+      @media @mobile{
+          font-size: 16px;
+        }
+      p{
+        
+      }
+      ul{
+        li{
+          display: inline-block;
+          margin-right:10px;
+          &:after{
+            content:"|";
+            color: #333;
+            padding-left: 18px;
+          }
+          &:last-child{
+            margin-right:0px;
+            &:after{
+              content:""
+            }
+          }
+          a{color:#66ccff;}
+          span.email-icon{
+            color:#66ccff;
+            padding-left:60px;
+            cursor:pointer;
+            background-image: url("@{base-url}images/email.png");
+            background-repeat:no-repeat;background-position:10px 2px;
+            @media @large-mobile{
+              padding-left: 40px;
+              background-size: 20px;
+              background-position: 10px 2px;
+            }
+            @media @mobile{
+              padding-left: 40px;
+              background-size: 20px;
+            }
+          }
+        }
+        li.message-icon{
+          color:#66ccff;
+          padding-left:60px;
+          cursor:pointer;
+          background-image: url("@{base-url}images/msg.png");
+          background-repeat:no-repeat;
+          background-position:10px 4px;
+          @media @large-mobile{
+            padding-left: 40px;
+            background-size: 20px;
+          }
+          @media @mobile{
+            padding-left: 40px;
+            background-size: 20px;
+          }
+        }
+        li.email-icon{
+          color:#66ccff;
+          padding-left:60px;
+          cursor:pointer;
+          background-image: url("@{base-url}images/email.png");
+          background-repeat:no-repeat;
+          background-position:10px 4px;
+          @media @large-mobile{
+            padding-left: 40px;
+            background-size: 20px;
+            background-position: 10px 5px;
+          }
+          @media @mobile{
+            padding-left: 40px;
+            background-size: 20px;
+          }
+        }
+      }
+    }
+    .loan-details{
+      font-size:26px;
+      border: 1px solid #e5e5e5;
+      .padding(0px,0px,0px,0px);
+      .white-bg;
+      .fn-center;
+      @media @x-large-desktop,@large-desktop{
+        font-size:20px;
+      }
+      @media @desktop{
+        font-size:18px;
+      }
+      .loan-details-wrap{
+        &:first-child{
+          .padding (20px,20px,20px,20px);
+          border-bottom:1px solid #e5e5e5;
+          .margin(0,0,24px,0);
+          //line-height: 52px;
+          >div{
+            @media @large-desktop,@desktop{
+          //line-height: 25px;
+        }
+            padding-left:30px;
+            border-right:1px solid #ccc;
+            @media @tablet,@small-tablet,@desktop,@large-mobile,@mobile{
+                border-right:0;
+                border-bottom:1px solid #ccc;
+              }
+            &:first-child{
+              padding-left: 60px;
+              background-image: url("@{base-url}images/check-in.png");
+              background-repeat:no-repeat;
+              background-position:15px 0px;
+              @media @tablet,@small-tablet,@desktop,@large-mobile,@mobile{
+                width:100%;
+                font-size: 22px;
+                padding-bottom:10px;
+              }
+              @media @x-large-desktop,@large-desktop,@desktop{
+                //padding-left: 45px;
+                background-position:0px 0px;
+              }
+              @media @large-mobile,@mobile{
+                font-size: 18px;
+                padding-left: 0px;
+                background-position: 6px 3px;
+                background-size: 18px;
+              }
+              @media @mobile{
+                font-size: 16px;
+                padding-left: 0px;
+                background-position: 6px 3px;
+                background-size: 18px;
+              }
+            }
+            &:nth-child(2){
+              @media @tablet,@small-tablet,@desktop,@large-mobile,@mobile{
+                width:100%;
+                font-size: 22px;
+                padding: 10px 0 10px 60px;
+              }
+              @media @large-mobile,@mobile{
+                font-size: 18px;
+                padding-left: 0px;
+              }
+              @media @large-mobile,@mobile{
+                font-size: 16px;
+                padding-left: 0px;
+              }
+            }
+            
+            &:last-child{
+              border:0;
+              @media @tablet,@small-tablet,@desktop,@large-mobile,@mobile{
+                width:100%;
+                padding-left: 60px;
+                padding-top: 10px;
+              }
+              @media @large-mobile,@mobile{
+                font-size: 16px;
+                padding-left: 0px;
+              }
+              @media @mobile{
+                font-size: 14px;
+                padding-left: 0px;
+              }
+              .loan-status{
+                color:#66ccff;
+              }
+              .closing-date{
+                color:#b7b7b7;
+              }
+              }
+          }
+        }
+        
+        .stat{
+        line-height: 20px;
+        @media @x-large-desktop,@large-desktop{
+          line-height: 16px;
+        }
+        span{
+        font-size:16px;
+        @media @x-large-desktop,@large-desktop{
+          font-size:13px;
+        }
+        @media @mobile{
+                font-size: 14px;
+              }
+      }
+      }
+      .map-icon{
+                @media @large-mobile,@mobile{
+                    padding-right:30px;
+              }
+              }
+      }
+      .carousel-wrap{
+          .padding (0px,25px,40px,25px);
+          @media @large-desktop,@desktop,@tablet,@small-tablet{
+          .padding (0px,0,40px,0);
+        }
+        @media @large-mobile,@mobile{
+          .padding (0px,0,20px,0);
+        }
+          .curosal-1,.curosal-3{
+            .btn-green{
+              button{
+                @media @desktop{
+                .margin(20px,0,20px,0);
+                font-size:18px;
+              }
+              @media @tablet{
+                .margin(20px,0,20px,0);
+                font-size:16px;
+              }
+              @media @small-tablet{
+                .margin(10px,0,10px,0);
+                font-size:16px;
+              }
+              @media @large-mobile{
+                .margin(10px,0,10px,0);
+                font-size:16px;
+              }
+              @media @mobile{
+                .margin(10px,0,10px,0);
+                font-size:16px;
+                width: 160px;
+                .padding(10px,0,10px,0);
+              }
+              }
+              
+            a{
+              font-size:20px;
+              margin-left:20px;
+              @media @x-large-desktop,@large-desktop{
+                font-size:18px;
+              }
+              @media @desktop{
+                font-size:18px;
+                display:block;
+                margin-left:0;
+              }
+              @media @tablet{
+                font-size:16px;
+              }
+              @media @small-tablet{
+                font-size:16px;
+                display:block;
+                margin-left:0;
+              }
+              @media @large-mobile,@mobile{
+                font-size:14px;
+                display:block;
+                margin-left:0;
+              }
+            }
+          }
+          }
+          .curosal-2{
+            font-size:20px;
+            .question-box{
+              border: 2px solid #eaeaea;
+              .padding(15px,20px,15px,20px);
+              form{
+                label{
+                  font-weight:normal;
+                  .margin(0,0,0,15px);
+                }
+              }
+            }
+            .q-box-2,.q-box-3,.q-box-4{
+              border:0;
+              input[type="text"]{
+                .padding(5px,30px,5px,30px);
+              }
+            }
+          }
+        }
+      
+    }
+}
+
+
+.main-content .loan-details .curosal{
+    overflow: hidden;
+    min-height:240px;
+    @media @tablet,@small-tablet{
+        min-height:360px;
+     }
+     @media @large-mobile{
+        min-height:350px;
+     }
+     @media @mobile{
+        min-height:350px;
+     }
+    >div{
+      .fn-center;
+      .col-sm-3{
+        height: 200px;
+        background-repeat:no-repeat;
+        @media @small-tablet{
+          height:160px;
+        }
+        @media @large-mobile{
+          height:120px;
+        }
+        @media @mobile{
+          height:90px;
+        }
+        
+      }
+      /* E-sign image change - Begin */
+      .curosal-2-img{
+            background-image: url("@{base-url}images/esign_icon.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            @media @large-desktop,@desktop{
+                background-size: 80%;
+              }
+              @media @tablet{
+                width:100%;
+                background-size: 150px;
+                background-position: 50% 0;
+              }
+              @media @small-tablet{
+                width:100%;
+                background-size: 120px;
+                background-position: 50% 0;
+              }
+              @media @large-mobile{
+                width:100%;
+                background-size: 90px;
+                background-position: 50% 0;
+                margin-top: 25px;
+              }
+              @media @mobile{
+                width:100%;
+                background-size: 60px;
+                background-position: 50% 0;
+                margin-top: 45px;
+              }
+        }
+      /* E-sign image change - End */
+      .curosal-1-img{
+            background-image: url("@{base-url}images/file-upload.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            @media @large-desktop,@desktop{
+                background-size: 80%;
+              }
+              @media @tablet{
+                width:100%;
+                background-size: 150px;
+                background-position: 50% 0;
+              }
+              @media @small-tablet{
+                width:100%;
+                background-size: 120px;
+                background-position: 50% 0;
+              }
+              @media @large-mobile{
+                width:100%;
+                background-size: 90px;
+                background-position: 50% 0;
+                margin-top: 25px;
+              }
+              @media @mobile{
+                width:100%;
+                background-size: 60px;
+                background-position: 50% 0;
+                margin-top: 45px;
+              }
+        }
+        .curosal-3-img{
+            background-image: url("@{base-url}images/like.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            @media @large-desktop,@desktop{
+                background-size: 80%;
+              }
+              @media @tablet{
+                width:100%;
+                background-size: 150px;
+                background-position: 50% 0;
+              }
+              @media @small-tablet{
+                width:100%;
+                background-size: 120px;
+                background-position: 50% 0;
+              }
+              @media @large-mobile{
+                width:100%;
+                background-size: 90px;
+                background-position: 50% 0;
+              }
+              @media @mobile{
+                width:100%;
+                background-size: 60px;
+                background-position: 50% 0;
+              }
+        }
+        .curosal-1-content{
+          @media @tablet{
+                width:100%;
+                font-size: 20px;
+              }
+              @media @small-tablet{
+                font-size: 18px;
+                float: none;
+                margin: 0px auto;
+                text-align: center;
+              }
+              @media @large-mobile{
+                font-size: 18px;
+                float: none;
+                margin: 0px auto;
+                text-align: center;
+              }
+              @media @mobile{
+                font-size: 16px;
+                float: none;
+                margin: 0px auto;
+                text-align: center;
+              }
+        }
+    }
+    
+}
+
+/*caurosal override*/
+.carousel-control.right {
+    width: 10%;
+    background-image: none;
+    top: 95px;
+    @media @x-large-desktop{
+        top: 95px;
+    }
+    @media @large-desktop{
+        top: 105px;
+    }
+    @media @desktop{
+        top: 190px;
+    }
+    @media @tablet{
+        top: 200px;
+    }
+    @media @small-tablet{
+        top: 195px;
+    }
+    @media @large-mobile,@mobile{
+        top: 170px;
+    }
+    @media @mobile{
+        top: 190px;
+    }
+    
+    span.glyphicon{
+      padding: 5px;
+      border: 2px solid #ccc;
+      height: 50px;
+      width: 50px; 
+       @media @x-large-desktop,@xx-large-desktop{
+       margin-right: -50px;
+      }
+       @media @xxx-large-desktop{
+          margin-right: -70px;
+      }
+      @media @large-desktop{
+        margin-right: -40px;
+      }
+      @media @desktop{
+        margin-right: -30px;
+      }
+      @media @tablet,@small-tablet,@large-mobile{
+          height: 40px;
+          width: 40px;
+       }
+       @media @mobile{
+          height: 30px;
+          width: 30px;
+       }
+    }
+    .glyphicon-chevron-right{
+        background-image: url("@{base-url}images/right.png");
+        background-repeat: no-repeat;
+        background-size: 20px;
+        background-position: center;
+        &::before {
+    content: "";
+    }
+      }
+}
+.carousel-control.left {
+    width: 10%;
+    background-image: none;
+    top: 95px;
+    @media @x-large-desktop{
+        top: 95px;
+    }
+    @media @large-desktop{
+        top: 105px;
+    }
+    @media @desktop{
+        top: 190px;
+    }
+    @media @tablet{
+        top: 200px;
+    }
+    @media @small-tablet{
+        top: 195px;
+    }
+    @media @large-mobile,@mobile{
+        top: 170px;
+    }
+    @media @mobile{
+        top: 190px;
+    }
+    span.glyphicon{
+      padding: 5px;
+      border: 2px solid #ccc;
+      height: 50px;
+      width: 50px;
+      @media @x-large-desktop,@xx-large-desktop{
+          margin-left: -50px;
+      }
+      @media @xxx-large-desktop{
+          margin-left: -70px;
+      }
+      @media @large-desktop{
+        margin-left: -40px;
+      }
+      @media @desktop{
+        margin-left: -30px;
+      }
+      @media @tablet,@small-tablet,@large-mobile{
+          height: 40px;
+          width: 40px;
+       }
+       @media @mobile{
+          height: 30px;
+          width: 30px;
+       }
+    }
+    .glyphicon-chevron-left{
+        background-image: url("@{base-url}images/left.png");
+        background-repeat: no-repeat;
+        background-size: 20px;
+        background-position: center;
+        &::before {
+    content: "";
+    }
+    
+    }
+}
+   
+.carousel-indicators {
+    bottom: -20px;
+    li{
+      background-color: #999999;
+    }
+    li.active{
+        background-color: #66cc66;
+      }
+}
+
+
+
+

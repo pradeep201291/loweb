@@ -1,0 +1,481 @@
+
+.main-content{
+     .dashboard-tabs{
+         .nav-tabs{
+                display: inline-block;
+                border: 1px solid @tab-border-color;
+                border-radius: 2px;
+                position: relative;
+                background: @tab-inactive-background;
+                li{
+                    .padding(6px,5px,6px,5px);
+                    border-right: 1px solid @tab-border-color;
+                    cursor:pointer;
+                    min-width: 120px;
+                    text-align: center;
+                    @media @mobile{
+                        min-width: 90px;
+                    }
+                    &:last-child{
+                        border-right: 0;
+                        @media @mobile{
+                    }
+                    }
+                    a{
+                        color:@tab-inactive-text;
+                        font-size: 15px;
+                        .padding(0,0,0,0);
+                        outline:0;
+                        border: 0;
+                        @media @mobile{
+                        font-size: 15px;
+                        }
+                    }
+                    &:hover{
+                        background-color: @tab-active-background;
+                        a,a:focus,a:hover{
+                            border:0;
+                            color: @tab-active-text;
+                            background: transparent;
+                        }
+                    }
+                    &.active{
+                        background-color: @tab-active-background;
+                        a,a:focus,a:hover{
+                            border:0;
+                            color: @tab-active-text;
+                            background: transparent;
+                        }
+                    }
+                }
+
+                .refine-search{
+                    background: none;
+                    border-radius: 2px;
+                    padding: 6px;
+                    color: @base-text-color;
+                    font-size: 18px;
+                    position: absolute;
+                    right:0;
+                    @media @mobile,@large-mobile,@small-tablet{
+                    top:60px;
+                    }
+                }
+            }
+            .tab-content{
+                .padding(20px,0,10px,0);
+            }
+            
+
+
+
+
+
+.dashboard-left-wrap{
+         .dashboard-items,.loan-status-board-wrap,.leaderboard-wrap,.marketing-board-wrap{
+             h4{font-weight: 700;}
+         }
+         .loan-status-board-wrap{
+              padding-left:0;
+              @media @desktop,@large-desktop,@small-tablet,@large-mobile,@mobile{
+               padding-right:0;
+           }
+           @media only screen and (min-width: 800px) and (max-width: 991px){
+               padding-right:15px;
+           }
+           h4{
+                   margin-left: 35px;
+                   @media @mobile,@large-mobile,@small-tablet,@tablet,only screen and (min-width: 800px) and (max-width: 991px){
+                       margin-left: 0px;
+                   }  
+           }
+             .loan-status-board{
+                 height:190px;
+				.padding(15px,0,15px,0);
+				.status-chart{
+                    padding-left: 0px;
+                    .c3-chart-arc path {
+                    stroke: white;
+                    stroke-width: 2px;
+                    }
+                    .c3-chart-arcs-title {
+                        font-style: inherit;
+                    } 
+				}
+				.status-key{
+					.padding(15px,0,0,0);
+					.loan-status-elements{
+						//margin-bottom:15px;
+                        font-size:12px;
+						.status-label{
+							display:inline-block;
+							color:#8e8e8e;
+							width:75%;
+							//padding-left:16px;
+							background-repeat:no-repeat;
+							background-position:left center;
+                            @media @mobile{
+                                 //width:75%;
+                             }
+                            // The below code has been commented to fix bug #2859
+                            // @media @mobile{
+                            //     width: 0px;
+                            //     text-indent: -9999px;
+                            // }
+                            .status-circle{
+                                width: 10px;
+                                height: 10px;
+                                border-radius: 50%;
+                                display: inherit;
+                                .margin(2px,5px,0,0);
+                                float: left;                                
+                            }
+						}
+						
+						.status-cost{
+							color:#424242;
+                            font-size:11px;
+						}
+                        /* This is for aligning the dashboard status */
+                        >p{
+                                margin-bottom: 0;
+                        }
+				    }	
+				}
+			}
+         } 
+     }
+
+
+
+
+
+
+
+    .tab-content{
+         .search-box-div{
+                position: relative;
+                text-align:right;
+                display:block;
+                .margin(0,0,5px,0);
+			    input{
+                  .padding(9px,28px,9px,14px);
+                    margin-bottom: 10px;
+                    width: 380px;
+                    border-radius: 2px;
+                    border: 1px solid @border-secondary-color;
+                    @media @mobile,@large-mobile{
+                        width: 275px;
+                    }
+
+                    &:focus{
+                        box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+                        outline: 0;
+                    }
+                       
+                }
+                .search-icon{
+                    width: 50px;
+                    height: 50px;
+                    display: inline-block;
+                    position: absolute;
+                    top: -5px;
+                    right: 8px;
+                    background-image:url("@{base-url}images/search-icon.png");
+                    background-repeat: no-repeat;
+                    background-position: right 5px center;
+                    background-size: 20px;
+                }
+		}
+        .pipeline-tot-wrap{
+            margin-top: 10px;
+            color: #1c406a;
+            @media @small-tablet,@large-mobile,@mobile{
+                width: 100%;
+                float: left;
+                text-align: left;
+                margin: 0;
+            }
+        }
+
+        .tab-table{
+            .padding(0px,15px,15px,0px);
+            position: relative;
+        }
+        
+}
+
+
+
+
+
+
+
+
+
+         
+
+     .pipeline-wrap{
+         clear: both;
+        .body-color {color:#928c8c}
+        .padding(0px,0px,0px,0px);
+    }
+
+        .loan-info-table{
+            thead{
+                tr{
+                    th{
+                         &.loan-num{
+                            min-width:126px;
+                        }
+                        &.borrower-name{
+                            min-width:195px;
+                        }
+                        &.loan-purpose{
+                            min-width:182px;
+                        }
+                        &.loan-status{
+                            min-width:150px;
+                        }
+                        &.closing-date{
+                            min-width:195px;
+                        }
+                        &.action-popup-head{
+                            min-width:60px;
+                        }
+                        &:last-child{
+                            @media @mobile,@large-mobile{
+                            display: none;
+                            } 
+                        }
+                    }
+                }
+            }
+            tbody{
+            tr{
+              td{
+                &:last-child{
+                  height:50px;
+                  @media @mobile,@large-mobile{
+                  display: none;
+                  } 
+                }
+                a.pipeline-ellipse{
+                    cursor: pointer;
+                        
+                        span{
+                             display: inline-block;
+                             width: 25px;
+                             height: 25px;
+                             background-image:url("@{base-url}images/double-arrow-red.png");
+                             background-size: 100%;
+                             background-repeat: no-repeat;
+                             vertical-align: middle;
+                        }
+                        
+                        @media @mobile-landscape{
+                            display: none;
+                        }
+                }      
+              }
+        }
+            }
+        }
+     }
+     
+
+    
+    
+
+    .arrow-right-border{
+                    width: 0; 
+                    height: 0; 
+                    border-top: 20px solid transparent;
+                    border-bottom: 20px solid transparent;
+                    border-left: 15px solid #ccc;
+                    position: absolute;
+                    top: 86px;
+                    right: 305px;
+                    z-index:1;
+
+                .arrow-right {
+                    width: 0; 
+                    height: 0; 
+                    border-top: 20px solid transparent;
+                    border-bottom: 20px solid transparent;
+                    border-left: 15px solid #fff;
+                    position: absolute;
+                    left: -18px;
+                    top: -20px;
+                } }
+
+    }
+
+.loan-details-popup{
+    position: absolute;
+    right: 15px;
+    top: 1px;
+    z-index: 99;
+    min-width: 540px;
+    .padding(15px,15px,0px,15px);
+    box-shadow: 0px 0px 5px #777;
+    border-radius: 2px;
+    background: @secondary-background;
+		@media @small-tablet{
+			min-width: 80%;
+		}
+
+    .close-popup{
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        color: #666;
+    }
+        .loan-tooltip{
+		width:100%;
+        .loan-number{
+            font-size: 16px;
+            color: @base-text-color;
+        }
+		.tooltip-info{
+            .padding(15px,15px,0px,15px);
+		    .tooltip-info-left,.tooltip-info-right{
+                width:250px;
+                float: left;
+                @media @small-tablet{
+                    width: 48%;
+                }
+            }
+			
+			.tooltip-elements{
+				margin-bottom:20px;
+                &:first-child{
+                    min-height: 64px;
+                }
+				.element-label{
+					font-size: 14px;
+					margin-bottom:0;
+                    color: @label-text-color;
+				}
+				.element-info{
+					font-size:16px;
+                    word-break: break-all;
+				}
+			}
+		}
+		.tooltip-actions{
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+			border-top: 1px solid @border-secondary-color;
+			.padding(15px,20px,15px,20px);
+			
+			
+            .lock-popup{
+                position:absolute;
+                .padding(10px,10px,10px,10px);
+                left: 8px;
+                bottom: 55px;
+                font-weight:600;
+                background: @secondary-background;
+                display: none;
+                border: 1px solid @border-secondary-color;
+                border-radius:2px;
+            }
+            .lock{
+                &:hover{
+                    & + .lock-popup{
+                        display: block;
+                    }
+                }
+            }
+            .disabled {
+                    cursor:no-drop;
+                    a{
+                        cursor:no-drop;
+                    }
+                 }
+            .lock{
+				background:url("@{base-url}images/lock-grey.png") no-repeat;
+                
+			}
+			.upload{
+				background:url("@{base-url}images/upload-grey.png") no-repeat;
+                
+			}
+			.message{
+				background:url("@{base-url}images/msg-grey.png") no-repeat;
+			}
+            .phone{
+                background:url("@{base-url}images/call-grey.png") no-repeat;
+            }
+            .lock,.upload,.call,.message,.phone{
+			    padding-top: 20px;
+                display: inline-block;
+                background-size: 16px;
+                background-position: center 0;
+
+                a{
+                    color: @base-text-color;
+                }
+				@media @tablet{
+				padding-right:0px;
+				font-size:13px;
+				}
+                @media @small-tablet{
+					margin-bottom:10px;
+		        }
+				@media @small-tablet , @large-mobile, @mobile{
+					font-size:14px;
+		        }
+			}
+		}
+	}
+   
+}
+
+// .leaderboard-sort{
+//     overflow:hidden;
+//  .unit,.amt{
+//         width:50%;
+//         float:left;
+//         height: 25px;
+//         background-color: #f5f5f5;
+//         color: #8e8e8e;
+//         text-align: center;
+//         cursor: pointer;
+//     }
+
+// .unit{
+//     border-left:3px solid #fff;
+// }
+// .leaderboard-selected{
+//     background-color: #dcdada;
+// }
+// }
+
+.rate-locked{
+    // opacity:1;
+    // display:block;
+    .modal-dialog{
+         background: @secondary-background;
+         margin: 400px auto 0;
+         width:300px;
+        .modal-content{
+            height:100px;
+            border-radius: 2px;
+            font-weight: 600;
+            .modal-header{
+                border:0;
+             .padding(10px,10px,0,0);
+             .close{
+                 font-size:16px;
+                 color: #666;
+                 opacity: 1;
+             }
+        }
+        .modal-body{
+
+        }
+        }
+    }
+}

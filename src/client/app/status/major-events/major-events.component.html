@@ -1,0 +1,13 @@
+<h2 class="sub-heading">Major Events</h2>
+<div class="events-info status-box">
+    <div class="grey-line">
+    </div>
+    <div class="event-row" *ngFor="let event of majorEvents">
+        <span class="event-date">
+		<span *ngIf="event.date">{{event.date | date:"MM/dd/yyyy"}}</span>
+        <span *ngIf="!event.date">TBD</span>
+        </span>
+        <span class="red-ellipse"></span>
+        <span class="event-date-info">{{event.label}}</span>
+    </div>
+</div>

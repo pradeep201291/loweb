@@ -1,0 +1,173 @@
+.dashboard-table{
+        .table{
+            border-collapse: separate;
+            border-radius: 2px;
+            border: 1px solid @border-secondary-color;
+            thead{
+                tr{
+                    th{
+                        background: @secondary-background;
+                        border:0;
+                        color: @table-head-color;
+                        font-size: 15px;
+                        vertical-align: middle;
+                        .padding(10px,15px,10px,15px);
+
+
+                        &.table-sort{
+                        position:relative;
+                        padding-right: 20px;
+                        .sort-up,.sort-down,.sort{
+                            background-repeat: no-repeat;
+                            background-size: 100% 100%;
+                            display: inline-block;
+                            cursor: pointer;
+                            position: absolute;
+                            height: 15px;
+                            width: 20px;
+                            top: 12px;
+                            margin-left: 7px;
+                            }
+                        .sort-up{
+                                background-image: url("@{base-url}images/up-sort.png");
+                            }
+                        .sort-down{
+                                background-image:url("@{base-url}images/down-sort.png");
+                            }
+                        .sort{
+                               background-image:  url("@{base-url}images/no-sort.png");
+                            }   
+                        }
+                    }
+                }
+            }
+            tbody{
+		        border: 0;
+                color: @base-text-color;
+                tr{
+                    td{
+                       vertical-align: middle;
+                       border:0;
+                       font-size: 16px;
+                       .padding(15px,15px,15px,15px);
+                        
+                        .view-comments{
+                            color: #325ac8;
+                            font-size: 14px;
+                            .select-arrow{
+                                color:@base-primary-color;
+                                font-size: 10px;
+                                vertical-align:middle;
+                                margin-left:5px;
+                            }
+                        }
+                        &.action{
+                            font-weight:normal;
+                            font-size: 13px;
+                            font-weight: 600;
+                        }
+                        &.name-link{
+                            span{
+                                cursor: pointer;
+                            }
+                        }
+                        .table-link{
+                            border-radius: 2px;
+                            border: solid 1px @base-primary-color;
+                            background-color: @secondary-background;
+                            color:@base-primary-color;
+                            .padding(6px,16px,5px,16px);
+                            display: inline-block;
+                            height: 36px;
+                            font-size: 16px;
+                            font-weight: normal;
+                            &:hover{
+                                color: @secondary-text-color;
+                                background: @base-primary-color;
+                            }
+                        }
+
+                        .needlist-name{
+                            font-size: 15px;
+                            opacity: 0.7;
+                        } 
+                    }
+                    &:nth-of-type(odd){
+                        background: @table-alternate-color;
+                    }
+                     &:nth-of-type(even){
+                        background: @secondary-background;
+                    }
+                }
+            }
+        }
+        &.scenario-table{
+            table{
+                thead{
+                    tr{
+                        th{
+                            &.borrower-name{
+                                min-width: 150px;
+                            }
+                             &.scenario-num{
+                                min-width: 155px;
+                            }
+                             &.loan-amt{
+                                min-width: 126px;
+                            }
+                             &.ltv{
+                                min-width: 74px;
+                            }
+                             &.date-created{
+                                min-width: 127px;
+                            }
+                             &.date-modified{
+                                min-width: 134px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // .pagination-div{
+    //     ul{
+    //         .margin(0,0,0,0);
+    //         li{
+    //             &.active{
+    //                 a{
+    //                     background-color: rgba(24, 57, 96, 0.25);
+    //                     color: @base-text-color;
+    //                     &:hover{
+    //                         background-color: rgba(24, 57, 96, 0.25);
+    //                         color: @base-text-color;
+    //                     }
+    //                 }
+    //             }
+    //             &:first-child,&:last-child{
+    //                 a{
+    //                     border-radius: 2px;
+    //                 }
+    //             }
+    //             &:last-child{
+    //                 a{
+    //                     margin-right:0;
+    //                 }
+    //             }
+                
+    //             a{
+    //                 cursor: pointer;
+    //                 color: @body-text-color;
+    //                  border-radius: 2px;
+    //                 .padding(3px,8px,1px,8px);
+    //                 font-size:14px;
+    //                 border: 1px solid @base-primary-color;
+    //                 margin-right:10px;
+    //                 .glyphicon{
+    //                     font-size:10px;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }

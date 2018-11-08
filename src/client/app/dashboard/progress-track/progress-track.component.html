@@ -1,0 +1,18 @@
+<div class="items-wrap">
+	{{widget?.widget_id}}
+	<div class="wrapper-items" id="wrapperItems">
+		<div class="important-items-wrap" *ngFor="let widget of selectWidgets" (click)="scrollToTable()">
+			<div class="important-items" [ngClass]="{'active': (widget.widget_id?(widget_id == widget.widget_id) : false)}"
+							(click)="clickHandler(widget)">
+				<span class="item-count">{{widget.count}}</span>
+				<span class="item-label">{{widget.name}}</span>
+			</div>
+		</div>
+	</div>
+	<div *ngIf= "widgets.length > 6"class="important-items-wrap" (click)="toggleWidget()">
+		<div class="important-items more-filters text-center">
+			<span class=" arrow " [ngClass]="{'up-arrow': !isWidgetShown, 'down-arrow': isWidgetShown }"></span>
+			<!--<span class="">{{widgetText}}</span>-->
+		</div>
+	</div>
+</div>

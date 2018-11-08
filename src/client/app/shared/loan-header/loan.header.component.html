@@ -1,0 +1,28 @@
+<!--<div class="address-wrap col-md-6 col-sm-12">
+	<span class="map-icon"></span>
+	<strong *ngIf="selectedLoan">{{selectedLoan?.prop_address}}, {{selectedLoan?.prop_city}}, {{selectedLoan?.prop_state}}, {{selectedLoan?.prop_zip}}</strong>
+</div>
+<div class="loanNo-wrap col-md-3 col-sm-6" [ngClass]="{'loanNo-wrap': hasStatus}">
+	<strong *ngIf="selectedLoan">LOAN # {{selectedLoan?.loan_num}}</strong>
+</div>
+<div class="loanSelect-wrap col-md-3 col-sm-6 col-xs-7">
+	<p *ngIf="selectedLoan">Status - {{selectedLoan?.status}}</p>
+</div>-->
+<div class="loan-header">
+	<div class="row">
+		<div class="loan-wrap col-md-6 col-sm-7 col-lg-6 col-xs-12">
+			<p *ngIf="selectedLoan" class="loan-no">Loan : <span>{{selectedLoan?.loan_num}}</span></p>
+			<div class="info-div">
+				<p *ngIf="lastName && firstName" class="name">{{lastName}}, {{firstName}}</p>
+				<ul *ngIf="selectedLoan?.prop_address && selectedLoan?.prop_city && selectedLoan?.prop_state && selectedLoan?.prop_zip" class="address">
+					<li>{{selectedLoan?.prop_address}}, {{selectedLoan?.prop_city}}, {{selectedLoan?.prop_state}}, {{selectedLoan?.prop_zip}}</li>
+				</ul>
+			</div>
+		</div>
+		<div class="status-wrap col-md-6 col-sm-5 col-lg-6 col-xs-12 text-right ">
+			<p *ngIf="selectedLoan" class="status">Status: <span>{{selectedLoan?.status}}</span></p>
+			<p *ngIf="selectedLoan?.est_closing_date" class="closing-date">Est. Closing Date: <span>{{selectedLoan?.est_closing_date ? (selectedLoan.est_closing_date | date:'shortDate' ) : "TBD"}}</span></p>
+			<p *ngIf="!selectedLoan?.est_closing_date" class="closing-date">Est. Closing Date: <span>TBD</span></p>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,55 @@
+<div class="modal-body sm-modal">
+	<p *ngIf="rateSheetData === null" class="text-center">Loading...</p>
+	<div *ngFor="let priceList of rateSheetData" class="modal-table-wrap">
+		<table class="table modal-table">
+			<tr>
+				<th><span class="rate-head">{{priceList.ratesheet_col_desc}}</span></th>
+			</tr>
+			<tr *ngFor="let price of priceList.price_list; let i = index;">
+				<td [ngClass]="{'active': (selectedPriceList.ratesheet_col_desc === priceList.ratesheet_col_desc && selectedPriceList.id === i && priceList.ratesheet_col_desc !== 'RATE'), 'hover-active': (priceList.ratesheet_col_desc !== 'RATE')}"
+					(click)="selectedRate(price, priceList.ratesheet_col_code, priceList.ratesheet_col_desc, i)" id="{{i + 1}}">{{price | MinusConversion}}</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="modal-body xs-modal">
+	<ul class="nav nav-tabs">
+		<li [ngClass]="{'active': isFirstSectionSelected === true}" (click)="toggleTabSelection('first')"><a data-toggle="tab">Upto 30 days</a></li>
+		<li [ngClass]="{'active': isSecondSectionSelected === true}" (click)="toggleTabSelection('second')"><a data-toggle="tab">30 days to 90 days</a></li>
+	</ul>
+	<div class="tab-content">
+		<div id="upto-thirty-days" class="tab-pane fade" [ngClass]="{'in active': isFirstSectionSelected === true}">
+			<div *ngFor="let priceList of rateSheetData;  let i = index"  class="modal-table-wrap">
+				<div *ngIf="i<=2">
+					<table class="table modal-table">
+						<tr>
+							<th class="rate-head"><span>{{priceList.ratesheet_col_desc}}</span></th>
+						</tr>
+						<tr *ngFor="let price of priceList.price_list; let i = index;">
+							<td [ngClass]="{'active': (selectedPriceList.ratesheet_col_desc === priceList.ratesheet_col_desc && selectedPriceList.id === i && priceList.ratesheet_col_desc !== 'RATE'), 'hover-active': (priceList.ratesheet_col_desc !== 'RATE')}"
+								(click)="selectedRate(price, priceList.ratesheet_col_code, priceList.ratesheet_col_desc, i)" id="{{i}}">{{price| MinusConversion}}</td>
+						</tr>
+					</table>
+					<!--<sl-price-list [priceList]="priceList" (onRateSelected)="onRateSelected($event)"> </sl-price-list>-->
+				</div>
+			</div>
+		</div>
+		<div id="thirty-ninety-days" class="tab-pane fade" [ngClass]="{'in active': isSecondSectionSelected === true}">
+			<div *ngFor="let priceList of rateSheetData ;  let i = index" class="modal-table-wrap">
+				<div *ngIf="i>2">
+					<table class="table modal-table">
+						<tr>
+							<th><span class="rate-head">{{priceList.ratesheet_col_desc}}</span></th>
+						</tr>
+						<tr *ngFor="let price of priceList.price_list; let i = index;">
+							<td [ngClass]="{'active': (selectedPriceList.ratesheet_col_desc === priceList.ratesheet_col_desc && selectedPriceList.id === i && priceList.ratesheet_col_desc !== 'RATE'), 'hover-active': (priceList.ratesheet_col_desc !== 'RATE')}"
+								(click)="selectedRate(price, priceList.ratesheet_col_code, priceList.ratesheet_col_desc, i)" id="{{i}}">{{price | MinusConversion}}</td>
+						</tr>
+					</table>
+					<!--<sl-price-list [priceList]="priceList" (onRateSelected)="onRateSelected($event)"> </sl-price-list>-->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

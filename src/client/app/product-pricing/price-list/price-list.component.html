@@ -1,0 +1,9 @@
+<table class="table modal-table">
+	<tr>
+		<th>{{priceList.ratesheet_col_desc}}</th>
+	</tr>
+	<tr *ngFor="let price of priceList.price_list; let i = index;">
+		<td [ngClass]="{'active': (selectedPrice === price && selectedColumn === priceList.ratesheet_col_desc)}" 
+			(click)="selectedRate(price, priceList.ratesheet_col_code, priceList.ratesheet_col_desc, id)" id="{{i + 1}}">{{price}}</td>
+	</tr>
+</table>

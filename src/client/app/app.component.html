@@ -1,0 +1,18 @@
+<div id="overlay" (click)="disableOverlay()"></div>
+<div class="wrapper" [ngClass]="backgroundClass">
+	<sl-header 
+		[isLoggedIn]="!isLogin" 
+		[logosrc]="headerLogo"
+		[logoVisibility]="isLogoActive"
+		[isSearchVisible]="isSearchRequired">
+	 </sl-header>
+	<!--<div class="container-fluid login-body" >-->
+	<div [ngClass]="authenticatedPage">
+		<sl-lo-nav *ngIf="!isLogin"></sl-lo-nav>
+		<!--<right-nav *ngIf="!isLogin"></right-nav>-->
+		<router-outlet>
+			<progress-bar></progress-bar>
+		</router-outlet>
+	</div>
+	<sl-announcement *ngIf="isLogin"></sl-announcement>
+</div>

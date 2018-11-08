@@ -1,0 +1,22 @@
+<div class="upload-file-wrap">
+    <div class="upload-file">
+        <div class="upload-div row">
+            <sl-file-drop (fileSelectionHandler)="getdroppedFiles($event)"></sl-file-drop>
+            <input type="file" id="fileUpload" style="display:none" [accept]="acceptedFileTypes" (change)="fileChangeEvent($event)" multiple>
+            <div class="clear"></div>
+        </div>
+        <div class="file-btn-div" *ngIf="(selectedFiles && selectedFiles.length > 0) || validationMessage || initialValidationMessage" >
+            <div *ngFor="let file of selectedFiles " class="file fL">
+                <span class="file-name">{{file.name}}</span>
+                <span class="fR remove-file" (click)="removeFile(file)"><span class="">&times;</span></span>
+            </div>
+            <div class="validation-div fL">
+                <span *ngIf="validationMessage" class="text-center  note-text" [ngClass]="{'text-success': !isRetryVisible, 'text-danger': isRetryVisible }"><span class="status-icon"></span>{{validationMessage}}</span>
+                <span *ngIf="initialValidationMessage" class="text-center  note-text text-danger">{{initialValidationMessage}}</span>
+            </div>
+            <button *ngIf="(selectedFiles && selectedFiles.length > 0) && !isUploadClicked && !isRetryVisible" class="primary-button" (click)="onUploadDocumentClick()">Upload</button>
+            <button *ngIf="isRetryVisible" class="primary-button" (click)="onUploadDocumentClick()">Retry</button>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>

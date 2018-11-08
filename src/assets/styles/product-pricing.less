@@ -1,0 +1,186 @@
+.main-content{
+    .table-responsive{
+        @media @mobile,@large-mobile,@small-tablet{
+            border: 0;
+        }
+    }
+    .product-pricing-wrap{
+    }
+                .rate-info-wrap{
+                    &.modal{
+                        /*@media @mobile{
+                            position: absolute;
+                        }*/
+                    }
+                        .modal-dialog{
+                            width:800px;
+                            @media @desktop,@large-desktop{
+                                width:750px;
+                            }
+                           
+                            @media @tablet{
+                                width:700px;
+                                margin: 175px auto;
+                            }
+                            @media @small-tablet{
+                                width:590px;
+                                margin: 250px auto;
+                            }
+                            @media @large-mobile{
+                                width:440px;
+                                margin: 250px auto;
+                            }
+                            @media @mobile{
+                                width:310px;
+                                margin: 250px auto;
+                           }
+                            /*@media @tablet,@small-tablet,@large-mobile,@mobile{
+                                margin: 85px auto;
+                            }*/
+                            .modal-content{
+                                -webkit-overflow-scrolling: touch;
+                                overflow-y: auto;
+                                background:#fff;
+                                border-radius:3px;
+                                margin:50px auto 0;
+                                @media @mobile,@large-mobile{
+                                        margin:50px auto 0;
+                                    }
+                                .modal-header{
+                                    border-bottom:0;
+                                    .padding(15px,15px,0,32px);
+                                    font-size:18px;
+                                    color:#333;
+                                    @media @mobile,@large-mobile{
+                                        .padding(25px,15px,0,12px);
+                                    }
+                                    h4{
+                                        font-size: 20px;
+                                    }
+                                    .close{
+                                        color:#666;
+                                        opacity:1;
+                                        font-size:30px;
+                                    }
+                                }
+
+                                .modal-body{
+                                    overflow: hidden;
+                                    .padding(25px,25px,0,25px);
+                                    .modal-table-wrap{
+                                        margin-left:15px;
+                                        width:12%;
+                                        float:left;
+
+                                        &:first-child{
+                                            margin-left: 0;
+                                        }
+
+                                        @media @small-tablet{
+                                            width:13%;
+                                            margin-left:8px;
+                                        }
+                                        @media @mobile,@large-mobile{
+                                            width:22%;
+                                            margin-left:8px;
+                                            
+                                        }
+                                        @media @large-mobile{
+                                            margin-left:11px;
+                                        }
+
+                                        .modal-table{
+                                        background:#eee;
+
+                                        tr{
+                                            .rate-head{
+                                                display: inline-block;
+                                                min-height: 70px;
+                                            }
+                                            td,th{
+                                                .padding(10px,0,10px,0);
+                                                text-align:center;
+                                                border:0;
+                                            }
+                                            th{
+                                                color:#333;
+                                                font-size:18px;
+                                            }
+                                            td{
+                                                color:#999;
+                                                font-size:16px;
+                                                cursor: pointer;
+                                                &.active{
+                                                    background: #eee;
+                                                }
+                                                &.hover-active{
+                                                    &:hover{
+                                                    background: @selected-background-color;
+                                                    color:@secondary-text-color;
+                                                }
+                                                &.active{
+                                                    background: @selected-background-color;
+                                                    color:@secondary-text-color;
+                                                }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    }
+                                    
+
+                                    &.sm-modal{
+                                        @media @mobile,@large-mobile{
+                                            display: none;
+                                        }
+                                    }
+                                    &.xs-modal{
+                                        display: none;
+                                        @media @mobile,@large-mobile{
+                                            display: block;
+                                            .padding(25px,10px,0,10px);
+                                        }
+                                        @media @large-mobile{
+                                            .padding(25px,30px,0,30px);
+                                        }
+
+                                        .nav-tabs{
+                                            border:0;
+                                            margin-bottom:15px;
+                                            li{
+                                                width:50%;
+                                                a{
+                                                    border:0;
+                                                    color:#333;
+                                                    background:#eee;
+                                                    .padding(15px,0,15px,0);
+                                                    text-align:center;
+                                                    margin:0;
+                                                }
+
+                                                &.active{
+                                                    a{
+                                                        background:#a93439;
+                                                        color:#fff;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .modal-footer{
+                                    border-top:0;
+                                    button{
+                                        min-width:100px;
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                     
+
+
+                    
+}

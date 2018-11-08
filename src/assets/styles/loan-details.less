@@ -1,0 +1,404 @@
+.main-content{
+    .loan-details-wrap{
+        .loan-detail{
+            .loan-details-nav{
+                .padding(0px,15px,15px,15px);
+                position: fixed;
+                @media @mobile,@large-mobile,@small-tablet{
+                    display: none;
+                }
+                ul{
+                    li{
+                        .padding(30px,0,0,0);
+                        line-height: 1;
+
+                        @media only screen and (max-height: 540px){
+                            .padding(15px,0,0,0);
+                        }
+
+                        &:first-child{
+                            .padding(0,0,0,0);
+                        }
+                        a{
+                            font-size: 16px;
+                            color: @label-text-color;
+                            @media only screen and (max-height: 540px){
+                                // font-size: 14px;
+                            }
+                            }
+                        &.active{
+                           a{
+                            color: @base-text-color;
+                            font-weight: bold;
+                           }
+                        }
+                        
+                    }
+                }
+            }
+            .loan-details-content{
+                 margin-left: 16.667%;
+                 @media only screen and (min-width: 768px) and (max-width: 991px){
+                     margin-left: 25%;
+                 }
+                 @media @mobile,@large-mobile,@small-tablet{
+                     margin:0;
+                 }
+                .content-wrap{
+                    padding-bottom: 580px;
+
+                    @media @mobile,@large-mobile,@small-tablet{
+                        padding-bottom: 0px;
+                    }
+
+                    .panel-wrap{
+                        border-radius: 2px;
+                        box-shadow: 0 0 4px rgba(96, 96, 96, 0.5);
+                        background: @secondary-background;
+                    .details-panel{
+                        .padding(25px,20px,0px,20px);
+                        .details-header{
+                            font-size: 18px;
+                            .margin(0,0,15px,0);
+                            .padding(0,0,5px,0);
+                            border-bottom: 1px solid @border-secondary-color;
+                        }
+                        .element-wrap{
+                            .loan-element{
+                                //display: inline-block;
+                                //.margin(0,40px,15px,0);
+                                .margin(0,0,15px,0);
+
+                                @media @large-mobile,@mobile{
+                                    width: 100%;
+                                }
+
+                                .loan-label{
+                                    font-size: 14px;
+                                    color: @label-text-color;
+                                    margin-bottom: 8px;
+                                    line-height: 1;
+                                }
+                                .loan-value{
+                                    font-size: 16px;
+                                    color: @base-text-color;
+                                    line-height: 1;
+                                    margin-bottom: 0px;
+                                    &.positive{
+                                        color: #2ec63d;
+                                    }
+                                    &.negative{
+                                        color: #ff3b30;
+                                    }
+                                }
+
+                                &.rate-element{
+                                    .loan-value{
+                                        color: @link-color;
+                                    }
+                                }
+
+                                .expand{
+                                            background-image:url("@{base-url}images/double-arrow-red.png");
+                                            display: inline-block;
+                                            width: 23px;
+                                            height: 23px;
+                                            background-size: 100% 100%;
+                                            vertical-align: sub;
+                                        }
+
+                            }
+                            .disable-section{
+                                cursor: no-drop;
+                            }
+                        }
+                        &.borrower-details{
+                            border-top: 0;
+
+                            .loan-element{
+                                @media @desktop,@large-desktop{
+                                    min-height: 55px;   
+                                }
+                            }
+                        }
+                        &.payment-details{
+                            .element-wrap{
+                                .calculation-div{
+                                    width: 35%;
+                                    display: inline-block;
+                                    .margin(0,20px,15px,0);
+                                    background: @base-background;
+                                    .padding(10px,10px,10px,10px);
+                                     @media only screen and (min-width: 800px) and (max-width: 991px),@tablet,@small-tablet{
+                                        width: 50%;
+                                    }
+                                    @media @large-mobile,@mobile{
+                                        width: 100%;
+                                    }
+                                    .loan-element{
+                                        .margin(0,0,0,0);
+                                        width: 100%;
+                                        .loan-label{
+                                            width: 55%;
+                                            display: inline-block;
+                                        }
+                                        .loan-value{
+                                            width: 42%;
+                                            display: inline-block;
+                                            text-align: right;
+                                        }
+                                    }
+                                    hr{
+                                        .margin(10px,0,10px,0);
+                                    }
+                                }
+                                .other-expense-div{
+                                    width: 62%;
+                                    display: inline-block;
+                                    .padding(10px,10px,0px,10px);
+                                    vertical-align: top;
+                                    @media only screen and (min-width: 800px) and (max-width: 991px),@tablet,@small-tablet{
+                                        width: 47%;
+                                    }
+                                    @media @large-mobile,@mobile{
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                        &.closing-details{
+                            .element-wrap{
+                                
+                            }
+                        }
+                        &.lock-loan-details{
+                            .loading{
+                                .padding(15px,0,15px,0);
+                                font-weight: 600;
+                            }
+                            .product-div{
+                                .element-wrap{
+                                    .loan-element{
+                                        .loan-label{
+
+                                        }
+                                        .loan-value{
+                                            .chevron-icon{
+                                                display: inline-block;
+                                                width: 23px;
+                                                height: 23px;
+                                                background-image:url("@{base-url}images/double-arrow-red.png");
+                                                background-repeat: no-repeat;
+                                                background-size: 100% 100%;
+                                                margin-left: 5px;
+                                                vertical-align: middle;
+                                            }
+                                        }
+                                        &.product-name{
+                                            width: 100%;
+                                            .loan-value{
+                                                font-weight: 600;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .price-div{
+                                width: 50%;
+                                display: inline-block;
+                                vertical-align: top;
+                                 @media @mobile,@large-mobile,@small-tablet{
+                                    width: 100%;
+                                }
+                                .expanded-block{
+                                    table{
+                                       thead{
+                                           tr{
+                                               th{
+                                                   border: 0;
+                                                   font-size: 14px;
+                                                   color: @label-text-color;
+                                               }
+                                           }
+                                       } 
+                                       tbody{
+                                           tr{
+                                               td{
+                                                   border: 0;
+                                                   .positive{
+                                                        color: #2ec63d;
+                                                    }
+                                                    .negative{
+                                                        color: #ff3b30;
+                                                    }
+                                                   &.adjustment-label{
+                                                       font-size: 16px;
+                                                   } 
+                                                   &.adjustment-value{
+                                                       font-size: 16px;
+                                                   }
+                                               }
+                                           }
+                                       }
+                                    }
+                                }
+                            }
+                            .lock-button{
+                                padding-bottom: 15px;
+
+                                .lock-icon{
+                                    background-image: url("@{base-url}images/lock.png");
+                                    background-size: 100%;
+                                    display: inline-block;
+                                    width: 15px;
+                                    height: 15px;
+    
+                                }
+                            }
+                        }
+                    }
+                }
+                }
+            }
+        }
+    }
+}
+
+
+.rate-info-wrap{
+    .modal-dialog{
+        margin: 200px auto 0;
+        .modal-content{
+
+        }
+    }
+}
+
+                .adjustment-modal-wrap{
+                    table{
+                        border: 0;
+                    }
+                         .modal-dialog{
+                            width:500px;
+                            @media @mobile, @large-mobile,@small-tablet{
+                                    margin: 30px auto;
+                            }
+                            @media @mobile{
+                                width:95%;
+                            }
+                             .modal-content{
+                                 background:#fff;
+                                 border-radius:2px;
+                                 margin:200px auto 0;
+                                 .padding(25px,25px,25px,25px);
+
+                             .modal-body{
+                                 .padding(0,0,0,0);
+                                 .expanded-block{
+                                     position: relative;
+                                     span.close{
+                                            position: absolute;
+                                            top: 0;
+                                            right: 0;
+                                            display: inline-block;
+                                            width: 15px;
+                                            height: 15px;
+                                            font-size: 16px;
+                                            color: #666;
+                                            opacity: 1;
+
+                                     }
+                                     .product-rate-wrap{
+                                         th,td{
+                                             .padding(8px,8px,8px,8px);
+                                         }
+                                         .product-head{
+                                             min-width: 220px;
+                                             font-size: 14px;
+                                             color: @label-text-color;
+                                         }
+                                         .rate-head{
+                                             font-size: 14px;
+                                             color: @label-text-color;
+                                         }
+                                         .product-value,.rate-value{
+                                             font-size: 16px;
+                                         }
+                                     }
+                                     .adjustment-table{
+                                         thead{
+                                             tr{
+                                                 th{
+                                                    border-bottom: 1px solid #ddd;
+                                                     .green{
+                                                         color: #6ab550;
+                                                     }
+                                                     .red{
+                                                         color: #a93439;
+                                                     }
+                                                 }
+                                             }
+                                         }
+                                         tbody{
+                                            font-size: 16px;
+                                             tr{
+                                                 
+                                                 td{
+                                                     .padding(8px,8px,8px,8px);
+
+                                                     &.price-adj-text{
+                                                            font-size: 14px;
+                                                            color: @label-text-color;
+                                                        }
+
+                                                     &.adjustment-value{
+
+                                                         &.successful{
+                                                             color: #6ab550;
+                                                         }
+                                                         &.unsuccessful{
+                                                                 color: #a93439;
+                                                         }
+                                                     }
+                                                      .green{
+                                                         color: #6ab550;
+                                                     }
+                                                     .red{
+                                                         color: #a93439;
+                                                     }
+                                                 }
+                                             }
+                                         }
+                                         tfoot{
+                                             tr{
+                                                 td{
+                                                     .padding(8px,8px,8px,8px);
+
+                                                     .green{
+                                                         color: #6ab550;
+                                                     }
+                                                     .red{
+                                                         color: #a93439;
+                                                     }
+                                                 }
+
+                                                 &.adjustment-base{
+                                                        border-bottom: 1px dashed #ddd;
+                                                 }
+                                             }
+                                         }
+                                     }
+                                 }
+                             }
+                             .modal-footer{
+                                 border-top: 0;
+                                 button{
+                                     min-width:0;
+                                     border-radius:0;
+                                     .padding(6px,15px,6px,15px);
+                                      font-size: 16px;
+                                 }
+                             }
+                             }
+                         }
+                    }

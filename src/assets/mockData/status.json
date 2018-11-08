@@ -1,0 +1,111 @@
+[
+    {
+        "Progress": [
+            {
+                "info": "warning",
+                "message": "210000.00",
+                "character": "S"
+            },
+            {
+                "info": "success",
+                "message": "Rate/Term",
+                "character": "S"
+            },
+            {
+                "info": "error",
+                "message": "35 Days",
+                "character": "C"
+            },
+            {
+                "info": "success",
+                "message": "Owner Occupied",
+                "character": "S"
+            },
+            {
+                "info": "success",
+                "message": "30 Days",
+                "character": "C"
+            },
+            {
+                "info": "error",
+                "message": "Owner Occupied",
+                "character": "S"
+            }
+        ],
+        "KeyDate": [
+            {
+                "date": "2016-10-17T18:31:17.5583958-07:00",
+                "message": "Application Date"
+            },
+            {
+                "date": "2014-07-12T18:31:17.5583958-07:00",
+                "message": "Closing Date"
+            },
+            {
+                "date": "2015-11-30T18:31:17.5583958-07:00",
+                "message": "Lock Expiration Date"
+            },
+            {
+                "date": "2016-10-23T18:31:17.5583958-07:00",
+                "message": "Owner Occupied"
+            },
+            {
+                "date": "2016-10-17T18:31:17.5583958-07:00",
+                "message": "Closing Disclosure"
+            }
+        ],
+        "MajorEvents": [
+            {
+                "date": "2016-10-17T20:31:18.5583958-08:00",
+                "time": "2016-10-17T18:31:17.5583958-07:00",
+                "message": "Application Date"
+            },
+            {
+                "date": "2014-07-12T18:31:17.5583958-07:00",
+                "time": "2016-10-17T18:31:17.5583958-07:00",
+                "message": "Closing Date"
+            },
+            {
+                "date": "2015-11-30T18:31:17.5583958-07:00",
+                "time": "2016-10-17T18:31:17.5583958-07:00",
+                "message": "Lock Expiration Date"
+            },
+            {
+                "date": "2016-10-23T18:31:17.5583958-07:00",
+                "time": "2016-10-17T18:31:17.5583958-07:00",
+                "message": "Owner Occupied"
+            },
+            {
+                "date": "2016-10-17T18:31:17.5583958-07:00",
+                "time": "2016-10-17T18:31:17.5583958-07:00",
+                "message": "Closing Disclosure"
+            }
+        ],
+        "LoanDetails": [
+            {
+                "detail": "Loan Type",
+                "loanData": "USDA"
+            },
+            {
+                "detail": "Loan Program",
+                "loanData": "4530-09"
+            },
+            {
+                "detail": "Interest Rate",
+                "loanData": "3.305%"
+            },
+            {
+                "detail": "Base Loan Amount",
+                "loanData": "$150,00.00"
+            },
+            {
+                "detail": "Appraised Value",
+                "loanData": "$150,00.00"
+            },
+            {
+                "detail": "default Value",
+                "loanData": "$120,00.00"
+            }
+        ]
+    }
+]

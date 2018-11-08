@@ -1,0 +1,10 @@
+<h2 class="sub-heading">Key Dates</h2>
+<div class="key-info status-box">
+    <div class="grey-line">
+    </div>
+    <div class="date-row" *ngFor="let keyDates of keyDates">
+        <span class="key-date">{{keyDates?.date ? (keyDates?.date | date:"MM/dd/yyyy") :"TBD"}}</span>
+        <span class="yellow-ellipse"></span>
+        <span class="date-info">{{keyDates.text}}</span>
+    </div>
+</div>

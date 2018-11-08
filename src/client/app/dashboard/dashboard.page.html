@@ -1,0 +1,66 @@
+<div class="main-content">
+	<div class="dashboard-tabs">
+		<ul class="nav nav-tabs">
+			<li [ngClass]="{'active': currentTab === 'action'}" (click)="switchTab('action')"><a data-toggle="tab">Actions</a></li>
+			<li [ngClass]="{'active': currentTab === 'status'}" (click)="switchTab('status')"><a data-toggle="tab">Status</a></li>
+			<li [ngClass]="{'active': currentTab === 'scenarios'}" (click)="switchTab('scenarios')"><a data-toggle="tab">Scenarios</a></li>
+		</ul>
+		<div class="tab-content">
+			<div id="pipeline-tab" *ngIf="currentPipeline" class="tab-pane fade  pipeline-tab" [ngClass]="{'in active': !isScenarioPipeline}">
+				<div class="row">
+					<div class="col-lg-3 dashboard-left-wrap">
+						<div class=" dashboard-items">
+							<sl-progressTrack [widgets]="widgetDetails" [widget_id]="widgetId"></sl-progressTrack>
+						</div>
+						<div class=" marketing-board-wrap">
+							<sl-marketing></sl-marketing>
+						</div>
+					</div>
+					<div class="col-lg-9">
+						<div class="tab-table" id="tab-table">
+						<div class="table-head-row">
+							<div class="search-box-div fL">
+								<input type="text" #box [(ngModel)]="currentPipeline.searchTerm" (keyup)="keyDownFunction($event, 'pipeline')" #box placeholder="Search by Loan #, Borrower Name">
+								<span class="search-icon" (click)="filterBySearchItem('pipeline')"></span>
+							</div>
+
+							<div class="pipeline-tot-wrap fR">
+								<div class=" pipeline-tot">
+									<label class="">{{currentPipelineName}}<span>{{totalAmount|cur}}</span>  (<span>{{totalCount}}</span>)</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="pipeline-wrap ">
+
+							<sl-loanInfo [pipeline]="currentPipeline"></sl-loanInfo>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div id="scenario-tab" class="scenario-tab tab-pane fade  scenario-tab" [ngClass]="{'in active': currentTab === 'scenarios'}">
+				<div class="row">
+					<div class="col-lg-12">
+
+						<div id="scenario-tab" class="tab-pane fade  scenario-tab" [ngClass]="{'in active': currentTab === 'scenarios'}">
+						<div class="table-head-row">
+							<div class="search-box-div fL">
+								<input type="text" #box [(ngModel)]="searchTerm" (keyup)="keyDownFunction($event, 'scenarios')" placeholder="Search by Borrower Name">
+								<span class="search-icon" (click)="filterBySearchItem('scenarios')"></span>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="table-responsive scenario-table">
+							<sl-scenario-pipeline [scenarioData]="priceQuote"></sl-scenario-pipeline>
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

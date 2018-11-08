@@ -1,0 +1,99 @@
+<div class="product-table table-responsive" id="accordion">
+	<p *ngIf="saveScenarioResponse" class="text-center save-response-text" style="color: #6ab550">{{saveScenarioResponse}}</p>
+<table class="table">
+	<thead>
+		<tr>
+			<th class="products table-sort">{{resource.productHeader}}
+				<span *ngIf="sortBy === 'product_name' && sortOrder === 'desc'" (click)='sortEligibleProduct("product_name", "asc" )' class="sort-down"></span>
+				<span *ngIf="sortBy === 'product_name' && sortOrder === 'asc'" (click)='sortEligibleProduct("product_name", "desc")' class="sort-up"></span>
+				<span *ngIf="sortBy !== 'product_name'" (click)='sortEligibleProduct("product_name", "desc")' class="sort"></span>
+			</th>
+			<th class="rate table-sort">{{resource.rateHeader}}
+				<span *ngIf="sortBy === 'rate' && sortOrder === 'desc'" (click)='sortEligibleProduct("rate", "asc" )' class="sort-down"></span>
+				<span *ngIf="sortBy === 'rate' && sortOrder === 'asc'" (click)='sortEligibleProduct("rate", "desc")' class="sort-up"></span>
+				<span *ngIf="sortBy !== 'rate'" (click)='sortEligibleProduct("rate", "desc")' class="sort"></span>
+			</th>
+			<th class="payment table-sort">{{resource.paymentsHeader}}
+				<span *ngIf="sortBy === 'payment' && sortOrder === 'desc'" (click)='sortEligibleProduct("payment", "asc" )' class="sort-down"></span>
+				<span *ngIf="sortBy === 'payment' && sortOrder === 'asc'" (click)='sortEligibleProduct("payment", "desc")' class="sort-up"></span>
+				<span *ngIf="sortBy !== 'payment'" (click)='sortEligibleProduct("payment", "desc")' class="sort"></span>
+			</th>
+			<th class="discount-cost table-sort">{{resource.discountCost}}</th>
+			<th class="discount-points table-sort">{{resource.price}}</th>
+			<th class="action-save"></th>
+		</tr>
+	</thead>
+	<tbody *ngFor="let product of products; let i = index;">
+		<tr>
+			<td class="products">
+				<span>{{product.product_name}}</span>
+			</td>
+			<td class="payment rate-td">
+				<span class="mouse-pointer" data-toggle="modal" data-target="#rate-modal" (click)="selectProduct(product)">{{product.rate|number:'1.3-3'}}%</span>
+				<span class="expand mouse-pointer" data-toggle="modal" data-target="#rate-modal" (click)="selectProduct(product)"></span>
+			</td>
+			<td class="payment">
+				<span> ${{product.payment|number:'1.2-2'}}</span>
+			</td>
+			<td class="rate discount-amt">
+				<span *ngIf="product.isDiscountAmountNegative === false" class="unsuccessful">${{product.discountAmount|number:'1.2-2'}}</span>
+				<span *ngIf="product.isDiscountAmountNegative === true" class="successful">${{product.discountAmount|number:'1.2-2'}}</span>
+			</td>
+			<td class="rate" >
+				<span  data-toggle="modal" data-target="#adjustment-modal" (click)="loadAdjustments(product)" *ngIf="product.isDiscountPointsNegative === false" class="unsuccessful mouse-pointer">{{product.discountPoints|number:'1.3-3'}}</span>
+				<span  data-toggle="modal" data-target="#adjustment-modal" (click)="loadAdjustments(product)" *ngIf="product.isDiscountPointsNegative === true" class="successful mouse-pointer">({{product.discountPoints|number:'1.3-3'}})</span>
+				<span class="expand mouse-pointer"  data-toggle="modal" data-target="#adjustment-modal" (click)="loadAdjustments(product)"></span>
+			</td>
+			<td class="action-save" data-toggle="modal">
+				<button class="btn secondary-button" (click)="validateAndSaveScenario(product)">{{resource.saveButtonText}}</button>
+			</td>
+		</tr>
+	</tbody>
+	<tbody *ngIf="products.length === 0 && isResponse">
+		<tr>
+			<td colspan="6" class="text-center">
+				No Eligible Products
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<div class="save-scenario-wrap modal fade" id="save-scenario-modal" role="dialog">
+	<div class="modal-dialog">
+		<form #saveSenarioForm="ngForm" novalidate class="reg-form">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Save Scenario</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Last Name" name="lastName" [ngClass]="{'invalid': lastNameReq === true}"
+							[(ngModel)]="saveSenario.last_name" #saveSenarioForm="ngModel" (blur)=onLastName()
+							onkeypress='return (event.keyCode > 64 && event.keyCode < 91) || (event.keyCode > 96 && event.keyCode < 124) || (event.keyCode === 32) || (event.charCode >= 48 && event.charCode <= 57)'/>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="First Name" name="firstName" [ngClass]="{'invalid': firstNameReq === true}"
+							[(ngModel)]="saveSenario.first_name" #saveSenarioForm="ngModel" (blur)=onFirstName()
+							onkeypress='return (event.keyCode > 64 && event.keyCode < 91) || (event.keyCode > 96 && event.keyCode < 124) || (event.keyCode === 32) || (event.charCode >= 48 && event.charCode <= 57)'/>
+					</div>
+				</div>
+				<div class="modal-footer text-right">
+					<button class="btn secondary-button" data-dismiss="modal">Cancel</button>
+					<button class="btn primary-button" (click)="validateAndSave()">Done</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<!-- adjustments modal -->
+<div class="adjustment-modal-wrap modal fade" id="adjustment-modal" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<p *ngIf="!adjustmentsData" class="text-center">Loading...</p>
+				<sl-price-adjustments *ngIf="adjustmentsData" [adjustments]="adjustmentsData" [productDetails]="product"></sl-price-adjustments>
+			</div>
+		</div>
+	</div>
+</div>

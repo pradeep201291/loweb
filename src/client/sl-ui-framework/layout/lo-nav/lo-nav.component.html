@@ -1,0 +1,33 @@
+<div class="left-nav" [ngClass]="{'slideInLeft':showMenu,'slideOutLeft':!showMenu}">
+	<span class="close" (click)="disableOverlay()">&times;</span>
+	<div class="profile text-center">
+		<img class="profile-pic" />
+		<p *ngIf="userName" class="profile-name">{{userName}}</p>
+		<!--<p *ngIf="role" class="profile-name">{{role}}</p> -->
+	</div>
+	<ul>
+		<li class="dashboard" routerLink="/dashboard" routerLinkActive="active" (click)="removeOverlay()">
+			<span><a href="javascript:void(0);">Dashboard</a></span>
+		</li>
+		<li class="product-pricing" routerLink="/pricing" routerLinkActive="active" (click)="removeOverlay()">
+			<span><a href="javascript:void(0);">Product & Pricing</a></span>
+		</li>
+		<li class="notifications" routerLink="/nav-notification" routerLinkActive="active" (click)="removeOverlay()">
+			<span>
+                                <!--<sup class="badge" *ngIf="totalNotificationCount > 0">{{totalNotificationCount}}</sup>-->
+                                <a href="javascript:void(0);">Notifications</a>
+                        </span>
+						<span class="menu-badge fR" *ngIf="totalNotificationCount > 0">{{totalNotificationCount}}</span>
+		</li>
+		<li class="leaderboard" routerLink="/leaderboard" routerLinkActive="active" (click)="removeOverlay()">
+			<span><a href="javascript:void(0);">Leader Board</a></span>
+		</li>
+		<li class="secondary-section">
+			<ul>
+				<li class="logout" (click)="onLogOut()">
+					<span><a href="javascript:void(0)">Logout</a></span>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>

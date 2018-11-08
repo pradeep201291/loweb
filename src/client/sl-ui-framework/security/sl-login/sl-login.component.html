@@ -1,0 +1,33 @@
+<div class="container-fluid login-body authentication-wrap">
+  <h1 class="login-heading text-center">Please enter your User ID</h1>
+
+  <div class="login-box authentication-box">
+    <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
+      <div class="form-group email-id-enter input-div">
+        <input type="text" class="form-control" autofocus formControlName="userName" required>
+        <span class="placeholder-label">User ID</span>
+        <div *ngIf="loginFormErrors.userName !== ''" class="text-danger error-text">
+          <label>{{loginFormErrors.userName}}</label>
+        </div>
+      </div>
+
+      <div class="form-group password-enter input-div">
+        <input type="password" class="form-control" required  formControlName="password" required >
+        <span class="placeholder-label">Password</span>
+        <div *ngIf="loginFormErrors.password !== ''"  class="text-danger error-text">
+          <label>{{loginFormErrors.password}}</label>
+        </div>
+      </div>
+	  <div class="form-group rsa-enter input-div">
+        <input type="password" class="form-control" required  maxlength="8" formControlName="rsaToken" required >
+        <span class="placeholder-label">RSA Token</span>
+        <div *ngIf="loginFormErrors.rsaToken !== ''"   class="text-danger error-text">
+          <label>{{loginFormErrors.rsaToken}}</label>
+        </div>
+      </div>
+      <div class="sign-in">
+        <button type="submit" class="primary-button sign-in-btn login-button text-center">Sign In</button>
+      </div>
+    </form>
+  </div>
+</div>

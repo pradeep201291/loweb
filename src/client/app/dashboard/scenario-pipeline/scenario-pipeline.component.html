@@ -1,0 +1,83 @@
+<div class="dashboard-table scenario-table">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="table-sort borrower-name"><span>Borrower Name</span>
+                    <span *ngIf="sortBy === 'borrowerName' && sortOrder === 'desc'" (click)='sortLoanApplication("borrowerName", "asc" )' class="sort-down"></span>
+                    <span *ngIf="sortBy === 'borrowerName' && sortOrder === 'asc'" (click)='sortLoanApplication("borrowerName", "desc")' class="sort-up"></span>
+                    <span *ngIf="sortBy !== 'borrowerName'" (click)='sortLoanApplication("borrowerName", "desc")' class="sort"></span>
+                </th>
+
+                    <th class="table-sort scenario-num"><span># of Scenarios</span>
+                        <span *ngIf="sortBy === 'scenarioNumber' && sortOrder === 'desc'" (click)='sortLoanApplication("scenarioNumber", "asc" )'
+                            class="sort-down"></span>
+                        <span *ngIf="sortBy === 'scenarioNumber' && sortOrder === 'asc'" (click)='sortLoanApplication("scenarioNumber", "desc")'
+                            class="sort-up"></span>
+
+                        <span *ngIf="sortBy !== 'scenarioNumber'" (click)='sortLoanApplication("scenarioNumber", "desc")' class="sort"></span>
+                    </th>
+                    <th class="table-sort loan-amt"><span>Loan Amount</span>
+                        <span *ngIf="sortBy === 'loanAmount' && sortOrder === 'desc'" (click)='sortLoanApplication("loanAmount", "asc" )' class="sort-down"></span>
+                        <span *ngIf="sortBy === 'loanAmount' && sortOrder === 'asc'" (click)='sortLoanApplication("loanAmount", "desc")' class="sort-up"></span>
+                        <span *ngIf="sortBy !== 'loanAmount'" (click)='sortLoanApplication("loanAmount", "desc")' class="sort"></span>
+                    </th>
+                    <th class="table-sort ltv"><span>LTV%</span>
+                        <span *ngIf="sortBy === 'ltv' && sortOrder === 'desc'" (click)='sortLoanApplication("ltv", "asc" )' class="sort-down"></span>
+                        <span *ngIf="sortBy === 'ltv' && sortOrder === 'asc'" (click)='sortLoanApplication("ltv", "desc")' class="sort-up"></span>
+                        <span *ngIf="sortBy !== 'ltv'" (click)='sortLoanApplication("ltv", "desc")' class="sort"></span>
+                    </th>
+                    <th class="table-sort date-created"><span>Created Date</span>
+                        <span *ngIf="sortBy === 'createdDate' && sortOrder === 'desc'" (click)='sortLoanApplication("createdDate", "asc" )' class="sort-down"></span>
+                        <span *ngIf="sortBy === 'createdDate' && sortOrder === 'asc'" (click)='sortLoanApplication("createdDate", "desc")' class="sort-up"></span>
+                        <span *ngIf="sortBy !== 'createdDate'" (click)='sortLoanApplication("createdDate", "desc")' class="sort"></span>
+                    </th>
+                    <th class="table-sort date-modified"><span>Modified Date</span>
+                        <span *ngIf="sortBy === 'modifiedDate' && sortOrder === 'desc'" (click)='sortLoanApplication("modifiedDate", "asc" )' class="sort-down"></span>
+                        <span *ngIf="sortBy === 'modifiedDate' && sortOrder === 'asc'" (click)='sortLoanApplication("modifiedDate", "desc")' class="sort-up"></span>
+                        <span *ngIf="sortBy !== 'modifiedDate'" (click)='sortLoanApplication("modifiedDate", "desc")' class="sort"></span>
+                    </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let priceQuote of pagedPriceQuotes">
+                <td class="name-link mouse-pointer">
+                    <a><span (click)="navigateToScenarioDetails(priceQuote)">{{priceQuote.borrower_name}}</span></a>
+                </td>
+
+                    <td>
+                        <span>{{priceQuote.scenario_count}}</span>
+
+                    </td>
+                    <td>
+                        <span>${{priceQuote.loan_amount|number:'1.2-2'}}</span>
+                    </td>
+                    <td>
+                        <span>{{priceQuote.ltv|number:'1.2-2'}}%</span>
+                    </td>
+                    <td>
+                        <span>{{priceQuote.created_date}}</span>
+                    </td>
+                    <td>
+                        <span>{{priceQuote.modified_date}}</span>
+                    </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="pipeline-pagination text-right" *ngIf="pager.pages && pager.pages.length > 1">
+    <ul class="pagination pagination-sm">
+        <li>
+            <a style="cursor:pointer" aria-label="Previous" (click)="previous()" *ngIf="pager.totalPages > 5">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li [ngClass]="{active: currentPage === (page)}" *ngFor="let page of pager.pages;">
+            <a style="cursor:pointer" (click)="setCurrentPage(page)">{{page}}</a>
+        </li>
+        <li>
+            <a style="cursor:pointer" aria-label="Next" (click)="next()" *ngIf="pager.totalPages > 5">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</div>

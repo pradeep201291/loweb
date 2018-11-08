@@ -1,0 +1,11 @@
+<div class="main-content marTop52">
+    <div class="loan-header-wrap">
+        <sl-loan-header></sl-loan-header>
+    </div>
+    <div class="">
+        <div class="view-documents-wrap">
+            <sl-upload-documents (onUpload)="onUpload($event)" [selectedLoan]="selectedLoan"> </sl-upload-documents>
+            <sl-view-documents> </sl-view-documents>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+.scenario-details-wrap{
+                        .scenario-header{
+                            overflow:hidden;
+                            .padding(0px,5px,0px,5px);
+                            margin-top: 0;
+                            margin-bottom: 15px;
+                            .name{
+                                display: inline-block;
+                                vertical-align: middle;
+                                font-size: 18px;
+                            }
+                        }
+                    .scenario-details-table{
+                        table{
+                            border-collapse: separate;
+                            border-radius: 2px;
+                            border: 1px solid @border-secondary-color;
+                            tbody{
+                                border:0;
+                                tr{
+                                    td{
+                                         border-top:0;
+                                         color:#333;
+                                         font-size:16px;
+                                        /*background:#fff;*/
+                                        vertical-align:middle;
+                                        .padding(10px,15px,10px,30px);
+
+                                        &.products,&.time{
+                                            .table-sub-header{
+                                                font-size: 14px;
+                                                color:@label-text-color;
+                                            }
+                                            .table-sub-value{
+                                                font-size: 16px;
+                                            }
+                                        }
+                                         &.expand-details{
+                                             text-align:right;
+                                             button{
+                                                 min-width: 0;
+                                                cursor: pointer;
+                                                
+                                                &.viewLess{
+                                                    &:after{
+                                                        content: "View less";
+                                                    }
+                                                }
+
+                                                 &.collapsed{
+                                                     &:after{
+                                                    content: "View more";
+                                                }
+                                                 }
+                                             }
+                                        }
+                                    }
+                                    &.no-bg{
+                                    td{
+                                        background: none;
+                                        .padding(0,0,0,0);
+                                        height:20px;
+                                    }
+                                }
+                                &.expand-details-row{
+                                    td{
+                                        .padding(0,0,0,0);
+                                        .details-panel{
+                                            border-top:1px solid #ccc;
+                                            .padding(20px,15px,0,15px);
+                                            border-radius: 0;
+                                            background-color: transparent;
+                                            .scenario-element{
+                                                 height:82px;
+                                                    // @media @mobile{
+                                                    //     width: 100%;
+                                                    // }
+                                                .scenario-label{
+                                                    font-size: 14px;
+                                                    color:@label-text-color;
+                                                }
+                                                .scenario-value{
+                                                    font-size: 16px;
+                                                    white-space: nowrap;
+                                                    overflow: hidden;
+                                                    text-overflow: ellipsis
+                                                }
+                                            }
+                                            
+                                        }
+                                    }
+                                }
+                                }
+                                &:nth-of-type(odd){
+                                    background: #f0f0f0;
+                                }
+                                &:nth-of-type(even){
+                                    background: @secondary-background;
+                                }
+                            }
+                            
+                        }
+                    }
+}

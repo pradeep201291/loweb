@@ -1,0 +1,194 @@
+.main-content{
+    .notification-wrap{
+        .notification-btn-wrap{
+            margin-bottom: 20px;
+            .notification-btn{
+                .noti-hide{
+                    @media @mobile,@large-mobile{
+                        display: none;
+                    }
+                }
+                .btn{
+                    min-width:105px;
+                }
+            .btn-primary{
+                 background: @tab-inactive-background;
+                 color: @tab-inactive-text;
+                 border: 1px solid @tab-border-color;
+                 &:hover{
+                     background-color: @tab-active-background;
+                     color: @tab-active-text;
+                    }
+                }
+        
+                .btn-primary.active{
+                    background-color: @tab-active-background;
+                    color: @tab-active-text;
+                    box-shadow: none;
+                }
+            }
+        }
+        .notification-list{
+            .action{
+                .padding(0px,0px,5px,20px);
+
+                @media @mobile{
+                    .padding(0px,0px,5px,7px);
+                }
+
+            .read{
+                @media @mobile,@large-mobile,@small-tablet{
+                    float:none;
+                    margin-bottom:10px;
+                }
+                .icon{
+                    display: inline-block;
+                    background-repeat:no-repeat;
+                    background-size:100% 100%;
+                    margin-right:5px;
+                }
+                label{
+                    color:@base-primary-color;
+                    font-size:14px;
+                    margin-right:30px;
+                    font-weight: normal;
+                   &.mark-unread{
+                       margin-right:0px;
+                   }
+                }
+                .delete{
+                    .delete-icon{
+                        background-image:url("@{base-url}images/delete_sm_icon.png");
+                        width:16px;
+                        height:20px;
+                        vertical-align: sub;
+                    }
+                }
+                .mark-read{
+                    .read-icon{
+                        background-image:url("@{base-url}images/read_sm_icon.png");
+                        width:20px;
+                        height:20px;
+                    }
+                }
+                .mark-unread{
+                    .unread-icon{
+                        background-image:url("@{base-url}images/unread_sm_icon.png");
+                        width:20px;
+                        height:15px;
+                    }
+                }
+            }
+            .select-all{
+                .select{
+                    margin-left:10px;
+                    color:@base-primary-color;
+                    font-weight: normal;
+                }
+            }
+        }
+.notification-content{
+        border: 1px solid @border-secondary-color;
+        .msg-row{
+            border-radius:2px;
+            overflow:hidden;
+            .padding(20px,30px,20px,20px);
+
+            @media @mobile{
+                .padding(7px,7px,7px,7px);
+            }
+                
+            .message-text{
+                overflow:hidden;
+                color:@base-primary-color;
+                font-weight:600;
+                .padding(0px,0px,0px,15px);
+                .msg{
+                    label{
+                        .margin(0,0,0,0);
+                        font-weight: normal;
+                    }
+                }
+                .msg-info{
+                   margin-left:10px;
+                   @media @mobile,@large-mobile,@small-tablet{
+                        width:100%;
+                        margin-top:7px;
+                        text-align: right;
+                    }
+                    span{
+                        font-weight: normal;
+                    }
+                }
+                &.read-msg{
+                     .msg{
+                    }
+                }
+                 &.unread-msg{
+                     .msg{
+                        label{
+                            font-weight: 600;
+                        }
+                    }
+                    .msg-info{
+                        span{
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+            &:nth-of-type(odd){
+                background: #f0f0f0;
+            }
+            &:nth-of-type(even){
+                background: @secondary-background;
+            }
+        }
+        }
+        .no-noti-msg{
+            .padding(5px,0,5px,0);
+            background: @secondary-background;
+            font-size: 16px;
+        }
+        }
+        .notification-pagination{
+            // ul{
+            //     li{
+            //         &.active{
+            //             a{
+            //                 background-color: rgba(24, 57, 96, 0.25);
+            //                 color: #333;
+            //                 &:hover{
+            //                     background-color: rgba(24, 57, 96, 0.25);
+            //                     color: #333;
+            //                 }
+            //             }
+            //         }
+            //         &:first-child,&:last-child{
+            //             a{
+            //                 border-radius: 2px;
+            //             }
+            //         }
+            //         &:last-child{
+            //             a{
+            //                 margin-right:0;
+            //             }
+            //         }
+                    
+            //         a{
+            //             cursor: pointer;
+            //             color: @body-text-color;
+            //             border-radius: 2px;
+            //             .padding(3px,8px,1px,8px);
+            //             font-size:14px;
+            //             border: 1px solid @base-primary-color;
+            //             margin-right:10px;
+            //             .glyphicon{
+            //                 font-size:10px;
+            //             }
+            //         }
+            //     }
+            // }
+        }
+    }
+}

@@ -1,0 +1,457 @@
+.eligible-ineligible-product-wrap{
+            position: relative;
+            .nav-wrap{
+                .nav-tabs{
+                    display: inline-block;
+                    border: 1px solid @tab-border-color;
+                    border-radius: 2px;
+                    margin-bottom: 15px;
+                    background: @tab-inactive-background;
+                    li{
+                        .padding(6px,16px,6px,16px);
+                        border-right: 1px solid @tab-border-color;
+                        cursor:pointer;
+                        min-width: 120px;
+                        text-align: center;
+                        @media @mobile{
+                            .padding(5px,5px,5px,5px);
+                        }
+                        &:nth-child(2){
+                            border-right: 0;
+                            @media @mobile{
+                        }
+                        }
+                        a{
+                            color: @tab-inactive-text;
+                            font-size: 15px;
+                            .padding(0,0,0,0);
+                            outline:0;
+                            border: 0;
+                            &:hover{
+                                color:@tab-inactive-text;
+                                background: transparent;
+                                border: 0;
+                            }
+                            @media @mobile{
+                            font-size: 15px;
+                        }
+                        }
+                        &:hover{
+                            background-color: @tab-active-background;
+                            a,a:focus,a:hover{
+                                border:0;
+                                color: @tab-active-text;
+                                background: transparent;
+                            }
+                        }
+                        &.active{
+                            background-color: @tab-active-background;
+                            a,a:focus,a:hover{
+                                border:0;
+                                color: @tab-active-text;
+                                background: transparent;
+                            }
+                        }
+                    }
+                }
+                
+                .refine-search-button{
+                    @media @mobile,@large-mobile{
+                        width: 100%;
+                    }
+                    .refine-search{
+
+                    }
+                }
+            }
+
+            .tab-content{
+                .padding(20px,0,20px,0);
+               
+                .eligible-products{
+                     @media @mobile, @large-mobile,@small-tablet,@tablet{
+                        overflow-y: auto;
+                    }
+                    td{
+                        span.expand{
+                             background-image:url("@{base-url}images/double-arrow-red.png");
+                             display: inline-block;
+                             width: 25px;
+                             height: 25px;
+                             background-size: 100% 100%;
+                             vertical-align: bottom;
+                        }
+                    }
+                    .products{
+                        width:35%;
+                        min-width:200px;
+                    }
+                    .rate{
+                        min-width:15%;
+
+                        
+                    }
+                    .payment{
+                        min-width:15%;
+                    }
+                    .closing{
+                        min-width:15%;
+                    }
+                    .action-save{
+                        text-align:right;
+                    }
+
+                    .table{
+                         margin-bottom:0;
+                        td{
+                            border:0;
+                            .padding(20px,0,20px,25px);
+                        }
+                    }
+
+                    .product-table{
+                        margin-bottom: 20px;
+
+                        .save-response-text{
+                            width:100%;
+                            height:100%;
+                            -webkit-transition: opacity 3s ease-in-out;
+                            -moz-transition: opacity 3s ease-in-out;
+                            -ms-transition: opacity 3s ease-in-out;
+                            -o-transition: opacity 3s ease-in-out;
+                            transition: opacity 3s ease-in-out;
+                            opacity: 1;
+                        }
+                        table{
+                            border-collapse: separate;
+                            border-radius: 2px;
+                            border: 1px solid @border-secondary-color;
+                            tr{
+                                th{
+                                     color:@label-text-color;
+                                     font-size:14px;
+                                     .padding(15px,0,15px,25px);
+                                     background-color: #fff;
+                                     border: 0;
+                                     &.products{
+                                         min-width: 308px;
+                                     }
+                                     &.rate{
+                                         min-width: 100px;
+                                     }
+                                     &.payment{
+                                         min-width: 105px;
+                                     }
+                                     &.discount-cost{
+                                         min-width: 140px;
+                                     }
+                                     &.discount-points{
+                                         min-width: 100px;
+                                     }
+                                     &.action-save{
+                                         min-width: 155px;
+                                     }
+
+                                     &.table-sort{
+                                        position:relative;
+                                        padding-right: 20px;
+                                        .sort-up,.sort-down,.sort{
+                                            background-repeat: no-repeat;
+                                            background-size: 100% 100%;
+                                            display: inline-block;
+                                            cursor: pointer;
+                                            position: absolute;
+                                            height: 15px;
+                                            width: 20px;
+                                            top: 16px;
+                                            margin-left: 7px;
+                                            }
+                                        .sort-up{
+                                                background-image: url("@{base-url}images/up-sort.png");
+                                            }
+                                        .sort-down{
+                                                background-image:url("@{base-url}images/down-sort.png");
+                                            }
+                                        .sort{
+                                                background-image:  url("@{base-url}images/no-sort.png");
+                                            }   
+                                        }
+                                }
+                                td{
+                                    font-size:16px;
+                                    vertical-align: middle;
+
+                                    &.rate{
+                                        color: @link-color;
+                                    }
+                                    &.rate-td{
+                                        color: @link-color;
+                                    }
+                                    &.discount-amt{
+                                        cursor:auto;
+                                    }
+
+                                    &.action-save{
+                                        .padding(20px,20px,20px,25px);
+                                        button{
+                                            min-width:40px;
+                                            .padding(5px,30px,5px,30px);
+                                            font-size:18px;
+                                            border-radius:2px;
+
+                                        }
+                                    }
+
+                                     span.successful{
+                                        color:#6ab550;
+                                    }
+                                    span.unsuccessful{
+                                        color:#a93439;
+                                    }
+                                }
+
+                                
+                            }
+                            tbody{
+                                border:0;
+                                &:nth-of-type(odd){
+                                    background: #f0f0f0;
+                                }
+                                &:nth-of-type(even){
+                                    background: @secondary-background;
+                                }
+                            }
+
+                        }
+                        
+                    }
+                    .save-scenario-wrap{
+                         .modal-dialog{
+                            width:400px;
+                            @media @mobile, @large-mobile,@small-tablet{
+                                    margin: 30px auto;
+                            }
+                            @media @mobile{
+                                width:95%;
+                            }
+                             .modal-content{
+                                 background:#fff;
+                                 border-radius:2px;
+                                 margin:200px auto 0;
+                                 .padding(15px,25px,15px,25px);
+                             .modal-header{
+                                 border-bottom: 0;
+                             }
+
+                             .modal-body{
+                                 .form-group{
+                                     input{
+                                         height:45px;
+                                         font-size: 16px;
+                                         background: #fcfcfc;
+                                          &.invalid
+                                                {
+                                                border:1px solid #a93439;
+                                                box-shadow:0 0 2px #a93439;
+                                                }
+                                     }
+                                 }
+                             }
+                             .modal-footer{
+                                 border-top: 0;
+                                 button{
+                                     min-width:0;
+                                     border-radius:0;
+                                     .padding(6px,15px,6px,15px);
+                                      font-size: 16px;
+                                 }
+                             }
+                             }
+                         }
+                    }
+
+                    .adjustment-modal-wrap{
+                        table{
+                            border: 0;
+                        }
+                         .modal-dialog{
+                            width:500px;
+                            @media @mobile, @large-mobile,@small-tablet{
+                                    margin: 30px auto;
+                            }
+                            @media @mobile{
+                                width:95%;
+                            }
+                             .modal-content{
+                                 background:#fff;
+                                 border-radius:2px;
+                                 margin:200px auto 0;
+                                 .padding(25px,25px,25px,25px);
+
+                             .modal-body{
+                                 .padding(0,0,0,0);
+                                 .expanded-block{
+                                     position: relative;
+                                     span.close{
+                                            position: absolute;
+                                            top: -10px;
+                                            right: -10px;
+                                            display: inline-block;
+                                            width: 15px;
+                                            height: 15px;
+                                            font-size: 16px;
+                                            color: #666;
+                                            opacity: 1;
+
+                                     }
+                                     .product-rate-wrap{
+                                         th,td{
+                                             .padding(8px,8px,8px,8px);
+                                         }
+                                         .product-head{
+                                             min-width: 220px;
+                                             font-size: 14px;
+                                             color: @label-text-color;
+                                         }
+                                         .rate-head{
+                                             font-size: 14px;
+                                             color: @label-text-color;
+                                         }
+                                         .product-value,.rate-value{
+                                             font-size: 16px;
+                                         }
+                                     }
+                                     .adjustment-table{
+                                         border:0;
+                                         thead{
+                                              font-size: 16px;
+                                             tr{
+                                                 th{
+                                                    border-bottom: 1px solid #ddd;
+                                                     .green{
+                                                         color: #6ab550;
+                                                     }
+                                                     .red{
+                                                         color: #a93439;
+                                                     }
+                                                 }
+                                             }
+                                         }
+                                         tbody{
+                                            font-size: 16px;
+                                             tr{
+                                                 
+                                                 td{
+                                                     .padding(8px,8px,8px,8px);
+
+                                                     &.price-adj-text{
+                                                            font-size: 14px;
+                                                            color: @label-text-color;
+                                                        }
+
+                                                     &.adjustment-value{
+
+                                                         &.successful{
+                                                             color: #6ab550;
+                                                         }
+                                                         &.unsuccessful{
+                                                                 color: #a93439;
+                                                         }
+                                                     }
+                                                 }
+                                             }
+                                         }
+                                         tfoot{
+                                             font-size: 16px;
+                                             tr{
+                                                 td{
+                                                     .padding(8px,8px,8px,8px);
+
+                                                     .green{
+                                                         color: #6ab550;
+                                                     }
+                                                     .red{
+                                                         color: #a93439;
+                                                     }
+                                                 }
+
+                                                 &.adjustment-base{
+                                                        border-bottom: 1px dashed #ddd;
+                                                 }
+                                             }
+                                         }
+                                     }
+                                 }
+                             }
+                             .modal-footer{
+                                 border-top: 0;
+                                 button{
+                                     min-width:0;
+                                     border-radius:0;
+                                     .padding(6px,15px,6px,15px);
+                                      font-size: 16px;
+                                 }
+                             }
+                             }
+                         }
+                    }
+
+                }
+
+                .ineligible-products{
+                    .table-responsive{
+                        .table{
+                            border-collapse: separate;
+                            border-radius: 2px;
+                            border: 1px solid @border-secondary-color;
+                            tbody{
+                                tr{
+                                    td{
+                                        color:#333;
+                                        font-size:16px;
+                                        border:0;
+                                        .padding(15px,15px,15px,15px);
+
+                                        .product{
+                                            font-weight: bold;
+                                        }
+                                        .reasons{
+                                            display: block;
+                                            margin-top: 5px;
+                                            .reason-text{
+                                                font-size: 14px;
+                                                display: block;
+                                                color: @label-text-color;
+                                            }
+                                            .reason{
+                                                display: inline-block;
+                                                font-size: 16px;
+                                                &:after{
+                                                    content: " | ";
+                                                    .margin(0,10px,0,10px);
+                                                }
+                                                &:last-child{
+                                                    &:after{
+                                                    content: "";
+                                                    display: none;
+                                                }
+                                                }
+                                            }   
+                                        }
+                                    }
+                                    &:nth-of-type(odd){
+                                        background: @table-alternate-color;
+                                    }
+                                    &:nth-of-type(even){
+                                        background: @secondary-background;
+                                    }
+                                }   
+
+                                
+                            }
+                            
+                        }
+                    }
+                }
+           }
+        }

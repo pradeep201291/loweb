@@ -1,0 +1,43 @@
+[
+    {
+        "loanId": "1234567809",
+        "address": "#123 MAIN STREET, CHICAGO, ILLINOIS, 13212",
+        "status": " In Processing",
+        "closingDate": "09/20/2016",
+        "loName": "Rick Nelson",
+        "loPhone": "888-000-9876",
+        "tasks": [
+            {
+                "taskType": "UploadTask"
+            },
+            {
+                "taskType": "eSignTask"
+            },
+            {
+                "taskType": "UploadTask"
+            }
+        ]
+    },
+    {
+        "loanId": "234523132s",
+        "address": "#523 MAIN STREET, SANTANA, CALIFORNIA, 3212312",
+        "status": " In Processing",
+        "closingDate": "06/21/2016",
+        "loName": "Virat Kohli",
+        "loPhone": "888-000-9876",
+        "tasks": [
+            {
+                "taskType": "eSignTask"
+            }
+        ]
+    },
+    {
+        "loanId": "5123123",
+        "address": "#523 No tasks loan, abc, dae, 13232",
+        "status": " Completed",
+        "closingDate": "06/21/2016",
+        "loName": "Ross Taylor",
+        "loPhone": "888-000-5555",
+        "tasks": []
+    }
+]

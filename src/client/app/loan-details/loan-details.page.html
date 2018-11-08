@@ -1,0 +1,414 @@
+<div class="main-content marTop52">
+	<div class="loan-header-wrap">
+		<sl-loan-header></sl-loan-header>
+	</div>
+	<div class="loan-details-wrap" *ngIf="loanDetailslist">
+		<div class="row loan-detail">
+			<div class="col-lg-2 col-md-2 col-sm-3 loan-details-nav">
+				<div>
+					<ul>
+						<li class="mouse-pointer" [ngClass]="{'active': selectedColumn === '#borrower-details'}"><a (click)="scrollLoanDetails('borrower-details')">Borrower Details</a></li>
+						<li class="mouse-pointer" [ngClass]="{'active': selectedColumn === '#property-details'}"><a (click)="scrollLoanDetails('property-details')">Property Details</a></li>
+						<li class="mouse-pointer" [ngClass]="{'active': selectedColumn === '#product-details'}"><a (click)="scrollLoanDetails('product-details')">Product Details</a></li>
+						<li class="mouse-pointer" [ngClass]="{'active': selectedColumn === '#rate-lock-details'}"><a (click)="scrollLoanDetails('rate-lock-details')">Ratelock Details</a></li>
+						<li class="mouse-pointer" [ngClass]="{'active': selectedColumn === '#rate-ext-details'}"><a (click)="scrollLoanDetails('rate-ext-details')">Ratelock Extension Details</a></li>
+						<li class="mouse-pointer" [ngClass]="{'active': selectedColumn === '#payment-details'}"><a (click)="scrollLoanDetails('payment-details')">Payment Details</a></li>
+						<li class="mouse-pointer" [ngClass]="{'active': selectedColumn === '#closing-details'}"><a (click)="scrollLoanDetails('closing-details')">Closing Information</a></li>
+						<li *ngIf="loanDetailslist.allow_lock === 'true'" class="mouse-pointer" [ngClass]="{'active': selectedColumn === '#lock-loan-details'}"><a (click)="scrollLoanDetails('lock-loan-details')">Lock Loan</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-10 col-md-10 col-sm-9 loan-details-content">
+				<div class="content-wrap">
+					<div class="panel-wrap">
+						<div id="borrower-details" class="borrower-details details-panel">
+							<h3 class="details-header">Borrower Details</h3>
+							<div class="element-wrap row">
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Name</p>
+									<p *ngIf="borrowerDetail[0]?.last_name || borrowerDetail[0]?.first_name" class="loan-value">{{borrowerDetail[0]?.last_name +' '+ borrowerDetail[0]?.first_name}}</p>
+									<p *ngIf="!borrowerDetail[0]?.last_name && !borrowerDetail[0]?.first_name" class="loan-value">NA</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Contact Address</p>
+									<p *ngIf="loanDetailslist?.borrower_address" class="loan-value">{{loanDetailslist?.borrower_address}}</p>
+									<p *ngIf="!loanDetailslist?.borrower_address" class="loan-value">NA</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Phone</p>
+									<p *ngIf="borrowerDetail[0]?.phone_number" class="loan-value">{{borrowerDetail[0]?.phone_number}}</p>
+									<p *ngIf="!borrowerDetail[0]?.phone_number" class="loan-value">NA</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Email Address</p>
+									<p *ngIf="borrowerDetail[0]?.email" class="loan-value">{{borrowerDetail[0]?.email}}</p>
+									<p *ngIf="!borrowerDetail[0]?.email" class="loan-value">NA</p>
+								</div>
+								<div *ngIf="borrowerDetail[1]" class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Co Borrower 1</p>
+									<p *ngIf="borrowerDetail[1]?.last_name || borrowerDetail[1]?.first_name" class="loan-value">{{borrowerDetail[1]?.last_name +' '+ borrowerDetail[1]?.first_name}}</p>
+									<p *ngIf="!borrowerDetail[1]?.last_name && !borrowerDetail[1]?.first_name" class="loan-value">NA</p>
+								</div>
+								<div *ngIf="borrowerDetail[2]" class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Co Borrower 2</p>
+									<p *ngIf="borrowerDetail[2]?.last_name || borrowerDetail[2]?.first_name" class="loan-value">{{borrowerDetail[2]?.last_name +' '+ borrowerDetail[2]?.first_name}}</p>
+									<p *ngIf="!borrowerDetail[2]?.last_name && !borrowerDetail[2]?.first_name" class="loan-value">NA</p>
+								</div>
+								<div *ngIf="borrowerDetail[3]" class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Co Borrower 3</p>
+									<p *ngIf="borrowerDetail[3]?.last_name || borrowerDetail[3]?.first_name" class="loan-value">{{borrowerDetail[3]?.last_name +' '+ borrowerDetail[3]?.first_name}}</p>
+									<p *ngIf="!borrowerDetail[3]?.last_name && !borrowerDetail[3]?.first_name" class="loan-value">NA</p>
+								</div>
+							</div>
+						</div>
+						<div id="property-details" class="property-details details-panel">
+							<h3 class="details-header">Property Details</h3>
+							<div class="element-wrap row">
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Property Type</p>
+									<p *ngIf="loanDetailslist?.prop_type_desc" class="loan-value">{{loanDetailslist?.prop_type_desc}}</p>
+									<p *ngIf="!loanDetailslist?.prop_type_desc" class="loan-value">NA</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Loan Type</p>
+									<p *ngIf="loanDetailslist?.loan_type_desc" class="loan-value">{{loanDetailslist?.loan_type_desc}}</p>
+									<p *ngIf="!loanDetailslist?.loan_type_desc" class="loan-value">NA</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Occupancy Type</p>
+									<p *ngIf="loanDetailslist?.occupancy" class="loan-value">{{loanDetailslist?.occupancy}}</p>
+									<p *ngIf="!loanDetailslist?.occupancy" class="loan-value">NA</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Purchase Price</p>
+									<p *ngIf="loanDetailslist?.purchase_price" class="loan-value">{{loanDetailslist?.purchase_price | currency: 'USD':true}}</p>
+									<p *ngIf="!loanDetailslist?.purchase_price" class="loan-value">NA</p>
+								</div>
+							</div>
+						</div>
+						<div id="product-details" class="product-details details-panel">
+							<h3 class="details-header">Product Details</h3>
+							<div class="element-wrap row">
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Loan Program</p>
+									<p *ngIf="loanDetailslist?.program" class="loan-value">{{loanDetailslist?.program}}</p>
+									<p *ngIf="!loanDetailslist?.program" class="loan-value">NA</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Loan Term</p>
+									<p *ngIf="loanDetailslist?.loan_term" class="loan-value">{{loanDetailslist?.loan_term}}</p>
+									<p *ngIf="!loanDetailslist?.loan_term" class="loan-value">NA</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Amortization Type</p>
+									<p *ngIf="loanDetailslist?.amort_type_desc" class="loan-value">{{loanDetailslist?.amort_type_desc}}</p>
+									<p *ngIf="!loanDetailslist?.amort_type_desc" class="loan-value">NA</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Base Loan Amount</p>
+									<p *ngIf="loanDetailslist?.base_loan_amt" class="loan-value">{{loanDetailslist?.base_loan_amt | currency: 'USD':true}}</p>
+									<p *ngIf="!loanDetailslist?.base_loan_amt" class="loan-value">NA</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Note Loan Amount</p>
+									<p *ngIf="loanDetailslist?.note_loan_amt" class="loan-value">{{loanDetailslist?.note_loan_amt | currency: 'USD':true}}</p>
+									<p *ngIf="!loanDetailslist?.note_loan_amt" class="loan-value">NA</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">CLTV</p>
+									<p *ngIf="loanDetailslist?.cltv" class="loan-value">{{loanDetailslist?.cltv|number:'1.2-2'}}%</p>
+									<p *ngIf="!loanDetailslist?.cltv" class="loan-value">NA</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">LTV(B)</p>
+									<p *ngIf="loanDetailslist?.ltv" class="loan-value">{{loanDetailslist?.ltv|number:'1.2-2'}}%</p>
+									<p *ngIf="!loanDetailslist?.ltv" class="loan-value">NA</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">LTV(N)</p>
+									<p *ngIf="loanDetailslist?.ltv_note" class="loan-value">{{loanDetailslist?.ltv_note|number:'1.2-2'}}%</p>
+									<p *ngIf="!loanDetailslist?.ltv_note" class="loan-value">NA</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">HLTV</p>
+									<p *ngIf="loanDetailslist?.hltv" class="loan-value">{{loanDetailslist?.hltv|number:'1.2-2'}}%</p>
+									<p *ngIf="!loanDetailslist?.hltv" class="loan-value">NA</p>
+								</div>
+							</div>
+						</div>
+						<div id="rate-lock-details" class="rate-lock-details details-panel">
+							<h3 class="details-header">Ratelock Details</h3>
+							<div class="element-wrap row">
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Interest Rate</p>
+									<p *ngIf="loanDetailslist?.rate" class="loan-value">{{loanDetailslist?.rate|number:'1.3-3'}}%</p>
+									<p *ngIf="!loanDetailslist?.rate" class="loan-value">NA</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Rate Lock Date</p>
+									<p *ngIf="loanDetailslist?.lock_date" class="loan-value">{{loanDetailslist?.lock_date | date: 'yMd'}}</p>
+									<p *ngIf="!loanDetailslist?.lock_date" class="loan-value">TBD</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Rate Lock Period</p>
+									<p *ngIf="loanDetailslist?.rate_lock_period" class="loan-value">{{loanDetailslist?.rate_lock_period}}</p>
+									<p *ngIf="!loanDetailslist?.rate_lock_period" class="loan-value">NA</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Rate Lock Expiration Date</p>
+									<p *ngIf="loanDetailslist?.lock_exp_date" class="loan-value">{{loanDetailslist?.lock_exp_date | date: 'yMd'}}</p>
+									<p *ngIf="!loanDetailslist?.lock_exp_date" class="loan-value">TBD</p>
+								</div>
+							</div>
+						</div>
+						<div id="rate-ext-details" class="rate-ext-details details-panel">
+							<h3 class="details-header">Ratelock Extension Details</h3>
+							<div class="element-wrap row">
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Fully Adjusted Points</p>
+									<p *ngIf="loanDetailslist?.fully_adjusted_points" class="loan-value">{{loanDetailslist?.fully_adjusted_points}}%</p>
+									<p *ngIf="!loanDetailslist?.fully_adjusted_points" class="loan-value">NA</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Total Days Extended</p>
+									<p *ngIf="loanDetailslist?.total_days_extended" class="loan-value">{{loanDetailslist?.total_days_extended}}</p>
+									<p *ngIf="!loanDetailslist?.total_days_extended" class="loan-value">NA</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Total Days Relocked</p>
+									<p *ngIf="loanDetailslist?.total_days_relocked" class="loan-value">{{loanDetailslist?.total_days_relocked}}</p>
+									<p *ngIf="!loanDetailslist?.total_days_relocked" class="loan-value">NA</p>
+								</div>
+							</div>
+						</div>
+						<div id="payment-details" class="payment-details details-panel">
+							<h3 class="details-header">Payment Details</h3>
+							<div class="element-wrap">
+								<div class="calculation-div">
+									<div class="loan-element">
+										<p class="loan-label">Monthly P&#38;I Payment</p>
+										<p *ngIf="loanDetailslist?.p_and_i_payment" class="loan-value">{{loanDetailslist?.p_and_i_payment | currency: 'USD':true}}</p>
+										<p *ngIf="!loanDetailslist?.p_and_i_payment" class="loan-value">NA</p>
+									</div>
+									<div class="loan-element">
+										<p class="loan-label">Taxes</p>
+										<p *ngIf="loanDetailslist?.taxes" class="loan-value">{{loanDetailslist?.taxes | currency: 'USD':true}}</p>
+										<p *ngIf="!loanDetailslist?.taxes" class="loan-value">NA</p>
+									</div>
+									<div class="loan-element">
+										<p class="loan-label">MI</p>
+										<p *ngIf="loanDetailslist?.mi" class="loan-value">{{loanDetailslist?.mi | currency: 'USD':true}}</p>
+										<p *ngIf="!loanDetailslist?.mi" class="loan-value">NA</p>
+									</div>
+									<div class="loan-element">
+										<p class="loan-label">Insurance</p>
+										<p *ngIf="loanDetailslist?.insurance" class="loan-value">{{loanDetailslist?.insurance | currency: 'USD':true}}</p>
+										<p *ngIf="!loanDetailslist?.insurance" class="loan-value">NA</p>
+									</div>
+									<hr/>
+									<div class="loan-element">
+										<p class="loan-label">Total Monthly Payment</p>
+										<p *ngIf="loanDetailslist?.payment" class="loan-value">{{loanDetailslist?.payment | currency: 'USD':true}}</p>
+										<p *ngIf="!loanDetailslist?.payment" class="loan-value">NA</p>
+									</div>
+								</div>
+								<div class="other-expense-div row">
+									<div class="loan-element col-lg-4 col-md-6 col-sm-6">
+										<p class="loan-label">HOA</p>
+										<p *ngIf="loanDetailslist?.hoa" class="loan-value">{{loanDetailslist?.hoa | currency: 'USD':true}}</p>
+										<p *ngIf="!loanDetailslist?.hoa" class="loan-value">NA</p>
+									</div>
+									<div class="loan-element col-lg-4 col-md-6 col-sm-6">
+										<p class="loan-label">Other Expenses</p>
+										<p *ngIf="loanDetailslist?.other_expenses" class="loan-value">{{loanDetailslist?.other_expenses | currency: 'USD':true}}</p>
+										<p *ngIf="!loanDetailslist?.other_expenses" class="loan-value">NA</p>
+									</div>
+									<div class="loan-element col-lg-4 col-md-6 col-sm-6">
+										<p class="loan-label">Secondary Financing</p>
+										<p *ngIf="loanDetailslist?.secondary_financing" class="loan-value">{{loanDetailslist?.secondary_financing | currency: 'USD':true}}</p>
+										<p *ngIf="!loanDetailslist?.secondary_financing" class="loan-value">NA</p>
+									</div>
+									<div class="loan-element col-lg-4 col-md-6 col-sm-6">
+										<p class="loan-label">First Payment</p>
+										<p *ngIf="loanDetailslist?.first_payment" class="loan-value">{{loanDetailslist?.first_payment | date: 'yMd'}}</p>
+										<p *ngIf="!loanDetailslist?.first_payment" class="loan-value">TBD</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="closing-details" class="closing-details details-panel">
+							<h3 class="details-header">Closing Information</h3>
+							<div class="element-wrap row">
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Application Date</p>
+									<p *ngIf="loanDetailslist?.app_date" class="loan-value">{{loanDetailslist?.app_date | date: 'yMd'}}</p>
+									<p *ngIf="!loanDetailslist?.app_date" class="loan-value">TBD</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">UW Decision</p>
+									<p *ngIf="loanDetailslist?.uw_decision" class="loan-value">{{loanDetailslist?.uw_decision}}</p>
+									<p *ngIf="!loanDetailslist?.uw_decision" class="loan-value">NA</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Estimated Closing Date</p>
+									<p *ngIf="loanDetailslist?.est_close_date" class="loan-value">{{loanDetailslist?.est_close_date | date: 'yMd'}}</p>
+									<p *ngIf="!loanDetailslist?.est_close_date" class="loan-value">TBD</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Disbursement Date</p>
+									<p *ngIf="loanDetailslist?.disburse_date" class="loan-value">{{loanDetailslist?.disburse_date | date: 'yMd'}}</p>
+									<p *ngIf="!loanDetailslist?.disburse_date" class="loan-value">TBD</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Credit Document Expiration Date</p>
+									<p *ngIf="loanDetailslist?.credit_exp_date" class="loan-value">{{loanDetailslist?.credit_exp_date | date: 'yMd'}}</p>
+									<p *ngIf="!loanDetailslist?.credit_exp_date" class="loan-value">TBD</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Approval Expiration</p>
+									<p *ngIf="loanDetailslist?.uw_decision_exp_date" class="loan-value">{{loanDetailslist?.uw_decision_exp_date | date: 'yMd'}}</p>
+									<p *ngIf="!loanDetailslist?.uw_decision_exp_date" class="loan-value">TBD</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Closing Docs Sent</p>
+									<p *ngIf="loanDetailslist?.closing_docs_sent_date" class="loan-value">{{loanDetailslist?.closing_docs_sent_date | date: 'yMd'}}</p>
+									<p *ngIf="!loanDetailslist?.closing_docs_sent_date" class="loan-value">TBD</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Final Approval Date</p>
+									<p *ngIf="loanDetailslist?.final_approval_date" class="loan-value">{{loanDetailslist?.final_approval_date | date: 'yMd'}}</p>
+									<p *ngIf="!loanDetailslist?.final_approval_date" class="loan-value">TBD</p>
+								</div>
+
+								<!-- change -->
+								<div class="clear"></div>
+
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Initial LE Dates</p>
+									<p class="loan-label">Issued</p>
+									<p *ngIf="loanDetailslist?.discl_sent_date" class="loan-value marB10">{{loanDetailslist?.discl_sent_date | date: 'yMd'}}</p>
+									<p *ngIf="!loanDetailslist?.discl_sent_date" class="loan-value marB10">TBD</p>
+
+									<p class="loan-label">Received</p>
+									<p *ngIf="loanDetailslist?.disc_esign_date" class="loan-value">{{loanDetailslist?.disc_esign_date | date: 'yMd'}}</p>
+									<p *ngIf="!loanDetailslist?.disc_esign_date" class="loan-value">TBD</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Revised LE Dates</p>
+									<p class="loan-label">Issued</p>
+									<p *ngIf="loanDetailslist?.revised_loan_est_date" class="loan-value marB10">{{loanDetailslist?.revised_loan_est_date | date: 'yMd'}}</p>
+									<p *ngIf="!loanDetailslist?.revised_loan_est_date" class="loan-value marB10">TBD</p>
+
+									<p class="loan-label">Received</p>
+									<p *ngIf="loanDetailslist?.revised_loan_est_esign_date" class="loan-value">{{loanDetailslist?.revised_loan_est_esign_date | date: 'yMd'}}</p>
+									<p *ngIf="!loanDetailslist?.revised_loan_est_esign_date" class="loan-value">TBD</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Initial CD Dates</p>
+									<p class="loan-label">Issued</p>
+									<p *ngIf="loanDetailslist?.closing_discl_date" class="loan-value marB10">{{loanDetailslist?.closing_discl_date | date: 'yMd'}}</p>
+									<p *ngIf="!loanDetailslist?.closing_discl_date" class="loan-value marB10">TBD</p>
+
+									<p class="loan-label">Received</p>
+									<p *ngIf="loanDetailslist?.closing_disc_recv_date" class="loan-value">{{loanDetailslist?.closing_disc_recv_date | date: 'yMd'}}</p>
+									<p *ngIf="!loanDetailslist?.closing_disc_recv_date" class="loan-value">TBD</p>
+								</div>
+								<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+									<p class="loan-label">Corrected CD Dates</p>
+									<p class="loan-label">Issued</p>
+									<p *ngIf="loanDetailslist?.revised_closing_disc_date" class="loan-value marB10">{{loanDetailslist?.revised_closing_disc_date | date: 'yMd'}}</p>
+									<p *ngIf="!loanDetailslist?.revised_closing_disc_date" class="loan-value marB10">TBD</p>
+
+									<p class="loan-label">Received</p>
+									<p *ngIf="loanDetailslist?.revised_closing_disc_recv_date" class="loan-value">{{loanDetailslist?.revised_closing_disc_recv_date | date: 'yMd'}}</p>
+									<p *ngIf="!loanDetailslist?.revised_closing_disc_recv_date" class="loan-value">TBD</p>
+								</div>
+							</div>
+						</div>
+						<div *ngIf="loanDetailslist.allow_lock === 'true'" id="lock-loan-details" class="lock-loan-details details-panel">
+							<h3 class="details-header">Lock Loan</h3>
+							<p *ngIf="isLoading" class="loading text-center">Loading...</p>
+							<div class="product-div" *ngIf="eligibleProduct">
+								<div class="element-wrap row">
+									<div class="loan-element product-name col-lg-3 col-md-4 col-sm-6 col-xs-6">
+										<p class="loan-label">Product Name</p>
+										<p class="loan-value">{{eligibleProduct.product_name}}</p>
+									</div>
+
+									<div class="clear"></div>
+
+									<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6 rate-element">
+										<p class="loan-label"><span (click)="loadRateSheet(eligibleProduct)" [ngClass]="{'disable-section': isLockLoanSuccessful, 'mouse-pointer' : !isLockLoanSuccessful }" data-toggle="modal" data-target="#rate-modal">Rate</span></p>
+										<p class="loan-value">
+											<span (click)="loadRateSheet(eligibleProduct)" [ngClass]="{'disable-section': isLockLoanSuccessful, 'mouse-pointer' : !isLockLoanSuccessful }" data-toggle="modal" data-target="#rate-modal">{{eligibleProduct.rate|number:'1.3-3'}}%</span>
+											<span class="expand" (click)="loadRateSheet(eligibleProduct)" [ngClass]="{'disable-section': isLockLoanSuccessful, 'mouse-pointer' : !isLockLoanSuccessful }" data-toggle="modal" data-target="#rate-modal"></span>
+										</p>
+									</div>
+									<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+										<p class="loan-label">Payment</p>
+										<p class="loan-value">${{eligibleProduct.payment|number:'1.2-2'}}</p>
+									</div>
+									<div class="loan-element col-lg-3 col-md-4 col-sm-6 col-xs-6">
+										<p class="loan-label">Discount Cost</p>
+										<p *ngIf="isDiscountCostNegative === false" class="loan-value negative">${{discountCost|number:'1.2-2'}}</p>
+										<p *ngIf="isDiscountCostNegative === true" class="loan-value positive">${{discountCost|number:'1.2-2'}}</p>
+									</div>
+									<div class="loan-element mouse-pointer col-lg-3 col-md-4 col-sm-6 col-xs-6" >
+										<p class="loan-label">Price</p>
+										<p *ngIf="isDiscountCostNegative === false" class="loan-value negative" data-toggle="modal" data-target="#adjustment-modal" (click)="loadAdjustments(eligibleProduct)">{{discountPoints|number:'1.3-3'}} <span class="chevron-icon"></span></p>
+										<p *ngIf="isDiscountCostNegative === true" class="loan-value positive" data-toggle="modal" data-target="#adjustment-modal" (click)="loadAdjustments(eligibleProduct)">{{discountPoints|number:'1.3-3'}} <span class="chevron-icon"></span></p>
+									</div>
+									<!--<div class="loan-element" data-toggle="modal" data-target="#rate-modal" (click)="loadRateSheet(eligibleProduct)">
+										<p *ngIf="adjustmentsData?.base_price" class="loan-label">Base Price</p>
+										<p *ngIf="adjustmentsData?.base_price" class="loan-value negative">{{adjustmentsData.base_price}}</p>
+									</div>-->
+								</div>
+							</div>
+							<div class="product-div" *ngIf="!eligibleProduct && !isLoading">
+								No Products.
+							</div>
+							<!--<div class="price-div">
+								<sl-price-adjustments [adjustments]="adjustmentsData" [discountPonts]="discountPoints"> </sl-price-adjustments>
+							</div>-->
+							<div class="lock-button text-center">
+								<!--<button class="primary-button">Lock</button>-->
+								<p><small class="text-danger errtext-align" *ngIf="lockLoanError">{{lockLoanError}}</small></p>
+								<p><small class="text-danger errtext-align" *ngIf="isLockLoanSuccessful">{{lockLoanSuccess}}</small></p>
+								<button class="primary-button" *ngIf="eligibleProduct && !isLockLoanSuccessful" (click)="lockLoan()" [disabled]="isLockLoanSuccessful"><span class=" lock-icon" data-target="#adjustment-modal"></span> Lock</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div *ngIf="isLockLoanSuccessful === false" class="rate-info-wrap modal fade" id="rate-modal" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">{{loanDetailslist?.program}}</h4>
+			</div>
+			<p *ngIf="activeRatesheet === null" class="text-center">Loading...</p>
+			<sl-rate-sheet [rateSheet]="activeRatesheet" [selectedProduct]="selectedProduct"> </sl-rate-sheet>
+			<div class="modal-footer text-right">
+				<button class="btn btn-success" data-dismiss="modal" (click)="getNewPriceIt()">Done</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- adjustments modal -->
+<div class="adjustment-modal-wrap modal fade" id="adjustment-modal" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<p *ngIf="!adjustmentsData" class="text-center">Loading...</p>
+				<sl-price-adjustments *ngIf="adjustmentsData" [adjustments]="adjustmentsData" [productDetails]="eligibleProduct"></sl-price-adjustments>
+			</div>
+		</div>
+	</div>
+</div>

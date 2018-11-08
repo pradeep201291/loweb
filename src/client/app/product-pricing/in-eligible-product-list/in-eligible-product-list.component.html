@@ -1,0 +1,22 @@
+<div class="table-responsive">
+	<table class="table">
+		<!--<thead>
+			<tr>
+				<th>{{resource.productHeader}}</th>
+				<th>{{resource.reasonHeader}}</th>
+			</tr>
+		</thead>-->
+		<tbody>
+			<tr *ngFor="let product of products">
+				<td>
+					<span class="product">{{product.product_name}}</span>
+					<span class="reasons">
+						<span class="reason-text">{{resource.reasonHeader}}</span>
+						<span class="reason" *ngFor="let reason of product.fail_reasons">
+						{{reason.reason}} </span>
+					</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,197 @@
+<div class="table-responsive loan-info-table dashboard-table" (scroll)='hidePopover()'>
+    <table class="table table-striped" *ngIf="pipeline">
+        <thead>
+            <tr>
+                <th class="table-sort loan-num">Loan #
+                    <span *ngIf="pipeline.sortBy === 'loanNum' && pipeline.sortOrder === 'desc'" (click)='sort("loanNum", "asc" )' class="sort-down"></span>
+                    <span *ngIf="pipeline.sortBy === 'loanNum' && pipeline.sortOrder === 'asc'" (click)='sort("loanNum", "desc")' class="sort-up"></span>
+                    <span *ngIf="pipeline.sortBy !== 'loanNum'" (click)='sort("loanNum", "desc")' class="sort"></span>
+                </th>
+                <th class="table-sort borrower-name">Borrower Name
+                    <span *ngIf="pipeline.sortBy === 'borrower' && pipeline.sortOrder === 'desc'" (click)='sort("borrower", "asc" )' class="sort-down"></span>
+                    <span *ngIf="pipeline.sortBy === 'borrower' && pipeline.sortOrder === 'asc'" (click)='sort("borrower", "desc")' class="sort-up"></span>
+                    <span *ngIf="pipeline.sortBy !== 'borrower'" (click)='sort("borrower", "desc")' class="sort"></span>
+                </th>
+                <th class="table-sort loan-purpose">Loan Purpose
+                    <span *ngIf="pipeline.sortBy === 'purpose' && pipeline.sortOrder === 'desc'" (click)='sort("purpose", "asc" )' class="sort-down"></span>
+                    <span *ngIf="pipeline.sortBy === 'purpose' && pipeline.sortOrder === 'asc'" (click)='sort("purpose", "desc")' class="sort-up"></span>
+                    <span *ngIf="pipeline.sortBy !== 'purpose'" (click)='sort("purpose", "desc")' class="sort"></span>
+                </th>
+                <th class="table-sort loan-status">Loan Status
+                    <span *ngIf="pipeline.sortBy === 'status' && pipeline.sortOrder === 'desc'" (click)='sort("status", "asc" )' class="sort-down"></span>
+                    <span *ngIf="pipeline.sortBy === 'status' && pipeline.sortOrder === 'asc'" (click)='sort("status", "desc")' class="sort-up"></span>
+                    <span *ngIf="pipeline.sortBy !== 'status'" (click)='sort("status", "desc")' class="sort"></span>
+                </th>
+                <th class="table-sort closing-date">Estimated Closing Date
+                    <span *ngIf="pipeline.sortBy === 'closing_date' && pipeline.sortOrder === 'desc'" (click)='sort("closing_date", "asc" )'
+                        class="sort-down"></span>
+                    <span *ngIf="pipeline.sortBy === 'closing_date' && pipeline.sortOrder === 'asc'" (click)='sort("closing_date", "desc")' class="sort-up"></span>
+                    <span *ngIf="pipeline.sortBy !== 'closing_date'" (click)='sort("closing_date", "desc")' class="sort"></span>
+                </th>
+                <th class="action-popup-head"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let eachItem of pagedLoanDetails let i = index;">
+                <td class="name-link">
+                    <a (click)="goToStatus(eachItem)" class="mouse-pointer"><span>{{eachItem.loan_num}}</span></a>
+                </td>
+                <td><span>{{eachItem.borrower}}</span></td>
+                <td><span>{{eachItem.loan_purpose}}</span></td>
+                <td><span>{{eachItem.status}}</span></td>
+                <td *ngIf="eachItem.est_closing_date!== null && eachItem.est_closing_date!== ''"><span>{{eachItem.est_closing_date}}</span></td>
+                <td *ngIf="eachItem.est_closing_date === null || eachItem.est_closing_date === ''"><span>TBD</span></td>
+
+                <td class="double-arrow">
+                    <a class="pipeline-ellipse" (click)="showPopup(eachItem.loan_num,eachItem, $event)"><span></span></a>
+                    <!--<button type="button" class="btn btn-success" data-toggle="modal" data-target="#loan-details-modal">Action</button>-->
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+<!-- popover -->
+<div id="{{selectedLoan.loan_num}}" *ngIf="selectedLoan" class="loan-details-popup hide" (click)="onPopoverClick()">
+    <span (click)="closePopup()" class="close-popup glyphicon glyphicon-remove mouse-pointer"></span>
+    <div class="loan-tooltip ">
+        <div class="loan-number">
+            <span>{{selectedLoan?.loan_num}}</span>
+        </div>
+        <div class="row tooltip-info">
+            <div class="tooltip-info-left">
+                <div class="tooltip-elements">
+
+                    <p class="element-label">Loan Program Name</p>
+                    <p *ngIf="selectedLoan?.loan_program_name" class="element-info">{{selectedLoan?.loan_program_name}}</p>
+                    <p *ngIf="!selectedLoan?.loan_program_name" class="element-info"> NA </p>
+                </div>
+                <div class="tooltip-elements">
+                    <p class="element-label">Base Loan Amount</p>
+                    <p *ngIf="selectedLoan?.loan_amt" class="element-info">{{selectedLoan?.loan_amt}}</p>
+                    <p *ngIf="!selectedLoan?.loan_amt" class="element-info"> NA </p>
+
+                </div>
+                <div class="tooltip-elements">
+                    <p class="element-label">App Date</p>
+                    <p *ngIf="selectedLoan?.app_date" class="element-info">{{selectedLoan?.app_date}}</p>
+                    <p *ngIf="!selectedLoan?.app_date" class="element-info"> TBD </p>
+                </div>
+                <div class="tooltip-elements">
+
+                    <p class="element-label">Lock Exp Date</p>
+                    <p *ngIf="selectedLoan?.lock_exp_date" class="element-info">{{selectedLoan?.lock_exp_date}}</p>
+                    <p *ngIf="!selectedLoan?.lock_exp_date" class="element-info"> TBD </p>
+                </div>
+                <div class="tooltip-elements">
+                    <p class="element-label">UW Decision</p>
+                    <p *ngIf="selectedLoan?.uw_decision" class="element-info">{{selectedLoan?.uw_decision}}</p>
+                    <p *ngIf="!selectedLoan?.uw_decision" class="element-info"> NA </p>
+                </div>
+                <div class="tooltip-elements">
+                    <p class="element-label">Initial Disclosure Sent Date</p>
+                    <p *ngIf="selectedLoan?.initial_disc_date" class="element-info">{{selectedLoan?.initial_disc_date}}</p>
+                    <p *ngIf="!selectedLoan?.initial_disc_date" class="element-info"> TBD </p>
+                </div>
+                <div class="tooltip-elements">
+                    <p class="element-label">Closing Disclosure Sent Date</p>
+                    <p *ngIf="selectedLoan?.closing_disc_date" class="element-info">{{selectedLoan?.closing_disc_date}}</p>
+                    <p *ngIf="!selectedLoan?.closing_disc_date" class="element-info"> TBD </p>
+                </div>
+            </div>
+            <div class="tooltip-info-right ">
+                <div class="tooltip-elements">
+                    <p class="element-label">Property Address</p>
+                    <p *ngIf="selectedLoan?.prop_address" class="element-info">{{selectedLoan?.prop_address}}, {{selectedLoan?.prop_city}}, {{selectedLoan?.prop_state}}, {{selectedLoan?.prop_zip}}</p>
+                    <p *ngIf="!selectedLoan?.prop_address" class="element-info"> NA </p>
+                </div>
+                <div class="tooltip-elements">
+                    <p class="element-label">&nbsp;</p>
+                    <p class="element-info">&nbsp;</p>
+                </div>
+                <div class="tooltip-elements">
+                    <p class="element-label">Est Closing Date</p>
+                    <p *ngIf="selectedLoan?.est_closing_date" class="element-info">{{selectedLoan?.est_closing_date}}</p>
+                    <p *ngIf="!selectedLoan?.est_closing_date" class="element-info"> TBD </p>
+                </div>
+                <div class="tooltip-elements">
+                    <p class="element-label">Rate/Points</p>
+                    <p *ngIf="selectedLoan?.rate" class="element-info">{{selectedLoan?.rate}}</p>
+                    <p *ngIf="!selectedLoan?.rate" class="element-info"> NA </p>
+                </div>
+                <div class="tooltip-elements">
+                    <p class="element-label">UW Decision Exp Date</p>
+                    <p *ngIf="selectedLoan?.uw_decision_exp_date" class="element-info">{{selectedLoan?.uw_decision_exp_date}}</p>
+                    <p *ngIf="!selectedLoan?.uw_decision_exp_date" class="element-info"> TBD </p>
+                </div>
+                <div class="tooltip-elements">
+                    <p class="element-label">Initial Disclosure eSigned Date</p>
+                    <p *ngIf="selectedLoan?.initial_disc_esign_date" class="element-info">{{selectedLoan?.initial_disc_esign_date}}</p>
+                    <p *ngIf="!selectedLoan?.initial_disc_esign_date" class="element-info"> TBD </p>
+                </div>
+                <div class="tooltip-elements">
+                    <p class="element-label">Closing Disclosure eSigned Date</p>
+                    <p *ngIf="selectedLoan?.closing_disc_esign_date" class="element-info">{{selectedLoan?.closing_disc_esign_date}}</p>
+                    <p *ngIf="!selectedLoan?.closing_disc_esign_date" class="element-info"> TBD </p>
+                </div>
+            </div>
+        </div>
+        <div class="row tooltip-actions text-center">
+            <div class="lock col-xs-3 mouse-pointer" (click)="goToLockRate($event)" id="lock-rate">
+                <span><a  href="javascript:void(0);"> Lock Rate </a></span>
+            </div>
+            <div class="upload col-xs-3 mouse-pointer" (click)="goToUploadDoc($event)" id="upload">
+                <span><a  href="javascript:void(0);"> Upload </a></span>
+            </div>
+            <div class="message col-xs-3 mouse-pointer" (click)="goToMessage($event)" id="message">
+                <span><a  href="javascript:void(0);" > Message </a></span>
+            </div>
+            <div class="phone col-xs-3">
+                <span *ngIf="selectedLoan.borrowers[0].phone_number">{{selectedLoan?.borrowers[0]?.phone_number}}</span>
+                <span *ngIf="!selectedLoan.borrowers[0].phone_number">NA</span>
+            </div>
+            <!--<div class="email">
+                    <a href="mailto:{{selectedLoan?.borrowers[0].email}}" target="_self"><span class="email-icon"></span></a>
+                    <span>  <a href="mailto:{{selectedLoan?.borrowers[0].email}}" target="_self"> Email </a></span>
+                </div>-->
+
+        </div>
+    </div>
+
+</div>
+<div *ngIf="pages && pages.length > 1" class="pagination-div text-right">
+    <ul style="" class="pagination pagination-sm">
+        <li *ngIf="allPages.length > pages.length">
+            <a style="cursor:pointer" aria-label="Previous" (click)="previous()">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li [ngClass]="{active: currentPage === (page)}" *ngFor="let page of pages;">
+            <a style="cursor:pointer" (click)="setCurrentPage(page)">{{page}}</a>
+        </li>
+        <li *ngIf="allPages.length > pages.length">
+            <a style="cursor:pointer" aria-label="Next" (click)="next()">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="modal fade rate-locked" id="rate-locked" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" data-dismiss="modal">&#10005;</span>
+            </div>
+            <div class="modal-body text-center">
+                <div class="lock-popup text-danger" *ngIf="selectedLoan?.lock_date !== '' && (selectedLoan?.status !== 'Completed Loan' && selectedLoan?.status !== 'Denied' && 
+            selectedLoan?.status !== 'Withdrawn' && selectedLoan?.status !== 'Cancelled')">The rate has already been locked</div>
+                <div class="lock-popup text-danger" *ngIf="(selectedLoan?.status === 'Completed Loan' || selectedLoan?.status === 'Denied' ||
+            selectedLoan?.status === 'Withdrawn' || selectedLoan?.status === 'Cancelled')">The Rate lock is not applicable</div>
+                <div class="lock-popup text-danger" *ngIf="((selectedLoan?.status !== 'Completed Loan' && selectedLoan?.status !== 'Denied' && 
+            selectedLoan?.status !== 'Withdrawn' && selectedLoan?.status !== 'Cancelled') && selectedLoan?.lock_date === '' && selectedLoan?.allow_lock === 'false') 
+            || selectedLoan?.app_date === null">The Rate lock is not applicable</div>
+            </div>
+        </div>
+    </div>
+</div>

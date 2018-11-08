@@ -1,0 +1,138 @@
+.main-content{
+	.condition-table-div{
+		.list-filter{
+			.padding(0px,15px,10px,15px);
+			.check{
+				display: inline-block;
+			}
+            .select{
+                font-weight: normal;
+            }
+		}
+	   .condition-table{
+           width: 100%;
+            border-collapse: separate;
+            border-radius: 2px;
+            border: 1px solid @border-secondary-color;
+		   thead{
+                tr{
+                    th{
+                        border:0;
+                        color: @table-head-color;
+                        background: @secondary-background;
+                        font-size: 15px;
+                        vertical-align: middle;
+                        .padding(15px,15px,15px,15px);
+                        &.id{
+                            min-width: 90px;
+                        }
+                        &.type{
+                            min-width: 190px;
+                        }
+                        &.status{
+                            min-width: 110px;
+                        }
+                        &.date{
+                            min-width: 150px;
+                        }
+                        &.responsible{
+                            min-width: 170px;
+                        }
+                        &.table-sort{
+                        position:relative;
+                        padding-right: 20px;
+                        .sort-up,.sort-down,.sort{
+                            background-repeat: no-repeat;
+                            background-size: 100% 100%;
+                            display: inline-block;
+                            cursor: pointer;
+                            position: absolute;
+                            height: 15px;
+                            width: 20px;
+                            top: 18px;
+                            margin-left: 7px;
+                            }
+                        .sort-up{
+                                background-image: url("@{base-url}images/up-sort.png");
+                            }
+                        .sort-down{
+                                background-image:url("@{base-url}images/down-sort.png");
+                            }
+                        .sort{
+                                background-image:  url("@{base-url}images/no-sort.png");
+                            }   
+                        }
+                    }
+                }
+            }
+			tbody{
+				border: 0;
+                color: @base-text-color;
+				tr{
+					height: 55px;
+					td{
+					   vertical-align: middle;
+                       border:0;
+                       font-size: 16px;
+                       .padding(15px,15px,15px,15px);
+
+						&.satisfied-span{
+ 							   word-break: break-all;
+						}
+
+						&.condition-text{
+							padding-top: 0;
+							span{
+								display: block;
+								font-size: 14px;
+                                color: @label-text-color;
+							}
+						}
+					}
+					
+				}
+				&:nth-of-type(odd){
+                        background: @table-alternate-color;
+                    }
+                     &:nth-of-type(even){
+                        background: @secondary-background;
+                    }
+			}
+            
+	   }
+	}
+    // .document-pagination{
+    //     ul{
+    //         li{
+    //             &.active{
+    //                 a{
+    //                     background-color: rgba(24, 57, 96, 0.25);
+    //                 }
+    //             }
+    //             &:first-child,&:last-child{
+    //                 a{
+    //                     border-radius: 2px;
+    //                 }
+    //             }
+    //             &:last-child{
+    //                 a{
+    //                     margin-right:0;
+    //                 }
+    //             }
+                
+    //             a{
+    //                 cursor: pointer;
+    //                 color: @body-text-color;
+    //                 .padding(3px,8px,1px,8px);
+    //                 font-size:14px;
+    //                 border-radius: 2px;
+    //                 border: 1px solid @base-primary-color;
+    //                 margin-right:10px;
+    //                 .glyphicon{
+    //                     font-size:10px;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+}

@@ -1,0 +1,9 @@
+<h2 class="sub-heading">Your CD Progress</h2>
+<div class="progress-info status-box">
+    <div  *ngFor="let eachProgress of progress" class="color-box">
+        <div  [ngClass] ="{'warn': eachProgress.status === 'Warning', 'success': eachProgress.status === 'Complete', 'error': eachProgress.status === 'Incomplete'}" class="msg">
+            <!--<h3>{{eachProgress.responsible}}</h3>-->
+            <span>{{eachProgress.item}}</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,283 @@
+<!-- Serchbox -start -->
+        <div class="search-box-wrap">
+                <form #productPricingForm="ngForm" novalidate class="reg-form">
+            <div class="required-fields-wrap">
+                <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="header" data-toggle="collapse" href="#required-fields">Required Fields</a>
+                            <span class="down-arrow pull-right " data-toggle="collapse" href="#required-fields"></span>
+                            <div class="clear"></div>
+                        </h4>
+                    </div>
+                    <div id="required-fields" class="panel-collapse collapse in required-fields">
+                            <div class="panel-body row">
+                                <!--<div class="form-group row">-->
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                    <span class="input-label">Loan FICO</span>
+                                    <input type="text" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' 
+                                        name="loanFICO" [(ngModel)]="productPricingList.loanFICO" #productPricingForm="ngModel" autocomplete="off" onpaste="return false"
+                                        (blur)=onLoanFICO(productPricingList.loanFICO) maxlength="3"  [ngClass]="{'invalid': loanFICOReq === true}" required>
+                                        
+                                    <small class="text-danger errtext-align" [(hidden)]="!loanFicoErr">Loan FICO should be in the range of 300 - 900.</small>                        
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                    <span class="input-label">Property Zip</span>
+                                    <input type="text" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' 
+                                        name="propertyZIP" [(ngModel)]="productPricingList.propertyZIP" #productPricingForm="ngModel" autocomplete="off" onpaste="return false"
+                                        (blur)=onPropertyZip(productPricingList.propertyZIP) maxlength="5" [ngClass]="{'invalid': propertyZipReq === true}" required>
+                                        <small class="text-danger errtext-align" [(hidden)]="!propertyZipErr">Please enter a valid Property Zip.</small>    
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                    <span class="input-label">Purchase/Market Value($)</span>
+                                    <input type="text" class="form-control"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' 
+                                        name="purchaseMarketValue" [(ngModel)]="productPricingList.purchaseMarketValue" #productPricingForm="ngModel" autocomplete="off" onpaste="return false"
+                                        (blur)=onPurchaseMarketValue(productPricingList.propertyZIP) maxlength="9" [ngClass]="{'invalid': purchaseMarketValueReq === true}" required>
+                                    
+                                        <small class="text-danger errtext-align" [(hidden)]="!purchaseMarketValueErr">Market Value should be in  the range of 0 - 100000000.</small>
+                                </div>
+                                <!--</div>-->
+                                <!--<div class="form-group row">-->
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                    <span class="input-label">LTV%</span>
+                                    <input type="text" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.keyCode == 46'  onpaste="return false"
+                                        name="ltv" [(ngModel)]="productPricingList.ltv" #productPricingForm="ngModel" autocomplete="off"
+                                        (blur)=onLtv(productPricingList.ltv) maxlength="7" [ngClass]="{'invalid': ltvReq === true}" required>
+                                        
+                                        <small class="text-danger errtext-align" [(hidden)]="!ltvErr">LTV should be in  the range of 0 - 150.</small>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                    <span class="input-label">Loan Amount ($)</span>
+                                    <input type="text" class="form-control"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' 
+                                        name="loanAmount" [(ngModel)]="productPricingList.loanAmount" #productPricingForm="ngModel" autocomplete="off" onpaste="return false"
+                                        (blur)=onLoanAmount(productPricingList.ltv) maxlength="9" [ngClass]="{'invalid': loanAmountReq === true}" required>
+                                        
+                                        <small class="text-danger errtext-align" [(hidden)]="!loanAmountErr">Loan Amount should be in  the range of 0 - 100000000.</small>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                    <span class="input-label">Loan Purpose</span>
+                                    <select class="form-control" *ngIf="loanPurpose" class="form-control dropdown"
+                                        [(ngModel)]="productPricingList.loanPurpose" #productPricingForm="ngModel" name="loanPurpose" >
+                                            <option *ngFor=" let loanPurpose of loanPurpose" value="{{loanPurpose.v}}">{{loanPurpose.t}}</option>
+                                    </select>
+                                </div>
+                                <!--</div>-->
+                                <!--<div class="form-group row">-->
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                    <span class="input-label">Occupancy</span>
+                                    <select class="form-control" *ngIf="occupancy" class="form-control dropdown"  
+                                        [(ngModel)]="productPricingList.occupacy" #productPricingForm="ngModel" name="occupacy">
+                                            <option *ngFor=" let occupancy of occupancy" value="{{occupancy.v}}">{{occupancy.t}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                    <span class="input-label">Property Type</span>
+                                    <select class="form-control" *ngIf="propertyType" class="form-control dropdown"  
+                                        [(ngModel)]="productPricingList.propertyType" #productPricingForm="ngModel" name="propertyType">
+                                            <option *ngFor=" let propertyType of propertyType" value="{{propertyType.v}}">{{propertyType.t}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                    <span class="input-label">Impounds</span>
+                                    <select class="form-control" name="impounds" [(ngModel)]="productPricingList.impounds" #productPricingForm="ngModel" 
+                                    [ngClass]="{'invalid': impoundsReq === true}" (change)="onImpounds($event)">
+                                                            <option value="2">Please Select</option>
+                                                            <option value="1">Yes</option>
+                                                            <option value="0">No</option>
+                                                        </select>
+                                </div>
+                                <!--</div>-->
+                                <!--<div class="form-group row">-->
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                    <span class="input-label">Lock Term</span>
+                                    <select class="form-control" *ngIf="lockTerm" class="form-control dropdown"  name="lockTerm"
+                                        [(ngModel)]="productPricingList.lockTerm" #productPricingForm="ngModel">
+                                            <option *ngFor=" let lockTerm of lockTerm" value="{{lockTerm.v}}">{{lockTerm.t}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                    <span class="input-label">Rate (%)</span>
+                                    <input type="text" class="form-control"  onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.keyCode == 46' onpaste="return false"
+                                        [(ngModel)]="productPricingList.rate" #productPricingForm="ngModel" name="rate"  (blur) = onRate(productPricingList.rate) 
+                                        [ngClass]="{'invalid': rateReq === true}" autocomplete="off" maxlength="7" required>
+                                        
+                                        <small class="text-danger errtext-align" [(hidden)]="!rateErr">Rate should be in  the range of 0 - 1000.</small>
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                    <span class="input-label">Best Ex</span>
+                                    <select class="form-control" [(ngModel)]="productPricingList.bestEx" #productPricingForm="ngModel" name="bestEx"  >
+                                                            <option value="0">No</option>
+                                                            <option value="1">Yes </option>
+                                                    
+                                                        </select>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!--</div>-->
+            <div class="expand-fields-wrap">
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="header" data-toggle="collapse" href="#expand-fields">Optional Fields</a>
+                                <span class="down-arrow pull-right collapsed" data-toggle="collapse" href="#expand-fields"></span>
+                                <div class="clear"></div>
+                            </h4>
+                        </div>
+                        <div id="expand-fields" class="panel-collapse collapse expand-fields">
+                            <div class="panel-body row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols multi-select">
+                                    <span class="input-label">Amort Type</span>
+                                    <button *ngIf="productPricingList.amort_type_fixed && productPricingList.amort_type_arm" class="multiselect-button" (click)="onAmortTypeClick()" >2 Items Selected</button>
+                                    <button *ngIf="(productPricingList.amort_type_fixed && !productPricingList.amort_type_arm) || (!productPricingList.amort_type_fixed && productPricingList.amort_type_arm)"
+                                        class="multiselect-button" (click)="onAmortTypeClick()" >{{selectedAmortType}}</button>
+                                    <button *ngIf="!productPricingList.amort_type_fixed && !productPricingList.amort_type_arm" class="multiselect-button" (click)="onAmortTypeClick()" >Amort Type</button>
+                                    <ul class="multiselect-menu" *ngIf="isAmortTypeClicked">
+                                            <li>
+                                                <input type="checkbox" id="arm" name="arm" [(ngModel)]="productPricingList.amort_type_arm" (change)="selectAmortType('ARM')">
+                                                <label class="custom-checkbox" for="arm"></label>
+                                                <label for="arm">ARM</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="fixed" name="fixed" [(ngModel)]="productPricingList.amort_type_fixed" (change)="selectAmortType('Fixed')">
+                                                <label class="custom-checkbox" for="fixed"></label>
+                                                <label for="fixed">Fixed</label>
+                                            </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                    <span class="input-label">Amort Term</span>
+                                    <select class="form-control" *ngIf="amortTerm" class="form-control dropdown" 
+                                        [(ngModel)]="productPricingList.amortTerm" #productPricingForm="ngModel" name="amortTerm"> 
+                                         <option>Please Select</option>
+                                         <option *ngFor=" let amortTerm of amortTerm" value="{{amortTerm.v}}">{{amortTerm.t}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols multi-select">
+                                    <span class="input-label">Loan Type</span>
+                                    <button *ngIf="productPricingList.loan_type_conv && productPricingList.loan_type_fha && productPricingList.loan_type_va" class="multiselect-button" (click)="onLoanTypeClick()" >3 Items Selected</button>
+                                    <button *ngIf="(productPricingList.loan_type_conv && productPricingList.loan_type_fha && !productPricingList.loan_type_va) || (productPricingList.loan_type_conv && !productPricingList.loan_type_fha && productPricingList.loan_type_va) ||
+                                        (!productPricingList.loan_type_conv && productPricingList.loan_type_fha && productPricingList.loan_type_va)"  class="multiselect-button" (click)="onLoanTypeClick()" >2 Items Selected</button>
+                                    <button *ngIf="(productPricingList.loan_type_conv && !productPricingList.loan_type_fha && !productPricingList.loan_type_va) || (!productPricingList.loan_type_conv && !productPricingList.loan_type_fha && productPricingList.loan_type_va) ||
+                                        (!productPricingList.loan_type_conv && productPricingList.loan_type_fha && !productPricingList.loan_type_va)"  class="multiselect-button" (click)="onLoanTypeClick()" >{{selectedLoanType}}</button>
+                                    <button *ngIf="!productPricingList.loan_type_conv && !productPricingList.loan_type_fha && !productPricingList.loan_type_va" class="multiselect-button" (click)="onLoanTypeClick()">Loan Type</button>
+                                    <ul class="multiselect-menu" *ngIf="isLoanTypeClicked">
+                                            <li>
+                                                <input type="checkbox" id="conventional" name="conventional" [(ngModel)]="productPricingList.loan_type_conv" (change)="selectLoanType('Conventional')">
+                                                <label class="custom-checkbox" for="conventional"></label>
+                                                <label for="conventional">Conventional</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="fha" name="fha" [(ngModel)]="productPricingList.loan_type_fha" (change)="selectLoanType('FHA')">
+                                                <label class="custom-checkbox" for="fha"></label>
+                                                <label for="fha">FHA</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="va" name="va" [(ngModel)]="productPricingList.loan_type_va" (change)="selectLoanType('VA')">
+                                                <label class="custom-checkbox" for="va"></label>
+                                                <label for="va">VA</label>
+                                            </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols multi-select">
+                                    <span class="input-label">Doc Type</span>
+                                    <select class="form-control" *ngIf="docType" class="form-control dropdown" 
+                                        [(ngModel)]="productPricingList.docType" #productPricingForm="ngModel" name="docType">
+                                         <option *ngFor=" let docType of docType" value="{{docType.v}}">{{docType.t}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                    <span class="input-label">Property State</span>
+                                    <select class="form-control" *ngIf="propState" class="form-control dropdown" 
+                                        [(ngModel)]="productPricingList.propertyState" #productPricingForm="ngModel" name="propertyState">
+                                         <option *ngFor=" let propState of propState" value="{{propState.v}}">{{propState.t}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                    <span class="input-label">County</span>
+                                    <input type="text" class="form-control"  name="county"  onpaste="return false"
+                                        [(ngModel)]="productPricingList.country" #productPricingForm="ngModel" required>
+                                        
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                    <span class="input-label">Citizenship</span>
+                                    <select class="form-control" *ngIf="citizenship" class="form-control dropdown" 
+                                        [(ngModel)]="productPricingList.citizenship" #productPricingForm="ngModel" name="citizenship">
+                                        <option *ngFor=" let citizen of citizenship" value="{{citizen.v}}">{{citizen.t}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                     <span class="input-label">Existing/New 2nd TD($)</span>
+                                    <input type="text" class="form-control"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' onpaste="return false"
+                                        [(ngModel)]="productPricingList.existigNewTD" #productPricingForm="ngModel" name="existigNewTD" autocomplete="off" maxlength="7" required>
+                                       
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                    <span class="input-label">Non Stearns Financed Refi has Impounds</span>
+                                    <select class="form-control" [(ngModel)]="productPricingList.stearnsFinancedRefi" #productPricingForm="ngModel" 
+                                        name="stearnsFinancedRefi" [disabled]="productPricingList.loanPurpose === '1'">
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                    <span class="input-label">Total Est. QM Fees($)</span>
+                                    <input type="text" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onpaste="return false"
+                                        [(ngModel)]="productPricingList.totatEstQMFees" #productPricingForm="ngModel" name="totatEstQMFees" autocomplete="off" maxlength="7" required>
+                                        
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                     <span class="input-label">CLTV(%)</span>
+                                    <input type="text" class="form-control" name="cltv" [(ngModel)]="productPricingList.cltv" maxlength="6" (blur) = onCLTV(productPricingList.cltv) onpaste="return false"
+                                        autocomplete="off" #productPricingForm="ngModel" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.keyCode == 46' required>
+                                       
+                                    <small class="text-danger errtext-align" [(hidden)]="!cltvErr">Rate should be in  the range of 0 -135.</small>          
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols"> 
+                                    <span class="input-label">AUS Result</span>
+                                    <select class="form-control" *ngIf="ausResult" class="form-control dropdown" 
+                                        [(ngModel)]="productPricingList.ausResult" #productPricingForm="ngModel" name="ausResult">
+                                        <option>Please Select</option>
+                                        <option *ngFor=" let ausResult of ausResult" value="{{ausResult.v}}">{{ausResult.t}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols"> 
+                                     <span class="input-label">Mortgage Insurance</span>
+                                    <select class="form-control" *ngIf="mortInsurance" class="form-control dropdown" 
+                                        [(ngModel)]="productPricingList.mortgageInsurance" #productPricingForm="ngModel" name="mortgageInsurance">
+                                        <option *ngFor=" let mortInsurance of mortInsurance" value="{{mortInsurance.v}}">{{mortInsurance.t}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                     <span class="input-label">DTI(%)</span>
+                                    <input type="text" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.keyCode == 46' onpaste="return false"
+                                        [(ngModel)]="productPricingList.dti" #productPricingForm="ngModel" name="dti" autocomplete="off" maxlength="6" (blur) = onDTI(productPricingList.dti) required>
+                                   
+                                    <small class="text-danger errtext-align" [(hidden)]="!dtiErr">Rate should be in  the range of 0 -100.</small> 
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 required-fields-cols">
+                                    <span class="input-label">First Time Home Buyer</span>
+                                    <select class="form-control" [(ngModel)]="productPricingList.firstTimeHouseBuyer" #productPricingForm="ngModel" name="firstTimeHouseBuyer">
+                                        <option value="2">Please Select</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-wrap">
+                <button class="secondary-button" (click)="reset()">Reset</button>
+                <button class="primary-button" type="button" (click)="onSubmit()">Price It</button>
+            </div>
+        </form>
+        </div>
+        <!-- Serchbox - end -->

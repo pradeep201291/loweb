@@ -1,0 +1,74 @@
+/*font*/
+@font-face {
+    font-family: Lato-Regular;
+    src: url("@{base-url}fonts/Lato-Regular.woff");
+}
+@font-face {
+    font-family: Lato-Medium;
+    src: url("@{base-url}fonts/Lato-Medium.woff");
+}
+@font-face {
+    font-family: Lato-Light;
+    src: url("@{base-url}fonts/Lato-Light.woff");
+}
+@font-face {
+    font-family: Lato-Semibold;
+    src: url("@{base-url}fonts/Lato-Semibold.woff");
+}
+@font-face {
+    font-family: Lato-Italic;
+    src: url("@{base-url}fonts/Lato-Italic.woff");
+}
+//
+body{
+     font-family: Lato-Regular, sans-serif;
+    font-size: 14px;
+}
+
+h1 {
+    font-family: Lato-Semibold, sans-serif;
+    font-size: 48px;
+    color: #333333;
+    @media @tablet{
+        font-size: 40px;
+    }
+    @media @small-tablet,@large-mobile,@mobile{
+        font-size: 32px;
+    }
+}
+
+h2 {
+    font-family: Lato-Semibold, sans-serif;
+    font-size: 36px;
+    color: #333333;
+    @media @tablet{
+        font-size: 32px;
+    }
+    @media @small-tablet,@large-mobile,@mobile{
+        font-size: 26px;
+    }
+}
+
+h3 {
+    font-family: Lato-Semibold, sans-serif;
+    font-size: 28px;
+    color: #333333;
+    @media @tablet{
+        font-size: 24px;
+    }
+    @media @small-tablet,@large-mobile,@mobile{
+        font-size: 22px;
+    }
+}
+h4,h5,h6{
+     font-family: Lato-Semibold, sans-serif;
+}
+
+.small-text{
+    font-family: Lato-Regular, sans-serif;
+    font-size: 12px;
+    color: #222222;
+}
+button{
+    font-family: Lato-Medium, sans-serif;
+}

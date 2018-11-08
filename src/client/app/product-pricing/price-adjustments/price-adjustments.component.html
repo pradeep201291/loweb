@@ -1,0 +1,78 @@
+<div class="expanded-block">
+	<table class="product-rate-wrap">
+		<thead>
+			<tr>
+				<th class="product-head">
+					<span *ngIf="productName">Product Name</span>
+				</th>
+				<th class="rate-head">
+					<span *ngIf="productRate">Rate</span>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<td class="product-value">
+				<span>{{productName}}</span>
+			</td>
+			<td class="rate-value">
+				<span>{{productRate|number:'1.3-3'}}%</span>
+			</td>
+		</tbody>
+	</table>
+	<table class="table adjustment-table">
+		<thead>
+			<tr>
+				<th>
+					<span>{{resource.basePriceHeader}}</span>
+				</th>
+				<th>
+					<span *ngIf="isBasePriceNegative === false" class="red">{{basePrice|number:'1.3-3'}}</span>
+					<span *ngIf="isBasePriceNegative === true" class="green">{{basePrice|number:'1.3-3'}}</span>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!--<tr *ngFor="let adjustment of adjustment">
+			<td class="adjustment-label">
+				<span>{{adjustment.summary}}</span>
+			</td>
+			<td class="adjustment-value">
+				<span  class="positive">{{adjustment.amount}}</span>
+			</td>
+		</tr>-->
+			<tr>
+				<td class="price-adj-text" colspan="2">Price Adjustments</td>
+			</tr>
+			<tr *ngFor="let adjustment of adjustment">
+				<td class="adjustment-label">
+					<span>{{adjustment.summary}}</span>
+				</td>
+				<td class="adjustment-value">
+					<span *ngIf="adjustment.isAmountNegative === false" class="red">{{adjustment.amount|number:'1.3-3'}}</span>
+					<span *ngIf="adjustment.isAmountNegative === true" class="green">{{adjustment.amount|number:'1.3-3'}}</span>
+				</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr class="adjustment-base">
+				<td class="">
+					<span>{{resource.netPricingAdj}}</span>
+				</td>
+				<td class="">
+					<span *ngIf="isNetPricingAdjustmentNegative === false" class="red">{{netPricingAdjustment|number:'1.3-3'}}</span>
+					<span *ngIf="isNetPricingAdjustmentNegative === true" class="green">{{netPricingAdjustment|number:'1.3-3'}}</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="">
+					<span>Price</span>
+				</td>
+				<td class="">
+					<span *ngIf="isDiscountPointsNegative === false" class="red">{{productPrice|number:'1.3-3'}}</span>
+					<span *ngIf="isDiscountPointsNegative === true" class="green">{{productPrice|number:'1.3-3'}}</span>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+	<span class="close glyphicon glyphicon-remove" data-dismiss="modal"></span>
+</div>

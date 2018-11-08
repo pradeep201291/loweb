@@ -1,0 +1,123 @@
+.left-nav{
+    z-index: 999999;
+    float:left;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    background: @nav-bg-color;
+    left: -350px;
+    .padding(25px,0,25px,0);
+    @media @small-mob-landscape {
+      .padding(12px,0,25px,0);
+    }
+    .close{
+        color: #fff;
+        opacity: 1;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    .profile{
+        .profile-pic{
+            background: #fff;
+            height: 75px;
+            width: 75px;
+            border-radius: 50%;
+            .margin(0,0,20px,0);
+            @media @small-mob-landscape {
+              height: 55px;
+              width: 55px;
+              .margin(0,0,5px,0);
+          }
+        }
+        .profile-name{
+            color: #fff;
+        }
+    }
+
+    ul{
+       position:relative;
+       width:300px;
+       .padding(50px,0,0,0);
+       @media @small-mob-landscape{
+         .padding(0,0,0,0);
+       }
+       
+         li{
+           position: relative;
+           .padding(10px,10px,10px,75px);
+           cursor: pointer;
+           background-repeat: no-repeat;
+           background-position:25px center;
+           .margin(0,0,10px,0);
+           background-size: 25px;
+           @media @small-mob-landscape{
+            .margin(0,0,5px,0);
+            .padding(5px,10px,5px,75px);
+          }
+           
+           span{
+             display: inline-block;
+             line-height: 1;
+             a{
+                font-size: 16px;
+                @media @small-mob-landscape {
+                  font-size: 16px;
+                }
+              }
+            //  sup{
+            //    top: 0px;
+            //    left: 40px
+            //  }
+              
+           }
+           .menu-badge{
+                display: inline-block;
+                border: 1px solid @secondary-text-color;
+                color: @secondary-text-color;
+                border-radius: 2px;
+                .padding(2px,5px,2px,5px);
+              }
+
+           
+           &:hover{
+              background-color: @nav-bg-hover-color;
+              a{
+                color:@secondary-text-color;
+                }
+           }
+           &.active{
+              background-color: @nav-bg-hover-color;
+              a{
+                color:@secondary-text-color;
+                }
+           }
+
+           
+           &.dashboard{
+             background-image: url("@{base-url}images/Dashboard.png");
+           }
+           &.product-pricing{
+             background-image: url("@{base-url}images/Product&Pricing.png");
+           }
+           &.notifications{
+             background-image: url("@{base-url}images/notification-icon.png");
+           }
+           &.leaderboard{
+             background-image: url("@{base-url}images/Leaderboard.png");
+           }
+           &.secondary-section{
+              border-top: 1px solid #6f6d6e;
+              .padding(0,0,0,0);
+
+              ul{
+                padding-top: 0px;
+                li{
+                 .padding(10px,10px,10px,75px);
+                 background-image: url("@{base-url}images/logout.png");
+                }
+              }
+           }
+         }
+}}

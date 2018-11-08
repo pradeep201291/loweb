@@ -1,0 +1,98 @@
+<div class="view-docs-table-wrap">
+    <div class="view-docs table-responsive">
+        <table class="table docs-table">
+            <thead>
+                <tr>
+                    <th class="doc-name">Document Name&nbsp;
+                        <span *ngIf="sortBy === 'document_name' && sortOrder === 'desc'" (click)='sortNeeds("document_name", "asc" )' class="sort-down"></span>
+                        <span *ngIf="sortBy === 'document_name' && sortOrder === 'asc'" (click)='sortNeeds("document_name", "desc")' class="sort-up"></span>
+                        <span *ngIf="sortBy !== 'document_name'" (click)='sortNeeds("document_name", "desc")' class="sort"></span>
+                    </th>
+                    <th class="category">Category&nbsp;
+                        <span *ngIf="sortBy === 'category' && sortOrder === 'desc'" (click)='sortNeeds("category", "asc" )' class="sort-down"></span>
+                        <span *ngIf="sortBy === 'category' && sortOrder === 'asc'" (click)='sortNeeds("category", "desc")' class="sort-up"></span>
+                        <span *ngIf="sortBy !== 'category'" (click)='sortNeeds("category", "desc")' class="sort"></span>
+                    </th>
+                    <th class="upload-date">Uploaded on&nbsp;
+                        <span *ngIf="sortBy === 'last_update_datetime' && sortOrder === 'desc'" (click)='sortNeeds("last_update_datetime", "asc" )'
+                            class="sort-down"></span>
+                            <span *ngIf="sortBy === 'last_update_datetime' && sortOrder === 'asc'" (click)='sortNeeds("last_update_datetime", "desc")'
+                                class="sort-up"></span>
+                                <span *ngIf="sortBy !== 'last_update_datetime'" (click)='sortNeeds("last_update_datetime", "desc")' class="sort"></span>
+                    </th>
+                    <th class="upload-name">Uploaded by&nbsp;
+                        <span *ngIf="sortBy === 'last_update_username' && sortOrder === 'desc'" (click)='sortNeeds("last_update_username", "asc" )'
+                            class="sort-down"></span>
+                            <span *ngIf="sortBy === 'last_update_username' && sortOrder === 'asc'" (click)='sortNeeds("last_update_username", "desc")'
+                                class="sort-up"></span>
+                                <span *ngIf="sortBy !== 'last_update_username'" (click)='sortNeeds("last_update_username", "desc")' class="sort"></span>
+                    </th>
+                    <th class="upload-view"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let document of pagedDocuments">
+                    <td><span [ngClass]="setDocumentIcon(document.document_type)"></span><span class="view-name">{{document.document_name}}</span></td>
+                    <td><span>{{document.category}}</span></td>
+                    <td><span>{{document.last_update_datetime | UTCDatePipe | date:"yMMMdjms"}}</span></td>
+                    <td><span>{{document.last_update_username}}</span></td>
+                    <td class="view-button">
+                        <button class="secondary-button" (click)="viewDocument(document)">View</button>
+                    </td>
+                </tr>
+                <tr *ngIf="pagedDocuments.length === 0 && isDocumentsLoaded">
+                    <td class="text-center" colspan="5">
+                        <span>No documents to be viewed.</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="document-pagination text-right" *ngIf="pager.pages && pager.totalPages > 1">
+        <ul class="pagination pagination-sm">
+            <li>
+                <a style="cursor:pointer" aria-label="Previous" (click)="previous()" *ngIf="pager.totalPages > 5">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li [ngClass]="{active: currentPage === (page)}" *ngFor="let page of pager.pages;">
+                <a style="cursor:pointer" (click)="setCurrentPage(page)">{{page}}</a>
+            </li>
+            <li>
+                <a style="cursor:pointer" aria-label="Next" (click)="next()" *ngIf="pager.totalPages > 5">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="documentView" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content" *ngIf="imageUrl">
+            <div class="modal-header">
+                <h4 class="document-name fL">{{documentName}}</h4>
+                <span class="close glyphicon glyphicon-remove" (click)="closeModal()" data-dismiss="modal"></span>
+                <div class="clear"></div>
+            </div>
+            <div class="modal-body">
+                <iframe *ngIf="!isIeOrSafari && !ispdf && !isTiff" style="width:100%;height:100%" frameborder="0" [src]='sanitizer?.bypassSecurityTrustResourceUrl(imageUrl)'></iframe>
+                <img *ngIf="isIeOrSafari && !ispdf && !isTiff" style="width:auto;height:auto;max-height:100%;max-width:100%" [src]='sanitizer?.bypassSecurityTrustResourceUrl(imageUrl)'
+                />
+                <pdf-viewer style="display: inline-block;width: 100%;overflow-y: auto;height: 100%;" *ngIf="ispdf && !isTiff" [src]="imageUrl"
+                    [original-size]="true" [show-all]="true"></pdf-viewer>
+            </div>
+        </div>
+        <div class="modal-content" *ngIf="decodedString">
+            <div class="modal-header">
+                <h4 class="document-name fL">{{documentName}}</h4>
+                <span class="close glyphicon glyphicon-remove" (click)="closeModal()" data-dismiss="modal"></span>
+                <div class="clear"></div>
+            </div>
+            <div class="modal-body ">
+                <pre>{{decodedString}}</pre>
+            </div>
+        </div>
+    </div>
+</div>
